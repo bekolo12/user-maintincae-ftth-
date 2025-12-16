@@ -13,12 +13,19 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div className="bg-slate-900 border border-white/10 p-3 rounded-lg shadow-xl backdrop-blur-md z-50">
         <p className="text-slate-400 text-xs font-medium mb-1">{label}</p>
         {payload.map((p: any, idx: number) => (
-          <p key={idx} className="text-white font-bold text-lg" style={{ color: p.color || p.fill }}>
-            {p.value.toLocaleString()} <span className="text-xs font-normal text-slate-500">
-              {p.name === 'A' ? 'Missing' : 'Count'}
-            </span>
+          <p key={idx} className="text-white font-bold text-sm flex justify-between gap-4" style={{ color: p.color || p.fill }}>
+            <span>{p.name}:</span>
+            <span>{p.value.toLocaleString()}</span>
           </p>
         ))}
+        {payload.length > 1 && (
+           <div className="mt-2 pt-2 border-t border-white/10">
+             <p className="text-white font-bold text-sm flex justify-between gap-4">
+               <span>Total:</span>
+               <span>{payload.reduce((acc: number, curr: any) => acc + curr.value, 0).toLocaleString()}</span>
+             </p>
+           </div>
+        )}
       </div>
     );
   }
@@ -101,6 +108,70 @@ export const GenericDonutChart = ({ data, dataKey = "value", nameKey = "name" }:
         formatter={(value) => <span className="text-slate-400 text-xs ml-1">{value}</span>}
       />
     </PieChart>
+  </ResponsiveContainer>
+);
+
+export const CityStatusStackedChart = ({ data }: ChartProps) => (
+  <ResponsiveContainer width="100%" height="100%">
+    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.3} />
+      <XAxis 
+        dataKey="city" 
+        tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 500 }} 
+        axisLine={false} 
+        tickLine={false}
+        dy={10}
+      />
+      <YAxis 
+        tick={{ fill: '#94a3b8', fontSize: 11 }} 
+        axisLine={false} 
+        tickLine={false} 
+      />
+      <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
+      <Legend 
+        verticalAlign="top" 
+        align="right"
+        height={36} 
+        iconType="circle"
+        formatter={(value) => <span className="text-slate-300 text-sm ml-1 font-medium">{value}</span>}
+      />
+      <Bar dataKey="Done" stackId="a" fill="#10B981" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Closed" stackId="a" fill="#3B82F6" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Postpone" stackId="a" fill="#F59E0B" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Cancelled" stackId="a" fill="#EF4444" radius={[4, 4, 0, 0]} />
+    </BarChart>
+  </ResponsiveContainer>
+);
+
+export const SubAreaStatusStackedChart = ({ data }: ChartProps) => (
+  <ResponsiveContainer width="100%" height="100%">
+    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.3} />
+      <XAxis 
+        dataKey="subArea" 
+        tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 500 }} 
+        axisLine={false} 
+        tickLine={false}
+        dy={10}
+      />
+      <YAxis 
+        tick={{ fill: '#94a3b8', fontSize: 11 }} 
+        axisLine={false} 
+        tickLine={false} 
+      />
+      <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
+      <Legend 
+        verticalAlign="top" 
+        align="right"
+        height={36} 
+        iconType="circle"
+        formatter={(value) => <span className="text-slate-300 text-sm ml-1 font-medium">{value}</span>}
+      />
+      <Bar dataKey="Done" stackId="a" fill="#10B981" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Closed" stackId="a" fill="#3B82F6" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Postpone" stackId="a" fill="#F59E0B" radius={[0, 0, 0, 0]} />
+      <Bar dataKey="Cancelled" stackId="a" fill="#EF4444" radius={[4, 4, 0, 0]} />
+    </BarChart>
   </ResponsiveContainer>
 );
 

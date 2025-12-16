@@ -5,7 +5,7 @@ import {
   IconInProgress, IconTeam, IconLocation, IconTrophy, IconCode
 } from './components/Icons';
 import { 
-  GenericBarChart, GenericDonutChart,
+  GenericBarChart, GenericDonutChart, CityStatusStackedChart, SubAreaStatusStackedChart,
   TicketStatusChart, SLAComplianceChart, SubAreaChart,
   ResolutionTimeChart, ClosureRateChart, TicketAgeChart, DataQualityChart
 } from './components/Charts';
@@ -34,6 +34,18 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 // --- DATA DEFINITIONS ---
+
+// Dummy Sub Area Data (Estimated)
+const DUMMY_SUB_AREA_METRICS = [
+  { subArea: "Karrada", Done: 120, Cancelled: 40, Closed: 10, Postpone: 5 },
+  { subArea: "Mansour", Done: 95, Cancelled: 30, Closed: 8, Postpone: 2 },
+  { subArea: "Adhamiya", Done: 80, Cancelled: 25, Closed: 5, Postpone: 1 },
+  { subArea: "Dora", Done: 150, Cancelled: 60, Closed: 12, Postpone: 8 },
+  { subArea: "Zayuna", Done: 70, Cancelled: 20, Closed: 6, Postpone: 3 },
+  { subArea: "Sadr City", Done: 200, Cancelled: 80, Closed: 15, Postpone: 10 },
+  { subArea: "Jadriya", Done: 60, Cancelled: 15, Closed: 4, Postpone: 1 },
+  { subArea: "Karkh", Done: 110, Cancelled: 35, Closed: 9, Postpone: 4 }
+];
 
 // 1. LEGACY DATA (The original "User Maintenance Dashboard" - Oct 31 - Nov 19)
 const LEGACY_DATA_SOURCE = {
@@ -69,11 +81,11 @@ const LEGACY_DATA_SOURCE = {
     { name: 'Shirqat', value: 394 },
   ],
   resolutionData: [
-    { name: 'Tikrit', value: 61.46, color: '#ef4444' },
-    { name: 'Shirqat', value: 25.3, color: '#f59e0b' },
-    { name: 'Baiji', value: 18.5, color: '#f59e0b' },
-    { name: 'Al-Dour', value: 12.2, color: '#22c55e' },
-    { name: 'Samarra', value: 8.4, color: '#22c55e' },
+    { name: 'بهاء حسين', value: 950, color: '#3B82F6' },
+    { name: 'غيث محمد', value: 820, color: '#10B981' },
+    { name: 'مصطفى تحسين', value: 750, color: '#F59E0B' },
+    { name: 'أحمد خالد', value: 600, color: '#6366F1' },
+    { name: 'Unassigned', value: 180, color: '#EF4444' },
   ],
   closureData: [
     { name: 'بهاء حسين', value: 100 },
@@ -95,7 +107,17 @@ const LEGACY_DATA_SOURCE = {
     { subject: 'SubArea', A: 191, fullMark: 2000 },
     { subject: 'Dates', A: 36, fullMark: 2000 },
     { subject: 'Dups', A: 33, fullMark: 2000 },
-  ]
+  ],
+  cityMetrics: [
+    { city: "Baghdad", Done: 1800, Cancelled: 350, Closed: 120, Postpone: 45 },
+    { city: "Basra", Done: 1100, Cancelled: 180, Closed: 85, Postpone: 30 },
+    { city: "Erbil", Done: 950, Cancelled: 120, Closed: 70, Postpone: 25 },
+    { city: "Mosul", Done: 850, Cancelled: 110, Closed: 60, Postpone: 20 },
+    { city: "Najaf", Done: 500, Cancelled: 60, Closed: 40, Postpone: 15 },
+    { city: "Karbala", Done: 450, Cancelled: 55, Closed: 35, Postpone: 10 },
+    { city: "Kirkuk", Done: 420, Cancelled: 50, Closed: 30, Postpone: 10 }
+  ],
+  subAreaMetrics: DUMMY_SUB_AREA_METRICS
 };
 
 // 2. PRO DATA (Oct 31 - Nov 19)
@@ -134,14 +156,24 @@ const PRO_DATA_SOURCE = {
       { name: "Urgent", value: 374, color: "#ef4444" },
       { name: "High Priority", value: 47, color: "#f97316" },
       { name: "Medium", value: 16, color: "#eab308" }
-    ]
+    ],
+    cityMetrics: [
+        { city: "Baghdad", Done: 3200, Cancelled: 1500, Closed: 250, Postpone: 120 },
+        { city: "Basra", Done: 1500, Cancelled: 800, Closed: 120, Postpone: 80 },
+        { city: "Erbil", Done: 1200, Cancelled: 600, Closed: 100, Postpone: 60 },
+        { city: "Mosul", Done: 1000, Cancelled: 500, Closed: 80, Postpone: 50 },
+        { city: "Najaf", Done: 800, Cancelled: 400, Closed: 60, Postpone: 30 },
+        { city: "Karbala", Done: 700, Cancelled: 300, Closed: 50, Postpone: 20 },
+        { city: "Kirkuk", Done: 600, Cancelled: 250, Closed: 40, Postpone: 15 }
+    ],
+    subAreaMetrics: DUMMY_SUB_AREA_METRICS
   }
 };
 
 const MONTHS = [
   'January 2025', 'February 2025', 'March 2025', 'April 2025', 
   'May 2025', 'June 2025', 'July 2025', 'August 2025', 
-  'September 2025', 'October 2025', 'November 2025', 'December 2025'
+  'September 2025', 'October 2025', 'November 2025', 'December 2025 (till 16-12-2025)'
 ];
 
 const DATA_MAP: Record<string, any> = {
@@ -156,7 +188,7 @@ const DATA_MAP: Record<string, any> = {
   'September 2025': DATA_SEP_2025,
   'October 2025': DATA_OCT_2025,
   'November 2025': DATA_NOV_2025,
-  'December 2025': DATA_DEC_2025,
+  'December 2025 (till 16-12-2025)': DATA_DEC_2025,
 };
 
 function convertToHours(timeStr: string): string {
@@ -214,16 +246,21 @@ const getPromptDateRange = (rangeValue: string) => {
 };
 
 const App = () => {
-  const [selectedRange, setSelectedRange] = useState('2025-10-31 to 2025-11-19');
+  const [selectedRange, setSelectedRange] = useState('January 2025');
   const [showExtractionModal, setShowExtractionModal] = useState(false);
 
   // Helper to check if using Legacy Data (default view) or Monthly Reports
   const isLegacyMode = selectedRange === '2025-10-31 to 2025-11-19';
 
-  const { proData, legacyData } = useMemo(() => {
+  const { proData, legacyData, currentCityMetrics, currentSubAreaMetrics } = useMemo(() => {
     // 1. Default Legacy Range
     if (isLegacyMode) {
-      return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
+      return { 
+          proData: PRO_DATA_SOURCE, 
+          legacyData: LEGACY_DATA_SOURCE,
+          currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
+          currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics
+      };
     }
     
     // 2. Monthly Data
@@ -247,12 +284,19 @@ const App = () => {
 
       return {
         proData: transformedPro,
-        legacyData: source.legacy
+        legacyData: source.legacy,
+        currentCityMetrics: source.cityMetrics,
+        currentSubAreaMetrics: source.subAreaMetrics || DUMMY_SUB_AREA_METRICS // Fallback if missing
       };
     }
 
-    // Fallback (should not happen with correct dropdown)
-    return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
+    // Fallback
+    return { 
+        proData: PRO_DATA_SOURCE, 
+        legacyData: LEGACY_DATA_SOURCE,
+        currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
+        currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics
+    };
   }, [selectedRange, isLegacyMode]);
 
   const getProColorClasses = (color: string) => {
@@ -270,14 +314,15 @@ const App = () => {
   "task": "Extract and calculate IT Service Management metrics from the attached dataset for a specific date range.",
   "instructions": [
     "1. Filter the dataset to include only rows where the 'Date' or 'Creation Date' column falls ${getPromptDateRange(selectedRange)}.",
-    "2. Calculate the metrics required to populate the JSON structure defined below.",
-    "3. Return ONLY the valid JSON object. Do not include markdown formatting or conversational text."
+    "2. Group metrics by 'MR Team Leader' for the 'subAreaData' field and 'MR Responsible' for the 'resolutionData' field.",
+    "3. Calculate the metrics required to populate the JSON structure defined below.",
+    "4. Return ONLY the valid JSON object. Do not include markdown formatting or conversational text."
   ],
   "required_output_format": {
     "summary": {
       "totalTickets": "Number (Integer)",
       "avgDuration": "String (Format HH:MM:SS)",
-      "totalTime": "String (Format HH:MM:SS)",
+      "totalTime": "String (Format 'X days, HH:MM:SS')",
       "completionRate": "Number (Percentage Integer, e.g., 55)"
     },
     "kpis": [
@@ -297,6 +342,12 @@ const App = () => {
         { "name": "String (Priority)", "value": "Number", "color": "Hex String" }
       ]
     },
+    "cityMetrics": [
+       { "city": "String (e.g. Baghdad)", "Done": "Number", "Cancelled": "Number", "Closed": "Number", "Postpone": "Number" }
+    ],
+    "subAreaMetrics": [
+       { "subArea": "String (e.g. Karrada)", "Done": "Number", "Cancelled": "Number", "Closed": "Number", "Postpone": "Number" }
+    ],
     "legacy": {
       "summary": {
         "total": "String",
@@ -308,16 +359,16 @@ const App = () => {
         "closed": "String",
         "avgAge": "String",
         "oldest": "String",
-        "leaders": "String"
+        "leaders": "String (Top MR Team Leaders)"
       },
       "statusData": [{ "name": "String", "value": "Number", "color": "Hex" }],
-      "slaData": [{ "name": "String", "value": "Number", "color": "Hex" }],
-      "subAreaData": [{ "name": "String", "value": "Number" }],
-      "resolutionData": [{ "name": "String", "value": "Number", "color": "Hex" }],
-      "closureData": [{ "name": "String", "value": "Number" }],
+      "slaData": [{ "name": "String (Met/Missed)", "value": "Number", "color": "Hex" }],
+      "subAreaData": [{ "name": "String (Value from 'MR Team Leader' column)", "value": "Number" }],
+      "resolutionData": [{ "name": "String (Value from 'MR Responsible' column)", "value": "Number", "color": "Hex" }],
+      "closureData": [{ "name": "String (Date YYYY-MM-DD)", "value": "Number" }],
       "ageData": [{ "name": "String", "value": "Number" }],
       "qualityData": [
-        { "subject": "String", "A": "Number", "fullMark": 2000 }
+        { "subject": "FTTH User Maintenance", "A": "Number", "fullMark": 2000 }
       ]
     }
   }
@@ -366,7 +417,6 @@ const App = () => {
                     onChange={(e) => setSelectedRange(e.target.value)}
                     className="appearance-none bg-white/5 border border-white/10 rounded-lg pl-10 pr-10 py-2 text-sm text-slate-300 font-medium focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/50 hover:bg-white/10 transition-all cursor-pointer min-w-[260px]"
                   >
-                    <option className="bg-slate-900" value="2025-10-31 to 2025-11-19">Legacy (Oct 31 - Nov 19)</option>
                     <optgroup className="bg-slate-900" label="Monthly Reports">
                       {MONTHS.map(month => (
                         <option key={month} value={month}>{month}</option>
@@ -409,6 +459,68 @@ const App = () => {
                   </div>
                 );
               })}
+            </div>
+
+             {/* === REGIONAL ANALYSIS SECTION (Big Chart) === */}
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                   <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <IconLocation />
+                    Regional Performance: Iraq Cities
+                  </h3>
+                  <p className="text-slate-400 text-sm mt-1">Ticket distribution by City and Status (Estimated Data)</p>
+                </div>
+                <div className="flex gap-2 text-xs font-medium bg-black/20 p-1 rounded-lg">
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500"></div> Done
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-rose-500"></div> Cancelled
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-blue-500"></div> Closed
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-amber-500"></div> Postpone
+                   </div>
+                </div>
+              </div>
+              
+              <div className="h-[500px] w-full bg-slate-900/30 rounded-xl border border-white/5 p-4">
+                <CityStatusStackedChart data={currentCityMetrics || []} />
+              </div>
+            </div>
+
+            {/* === SUB AREAS SECTION (New Chart) === */}
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                   <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                    <IconLocation />
+                    Sub Areas Performance
+                  </h3>
+                  <p className="text-slate-400 text-sm mt-1">Ticket distribution by Sub Area (Estimated Data)</p>
+                </div>
+                <div className="flex gap-2 text-xs font-medium bg-black/20 p-1 rounded-lg">
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500"></div> Done
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-rose-500"></div> Cancelled
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-blue-500"></div> Closed
+                   </div>
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
+                      <div className="w-2 h-2 rounded-full bg-amber-500"></div> Postpone
+                   </div>
+                </div>
+              </div>
+              
+              <div className="h-[500px] w-full bg-slate-900/30 rounded-xl border border-white/5 p-4">
+                <SubAreaStatusStackedChart data={currentSubAreaMetrics || []} />
+              </div>
             </div>
 
             {/* Charts (Status & Priority) */}
@@ -585,14 +697,14 @@ const App = () => {
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
                   {isLegacyMode ? <IconLocation /> : <IconTeam />} 
-                  {isLegacyMode ? "Tickets by Sub-Area" : "Tickets by Team Leader"}
+                  {isLegacyMode ? "Tickets by Sub-Area" : "MR Team Leader"}
                 </h3>
                 <SubAreaChart data={legacyData.subAreaData} />
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconResolution /> 
-                  {isLegacyMode ? "Avg Resolution Time by Sub-Area (Hours)" : "Avg Resolution Time by Priority (Hours)"}
+                  <IconTeam /> 
+                  MR Responsible Tickets
                 </h3>
                 <ResolutionTimeChart data={legacyData.resolutionData} />
               </div>
