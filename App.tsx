@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { 
   IconLogo, IconCalendar, IconTotal, IconResolution, 
   IconCheckList, IconTrending, IconAlert, IconChart, IconSLA,
-  IconInProgress, IconTeam, IconLocation, IconTrophy
+  IconInProgress, IconTeam, IconLocation, IconTrophy, IconCode
 } from './components/Icons';
 import { 
   GenericBarChart, GenericDonutChart,
@@ -10,10 +10,32 @@ import {
   ResolutionTimeChart, ClosureRateChart, TicketAgeChart, DataQualityChart
 } from './components/Charts';
 import SummaryCard from './components/SummaryCard';
+import {
+  DATA_JAN_2025, DATA_FEB_2025, DATA_MAR_2025, DATA_APR_2025,
+  DATA_MAY_2025, DATA_JUN_2025, DATA_JUL_2025, DATA_AUG_2025,
+  DATA_SEP_2025, DATA_OCT_2025, DATA_NOV_2025, DATA_DEC_2025
+} from './Data';
+
+// --- ICON MAPPING ---
+// Allows JSON data to reference icons by string name
+const ICON_MAP: Record<string, React.ReactNode> = {
+  total: <IconTotal />,
+  resolution: <IconResolution />,
+  calendar: <IconCalendar />,
+  checklist: <IconCheckList />,
+  trending: <IconTrending />,
+  alert: <IconAlert />,
+  chart: <IconChart />,
+  sla: <IconSLA />,
+  inprogress: <IconInProgress />,
+  team: <IconTeam />,
+  location: <IconLocation />,
+  trophy: <IconTrophy />
+};
 
 // --- DATA DEFINITIONS ---
 
-// 1. LEGACY DATA (The original "User Maintenance Dashboard")
+// 1. LEGACY DATA (The original "User Maintenance Dashboard" - Oct 31 - Nov 19)
 const LEGACY_DATA_SOURCE = {
   summary: {
     total: '3,906',
@@ -76,19 +98,19 @@ const LEGACY_DATA_SOURCE = {
   ]
 };
 
-// 2. PRO DATA (The new "Maintenance Dashboard Pro")
+// 2. PRO DATA (Oct 31 - Nov 19)
 const PRO_DATA_SOURCE = {
   summary: {
     totalTickets: 11772,
     avgDuration: "10:41:58",
-    totalTime: "69,204:22:00",
+    totalTime: "69,204 hrs",
     completionRate: 55
   },
   kpis: [
-    { label: "Total Tickets", value: "11,772", trend: "+12.5%", trendDir: "up", color: "indigo", icon: <IconTotal /> },
-    { label: "Avg Duration", value: "10:41:58", trend: "-2.3%", trendDir: "down", color: "emerald", icon: <IconResolution /> },
-    { label: "Total Time Spent", value: "69,204 hrs", trend: "0%", trendDir: "neutral", color: "blue", icon: <IconCalendar /> },
-    { label: "Completion Rate", value: "55%", trend: "+5.1%", trendDir: "up", color: "teal", icon: <IconCheckList /> }
+    { label: "Total Tickets", value: "11,772", trend: "+12.5%", trendDir: "up", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "10:41:58", trend: "-2.3%", trendDir: "down", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "69,204 hrs", trend: "0%", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "55%", trend: "+5.1%", trendDir: "up", color: "teal", icon: "checklist" }
   ],
   charts: {
     statusDistribution: [
@@ -119,81 +141,118 @@ const PRO_DATA_SOURCE = {
 const MONTHS = [
   'January 2025', 'February 2025', 'March 2025', 'April 2025', 
   'May 2025', 'June 2025', 'July 2025', 'August 2025', 
-  'September 2025', 'October 2025', 'November 2025'
+  'September 2025', 'October 2025', 'November 2025', 'December 2025'
 ];
+
+const DATA_MAP: Record<string, any> = {
+  'January 2025': DATA_JAN_2025,
+  'February 2025': DATA_FEB_2025,
+  'March 2025': DATA_MAR_2025,
+  'April 2025': DATA_APR_2025,
+  'May 2025': DATA_MAY_2025,
+  'June 2025': DATA_JUN_2025,
+  'July 2025': DATA_JUL_2025,
+  'August 2025': DATA_AUG_2025,
+  'September 2025': DATA_SEP_2025,
+  'October 2025': DATA_OCT_2025,
+  'November 2025': DATA_NOV_2025,
+  'December 2025': DATA_DEC_2025,
+};
+
+function convertToHours(timeStr: string): string {
+  if (!timeStr) return "0 hrs";
+  
+  // Check for "X days, HH:MM:SS" format
+  // Example: "3576 days, 15:57:36"
+  const dayMatch = timeStr.match(/(\d+)\s*days?,\s*(\d+):(\d+):(\d+)/);
+  if (dayMatch) {
+    const days = parseInt(dayMatch[1], 10);
+    const hours = parseInt(dayMatch[2], 10);
+    // Rough calculation: days * 24 + hours. We ignore minutes/seconds for the summary.
+    const totalHours = (days * 24) + hours;
+    return `${totalHours.toLocaleString()} hrs`;
+  }
+  
+  // Check for just "HH:MM:SS" which is less than a day
+  if (timeStr.match(/^\d+:\d+:\d+$/)) {
+     // Usually means less than 24 hours if it's duration, but let's check
+     const parts = timeStr.split(':');
+     return `${parseInt(parts[0], 10)} hrs`;
+  }
+
+  // If already contains "hrs", return as is
+  if (timeStr.includes('hrs')) return timeStr;
+
+  return timeStr;
+}
+
+const getPromptDateRange = (rangeValue: string) => {
+  if (rangeValue.includes(' to ')) {
+    const parts = rangeValue.split(' to ');
+    return `between '${parts[0]}' and '${parts[1]}'`;
+  }
+  
+  // Handle "Month Year" e.g. "January 2025"
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  
+  const parts = rangeValue.split(' ');
+  const monthIndex = monthNames.indexOf(parts[0]);
+  const year = parseInt(parts[1]);
+  
+  if (monthIndex !== -1 && !isNaN(year)) {
+    const startDate = new Date(year, monthIndex, 1);
+    const endDate = new Date(year, monthIndex + 1, 0); // Last day of month
+    
+    const fmt = (d: Date) => d.toISOString().split('T')[0];
+    return `between '${fmt(startDate)}' and '${fmt(endDate)}'`;
+  }
+  
+  return `between '[START DATE]' and '[END DATE]'`;
+};
 
 const App = () => {
   const [selectedRange, setSelectedRange] = useState('2025-10-31 to 2025-11-19');
+  const [showExtractionModal, setShowExtractionModal] = useState(false);
 
-  // Logic to project or use real data
   const { proData, legacyData } = useMemo(() => {
+    // 1. Default Legacy Range
     if (selectedRange === '2025-10-31 to 2025-11-19') {
       return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
     }
+    
+    // 2. Monthly Data
+    if (DATA_MAP[selectedRange]) {
+      const source = DATA_MAP[selectedRange];
+      
+      // Transform Data to ensure 'hrs' format
+      const transformedPro = {
+        ...source,
+        summary: {
+            ...source.summary,
+            totalTime: convertToHours(source.summary.totalTime)
+        },
+        kpis: source.kpis.map((k: any) => {
+             if (k.label === 'Total Time Spent') {
+                 return { ...k, value: convertToHours(k.value) };
+             }
+             return k;
+        })
+      };
 
-    // Projection Factor Logic
-    const seed = selectedRange.length;
-    const factor = 0.8 + (seed % 5) / 10; // 0.8 to 1.3
-    const factor2 = 2 - factor;
+      return {
+        proData: transformedPro,
+        legacyData: source.legacy
+      };
+    }
 
-    const projectValue = (val: number) => Math.floor(val * factor);
-    const projectPct = (val: number) => Math.min(100, parseFloat((val * factor).toFixed(2)));
-    const projectStrVal = (str: string) => {
-      const num = parseInt(str.replace(/,/g, ''));
-      return isNaN(num) ? str : Math.floor(num * factor).toLocaleString();
-    };
-
-    // --- Projections for PRO ---
-    const pro = {
-      summary: {
-        totalTickets: projectValue(PRO_DATA_SOURCE.summary.totalTickets),
-        avgDuration: PRO_DATA_SOURCE.summary.avgDuration,
-        totalTime: PRO_DATA_SOURCE.summary.totalTime,
-        completionRate: Math.min(100, Math.floor(PRO_DATA_SOURCE.summary.completionRate * factor))
-      },
-      kpis: PRO_DATA_SOURCE.kpis.map(k => ({
-        ...k,
-        value: k.label.includes("Rate") 
-          ? Math.min(100, parseFloat(k.value) * factor).toFixed(1) + '%'
-          : projectStrVal(k.value)
-      })),
-      charts: {
-        statusDistribution: PRO_DATA_SOURCE.charts.statusDistribution.map(d => ({ ...d, value: projectValue(d.value) })),
-        durationMetrics: PRO_DATA_SOURCE.charts.durationMetrics.map(d => ({ ...d, value: projectValue(d.value) })),
-        priorityMetrics: PRO_DATA_SOURCE.charts.priorityMetrics.map(d => ({ ...d, value: projectValue(d.value) }))
-      }
-    };
-
-    // --- Projections for LEGACY ---
-    const simValueLegacy = (v: number) => Math.floor(v * factor);
-    const simPctLegacy = (v: number) => Math.min(100, parseFloat((v * factor2).toFixed(2)));
-
-    const legacy = {
-      summary: {
-        total: Math.floor(3906 * factor).toLocaleString(),
-        sla: simPctLegacy(96.69) + '%',
-        open: Math.floor(542 * factor2).toLocaleString(),
-        avgRes: (3.66 * factor2).toFixed(2) + ' hrs'
-      },
-      secondary: {
-        closed: Math.floor(1725 * factor).toLocaleString(),
-        avgAge: (35.5 * factor2).toFixed(1),
-        oldest: Math.floor(61 * factor2).toString(),
-        leaders: '10'
-      },
-      statusData: LEGACY_DATA_SOURCE.statusData.map(d => ({ ...d, value: simValueLegacy(d.value) })),
-      slaData: LEGACY_DATA_SOURCE.slaData.map(d => ({ ...d, value: simPctLegacy(d.value) })),
-      subAreaData: LEGACY_DATA_SOURCE.subAreaData.map(d => ({ ...d, value: simValueLegacy(d.value) })),
-      resolutionData: LEGACY_DATA_SOURCE.resolutionData.map(d => ({ ...d, value: parseFloat((d.value * factor2).toFixed(1)) })),
-      closureData: LEGACY_DATA_SOURCE.closureData.map(d => ({ ...d, value: simPctLegacy(d.value) })),
-      ageData: LEGACY_DATA_SOURCE.ageData.map(d => ({ ...d, value: simValueLegacy(d.value) })),
-      qualityData: LEGACY_DATA_SOURCE.qualityData.map(d => ({ ...d, A: simValueLegacy(d.A) }))
-    };
-
-    return { proData: pro, legacyData: legacy };
+    // Fallback (should not happen with correct dropdown)
+    return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
   }, [selectedRange]);
 
-  const isProjected = selectedRange !== '2025-10-31 to 2025-11-19';
+  const isProjected = false; // No longer using projection logic
 
   const getProColorClasses = (color: string) => {
     const map: Record<string, string> = {
@@ -204,6 +263,64 @@ const App = () => {
     };
     return map[color] || map.blue;
   };
+
+  const jsonPrompt = `{
+  "role": "Senior Data Analyst",
+  "task": "Extract and calculate IT Service Management metrics from the attached dataset for a specific date range.",
+  "instructions": [
+    "1. Filter the dataset to include only rows where the 'Date' or 'Creation Date' column falls ${getPromptDateRange(selectedRange)}.",
+    "2. Calculate the metrics required to populate the JSON structure defined below.",
+    "3. Return ONLY the valid JSON object. Do not include markdown formatting or conversational text."
+  ],
+  "required_output_format": {
+    "summary": {
+      "totalTickets": "Number (Integer)",
+      "avgDuration": "String (Format HH:MM:SS)",
+      "totalTime": "String (Format HH:MM:SS)",
+      "completionRate": "Number (Percentage Integer, e.g., 55)"
+    },
+    "kpis": [
+      { "label": "Total Tickets", "value": "String", "trend": "String", "trendDir": "'up'|'down'|'neutral'", "color": "indigo", "icon": "total" },
+      { "label": "Avg Duration", "value": "String", "trend": "String", "trendDir": "'up'|'down'|'neutral'", "color": "emerald", "icon": "resolution" },
+      { "label": "Total Time Spent", "value": "String", "trend": "String", "trendDir": "'up'|'down'|'neutral'", "color": "blue", "icon": "calendar" },
+      { "label": "Completion Rate", "value": "String", "trend": "String", "trendDir": "'up'|'down'|'neutral'", "color": "teal", "icon": "checklist" }
+    ],
+    "charts": {
+      "statusDistribution": [
+        { "name": "String (Done, Cancelled, etc)", "value": "Number", "color": "Hex String" }
+      ],
+      "durationMetrics": [
+        { "name": "String (Range)", "value": "Number", "color": "Hex String" }
+      ],
+      "priorityMetrics": [
+        { "name": "String (Priority)", "value": "Number", "color": "Hex String" }
+      ]
+    },
+    "legacy": {
+      "summary": {
+        "total": "String",
+        "sla": "String (%)",
+        "open": "String",
+        "avgRes": "String (hrs)"
+      },
+      "secondary": {
+        "closed": "String",
+        "avgAge": "String",
+        "oldest": "String",
+        "leaders": "String"
+      },
+      "statusData": [{ "name": "String", "value": "Number", "color": "Hex" }],
+      "slaData": [{ "name": "String", "value": "Number", "color": "Hex" }],
+      "subAreaData": [{ "name": "String", "value": "Number" }],
+      "resolutionData": [{ "name": "String", "value": "Number", "color": "Hex" }],
+      "closureData": [{ "name": "String", "value": "Number" }],
+      "ageData": [{ "name": "String", "value": "Number" }],
+      "qualityData": [
+        { "subject": "String", "A": "Number", "fullMark": 2000 }
+      ]
+    }
+  }
+}`;
 
   return (
     <div className="min-h-screen text-white font-sans relative overflow-x-hidden selection:bg-cyan-500/30">
@@ -225,12 +342,20 @@ const App = () => {
                   <IconLogo />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold tracking-tight text-white">Maintenance Dashboard <span className="text-indigo-400">Pro</span></h1>
+                  <h1 className="text-xl font-bold tracking-tight text-white">User <span className="text-indigo-400">Maintenance</span></h1>
                   <p className="text-slate-400 text-xs font-medium">Analytics & Performance Overview</p>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
+                <button
+                  onClick={() => setShowExtractionModal(true)}
+                  className="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-500/20 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                >
+                  <IconCode />
+                  <span>Extraction Code</span>
+                </button>
+
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                     <IconCalendar />
@@ -240,8 +365,8 @@ const App = () => {
                     onChange={(e) => setSelectedRange(e.target.value)}
                     className="appearance-none bg-white/5 border border-white/10 rounded-lg pl-10 pr-10 py-2 text-sm text-slate-300 font-medium focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/50 hover:bg-white/10 transition-all cursor-pointer min-w-[260px]"
                   >
-                    <option className="bg-slate-900" value="2025-10-31 to 2025-11-19">Oct 31 - Nov 19, 2025 (Current)</option>
-                    <optgroup className="bg-slate-900" label="Projected Data">
+                    <option className="bg-slate-900" value="2025-10-31 to 2025-11-19">Legacy (Oct 31 - Nov 19)</option>
+                    <optgroup className="bg-slate-900" label="Monthly Reports">
                       {MONTHS.map(month => (
                         <option key={month} value={month}>{month}</option>
                       ))}
@@ -251,12 +376,6 @@ const App = () => {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
-                
-                {isProjected && (
-                  <span className="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide">
-                    Projected
-                  </span>
-                )}
               </div>
             </div>
           </div>
@@ -271,13 +390,14 @@ const App = () => {
             
             {/* KPI Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {proData.kpis.map((kpi, idx) => {
+              {proData.kpis.map((kpi: any, idx: number) => {
                 const styles = getProColorClasses(kpi.color);
+                const IconComponent = ICON_MAP[kpi.icon as string] || <IconTotal />;
                 return (
                   <div key={idx} className={`bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl hover:-translate-y-1 transition-transform duration-300 group`}>
                     <div className="flex justify-between items-start mb-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${styles.split(' ')[1]} ${styles.split(' ')[0]}`}>
-                        {kpi.icon}
+                        {IconComponent}
                       </div>
                       <span className={`text-xs font-medium px-2 py-1 rounded-full ${kpi.trendDir === 'up' ? 'text-emerald-400 bg-emerald-500/10' : kpi.trendDir === 'down' ? 'text-rose-400 bg-rose-500/10' : 'text-slate-400 bg-slate-500/10'}`}>
                         {kpi.trend}
@@ -346,7 +466,7 @@ const App = () => {
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Most Critical</p>
                 <p className="text-rose-400 font-bold text-lg">Urgent</p>
-                <p className="text-slate-500 text-xs">{proData.charts.priorityMetrics[1].value.toLocaleString()} tickets</p>
+                <p className="text-slate-500 text-xs">{(proData.charts.priorityMetrics.find((p: any) => p.name === 'Urgent') || { value: 0 }).value.toLocaleString()} tickets</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Avg Speed</p>
@@ -432,10 +552,10 @@ const App = () => {
                 { label: 'Closed Tickets', value: legacyData.secondary.closed, sub: '44.2%', color: 'text-green-400' },
                 { label: 'Avg Ticket Age', value: legacyData.secondary.avgAge, sub: 'Days', color: 'text-blue-400' },
                 { label: 'Oldest Ticket', value: legacyData.secondary.oldest, sub: 'Days', color: 'text-red-400' },
-                { label: 'Team Leaders', value: legacyData.secondary.leaders, sub: 'Samarra', color: 'text-amber-400' },
+                { label: 'Team Leaders', value: legacyData.secondary.leaders ? legacyData.secondary.leaders.split(',').length : 'N/A', sub: 'Samarra', color: 'text-amber-400' },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center backdrop-blur-sm hover:bg-white/10 transition-colors">
-                  <p className={`text-3xl font-bold ${item.color} mb-1`}>{item.value}</p>
+                  <p className={`text-3xl font-bold ${item.color} mb-1 overflow-hidden text-ellipsis whitespace-nowrap`}>{item.value}</p>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">{item.label}</p>
                   <p className="text-[10px] text-gray-500">{item.sub}</p>
                 </div>
@@ -490,9 +610,9 @@ const App = () => {
                 </h3>
                 <div className="space-y-4">
                   {[
-                    { rank: 1, name: 'اريج فايز صكبان', score: '100%', medal: '🥇', border: 'border-yellow-500/50', bg: 'bg-yellow-500/10' },
-                    { rank: 2, name: 'غيث محمد جمعة', score: '100%', medal: '🥈', border: 'border-gray-400/50', bg: 'bg-gray-400/10' },
-                    { rank: 3, name: 'محمد اسماعيل ياسين', score: '100%', medal: '🥉', border: 'border-amber-700/50', bg: 'bg-amber-700/10' }
+                    { rank: 1, name: legacyData.subAreaData[0]?.name || 'N/A', score: '100%', medal: '🥇', border: 'border-yellow-500/50', bg: 'bg-yellow-500/10' },
+                    { rank: 2, name: legacyData.subAreaData[1]?.name || 'N/A', score: '100%', medal: '🥈', border: 'border-gray-400/50', bg: 'bg-gray-400/10' },
+                    { rank: 3, name: legacyData.subAreaData[2]?.name || 'N/A', score: '100%', medal: '🥉', border: 'border-amber-700/50', bg: 'bg-amber-700/10' }
                   ].map((p) => (
                     <div key={p.rank} className={`flex items-center gap-4 p-4 rounded-xl border-l-4 ${p.border} ${p.bg}`}>
                       <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center font-bold text-sm">
@@ -507,8 +627,8 @@ const App = () => {
                   ))}
                   <div className="mt-6 p-4 bg-red-500/10 rounded-xl border border-red-500/30">
                       <p className="text-xs text-red-300 mb-1 flex items-center gap-1"><IconAlert /> Needs Attention</p>
-                      <p className="font-semibold text-sm">طه خيري عبد</p>
-                      <p className="text-red-400 text-sm font-bold">SLA: 85.88%</p>
+                      <p className="font-semibold text-sm">Missed SLA</p>
+                      <p className="text-red-400 text-sm font-bold">{legacyData.slaData.find((s:any) => s.name === 'Missed')?.value || 0} Tickets</p>
                   </div>
                 </div>
               </div>
@@ -536,21 +656,21 @@ const App = () => {
               <div className="bg-gradient-to-br from-red-900/30 to-red-950/30 border border-red-500/20 rounded-2xl p-6 backdrop-blur-md">
                  <h3 className="text-lg font-bold text-red-300 mb-4 flex items-center gap-2"><IconAlert /> Immediate Actions</h3>
                  <ul className="space-y-3 text-sm text-gray-300">
-                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span> Address Unassigned tickets (38.5% closure rate)</li>
-                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span> Investigate SLA compliance issues</li>
+                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span> Address Missed SLA tickets ({legacyData.slaData.find((s:any) => s.name === 'Missed')?.value || 0})</li>
+                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span> Investigate Cancelled tickets ({legacyData.statusData.find((s:any) => s.name === 'Cancelled')?.value || 0})</li>
                  </ul>
               </div>
                <div className="bg-gradient-to-br from-amber-900/30 to-amber-950/30 border border-amber-500/20 rounded-2xl p-6 backdrop-blur-md">
                  <h3 className="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2"><IconTrending /> Performance</h3>
                  <ul className="space-y-3 text-sm text-gray-300">
                    <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0"></span> Training for team leaders with low compliance</li>
-                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0"></span> Process optimization for Tikrit</li>
+                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0"></span> Process optimization for high volume areas</li>
                  </ul>
               </div>
                <div className="bg-gradient-to-br from-green-900/30 to-green-950/30 border border-green-500/20 rounded-2xl p-6 backdrop-blur-md">
                  <h3 className="text-lg font-bold text-green-300 mb-4 flex items-center gap-2"><IconTeam /> Resource Allocation</h3>
                  <ul className="space-y-3 text-sm text-gray-300">
-                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span> Additional support for Samarra</li>
+                   <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span> Additional support for {legacyData.subAreaData[0]?.name}</li>
                    <li className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span> Review assignment process</li>
                  </ul>
               </div>
@@ -560,6 +680,58 @@ const App = () => {
 
         </main>
       </div>
+
+      {/* Extraction Code Modal */}
+      {showExtractionModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onClick={() => setShowExtractionModal(false)}></div>
+          <div className="relative bg-slate-800 border border-white/10 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                  <IconCode />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">Data Extraction Prompt</h3>
+                  <p className="text-sm text-slate-400">Copy this JSON to your AI assistant to extract data</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setShowExtractionModal(false)}
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+            
+            <div className="p-6 overflow-y-auto custom-scrollbar">
+              <div className="relative group">
+                <pre className="bg-slate-950 rounded-xl p-6 text-sm font-mono text-emerald-300 whitespace-pre-wrap break-all border border-white/5">
+                  {jsonPrompt}
+                </pre>
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(jsonPrompt);
+                  }}
+                  className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-md text-xs font-medium backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                  Copy JSON
+                </button>
+              </div>
+            </div>
+            
+            <div className="p-6 border-t border-white/10 bg-slate-900/50 rounded-b-2xl flex justify-end">
+              <button 
+                onClick={() => setShowExtractionModal(false)}
+                className="px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

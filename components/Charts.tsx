@@ -73,6 +73,21 @@ export const GenericDonutChart = ({ data, dataKey = "value", nameKey = "name" }:
         dataKey={dataKey}
         nameKey={nameKey}
         stroke="none"
+        label={({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+          const RADIAN = Math.PI / 180;
+          const radius = outerRadius + 20;
+          const x = cx + radius * Math.cos(-midAngle * RADIAN);
+          const y = cy + radius * Math.sin(-midAngle * RADIAN);
+          
+          if (percent < 0.05) return null;
+
+          return (
+            <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={11} fontWeight="bold">
+              {`${(percent * 100).toFixed(0)}%`}
+            </text>
+          );
+        }}
+        labelLine={{ stroke: '#94a3b8' }}
       >
         {data.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={entry.color || entry.fill || '#3b82f6'} />
@@ -102,12 +117,35 @@ export const TicketStatusChart = ({ data }: ChartProps) => (
         outerRadius={80}
         paddingAngle={5}
         dataKey="value"
+        nameKey="name"
+        label={({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+          const RADIAN = Math.PI / 180;
+          const radius = outerRadius + 20;
+          const x = cx + radius * Math.cos(-midAngle * RADIAN);
+          const y = cy + radius * Math.sin(-midAngle * RADIAN);
+          
+          if (percent < 0.05) return null;
+
+          return (
+            <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={11} fontWeight="bold">
+              {`${(percent * 100).toFixed(0)}%`}
+            </text>
+          );
+        }}
+        labelLine={{ stroke: '#94a3b8' }}
       >
         {data.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
         ))}
       </Pie>
       <Tooltip content={<CustomTooltip />} />
+      <Legend 
+        layout="vertical" 
+        verticalAlign="middle" 
+        align="right"
+        iconType="circle"
+        wrapperStyle={{ fontSize: '12px', color: '#94a3b8' }}
+      />
     </PieChart>
   </ResponsiveContainer>
 );
