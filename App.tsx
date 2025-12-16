@@ -217,9 +217,12 @@ const App = () => {
   const [selectedRange, setSelectedRange] = useState('2025-10-31 to 2025-11-19');
   const [showExtractionModal, setShowExtractionModal] = useState(false);
 
+  // Helper to check if using Legacy Data (default view) or Monthly Reports
+  const isLegacyMode = selectedRange === '2025-10-31 to 2025-11-19';
+
   const { proData, legacyData } = useMemo(() => {
     // 1. Default Legacy Range
-    if (selectedRange === '2025-10-31 to 2025-11-19') {
+    if (isLegacyMode) {
       return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
     }
     
@@ -250,9 +253,7 @@ const App = () => {
 
     // Fallback (should not happen with correct dropdown)
     return { proData: PRO_DATA_SOURCE, legacyData: LEGACY_DATA_SOURCE };
-  }, [selectedRange]);
-
-  const isProjected = false; // No longer using projection logic
+  }, [selectedRange, isLegacyMode]);
 
   const getProColorClasses = (color: string) => {
     const map: Record<string, string> = {
@@ -583,13 +584,15 @@ const App = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconLocation /> Tickets by Sub-Area
+                  {isLegacyMode ? <IconLocation /> : <IconTeam />} 
+                  {isLegacyMode ? "Tickets by Sub-Area" : "Tickets by Team Leader"}
                 </h3>
                 <SubAreaChart data={legacyData.subAreaData} />
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconResolution /> Avg Resolution Time (Hours)
+                  <IconResolution /> 
+                  {isLegacyMode ? "Avg Resolution Time by Sub-Area (Hours)" : "Avg Resolution Time by Priority (Hours)"}
                 </h3>
                 <ResolutionTimeChart data={legacyData.resolutionData} />
               </div>
@@ -599,7 +602,8 @@ const App = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconChart /> Closure Rate by Team Leader
+                  {isLegacyMode ? <IconChart /> : <IconCalendar />}
+                  {isLegacyMode ? "Closure Rate by Team Leader" : "Daily Closure Trend"}
                 </h3>
                 <ClosureRateChart data={legacyData.closureData} />
               </div>
