@@ -1,6 +1,22 @@
 // Data for individual months of 2025 - Updated from Excel file
 // Changes: Random avg durations (1:30-2:00), Combined Closed+Cancelled into Cancelled
 
+// Color palette for consistent chart colors
+export const CHART_COLORS = {
+  primary: ['#10B981', '#EF4444', '#3B82F6', '#F59E0B', '#6366F1', '#7C3AED', '#F97316', '#EC4899'],
+  status: ['#10B981', '#EF4444', '#6B7280', '#F59E0B', '#6366F1', '#F97316'],
+  priority: ['#6B7280', '#F59E0B', '#EF4444', '#10B981'],
+  duration: ['#10B981', '#3B82F6', '#F59E0B', '#EF4444', '#7C3AED']
+};
+
+// Helper function to assign colors to data arrays
+export const assignColors = (data: any[], colorPalette: string[]) => {
+  return data.map((item, index) => ({
+    ...item,
+    color: item.color || colorPalette[index % colorPalette.length]
+  }));
+};
+
 export const DATA_JAN_2025 = {
   summary: { totalTickets: 6508, avgDuration: "1:50:00", totalTime: "420 days, 07:00:00", completionRate: 78 },
   kpis: [
@@ -10,23 +26,23 @@ export const DATA_JAN_2025 = {
     { label: "Completion Rate", value: "78%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 5070, color: "#10B981" },
-      { name: "Cancelled", value: 1438, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 85, color: "#10B981" },
-      { name: "1-4 hrs", value: 472, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 223, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 409, color: "#EF4444" },
-      { name: ">24 hrs", value: 342, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 4524, color: "#6B7280" },
-      { name: "Urgent", value: 1928, color: "#F59E0B" },
-      { name: "High priority", value: 49, color: "#6B7280" },
-      { name: "Medium priority", value: 7, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 5070 },
+      { name: "Cancelled", value: 1438 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 85 },
+      { name: "1-4 hrs", value: 472 },
+      { name: "4-8 hrs", value: 223 },
+      { name: "8-24 hrs", value: 409 },
+      { name: ">24 hrs", value: 342 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 4524 },
+      { name: "Urgent", value: 1928 },
+      { name: "High priority", value: 49 },
+      { name: "Medium priority", value: 7 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الرسالة", Done: 634, Cancelled: 175, Postpone: 0 },
@@ -170,23 +186,23 @@ export const DATA_FEB_2025 = {
     { label: "Completion Rate", value: "70%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 4527, color: "#10B981" },
-      { name: "Cancelled", value: 1968, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 116, color: "#10B981" },
-      { name: "1-4 hrs", value: 547, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 197, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 314, color: "#EF4444" },
-      { name: ">24 hrs", value: 249, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 4619, color: "#6B7280" },
-      { name: "Urgent", value: 1783, color: "#F59E0B" },
-      { name: "High priority", value: 85, color: "#6B7280" },
-      { name: "Medium priority", value: 8, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 4527 },
+      { name: "Cancelled", value: 1968 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 116 },
+      { name: "1-4 hrs", value: 547 },
+      { name: "4-8 hrs", value: 197 },
+      { name: "8-24 hrs", value: 314 },
+      { name: ">24 hrs", value: 249 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 4619 },
+      { name: "Urgent", value: 1783 },
+      { name: "High priority", value: 85 },
+      { name: "Medium priority", value: 8 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الحريه", Done: 459, Cancelled: 146, Postpone: 0 },
@@ -329,23 +345,23 @@ export const DATA_MAR_2025 = {
     { label: "Completion Rate", value: "70%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 4563, color: "#10B981" },
-      { name: "Cancelled", value: 1970, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 66, color: "#10B981" },
-      { name: "1-4 hrs", value: 435, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 225, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 460, color: "#EF4444" },
-      { name: ">24 hrs", value: 351, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 4478, color: "#6B7280" },
-      { name: "Urgent", value: 1971, color: "#F59E0B" },
-      { name: "High priority", value: 77, color: "#6B7280" },
-      { name: "Medium priority", value: 7, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 4563 },
+      { name: "Cancelled", value: 1970 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 66 },
+      { name: "1-4 hrs", value: 435 },
+      { name: "4-8 hrs", value: 225 },
+      { name: "8-24 hrs", value: 460 },
+      { name: ">24 hrs", value: 351 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 4478 },
+      { name: "Urgent", value: 1971 },
+      { name: "High priority", value: 77 },
+      { name: "Medium priority", value: 7 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الحريه", Done: 515, Cancelled: 188, Postpone: 0 },
@@ -483,23 +499,23 @@ export const DATA_APR_2025 = {
     { label: "Completion Rate", value: "69%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 4898, color: "#10B981" },
-      { name: "Cancelled", value: 2163, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 105, color: "#10B981" },
-      { name: "1-4 hrs", value: 572, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 223, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 375, color: "#EF4444" },
-      { name: ">24 hrs", value: 296, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 5002, color: "#6B7280" },
-      { name: "Urgent", value: 2002, color: "#F59E0B" },
-      { name: "High priority", value: 52, color: "#6B7280" },
-      { name: "Medium priority", value: 5, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 4898 },
+      { name: "Cancelled", value: 2163 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 105 },
+      { name: "1-4 hrs", value: 572 },
+      { name: "4-8 hrs", value: 223 },
+      { name: "8-24 hrs", value: 375 },
+      { name: ">24 hrs", value: 296 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 5002 },
+      { name: "Urgent", value: 2002 },
+      { name: "High priority", value: 52 },
+      { name: "Medium priority", value: 5 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الحريه", Done: 518, Cancelled: 207, Postpone: 0 },
@@ -635,23 +651,23 @@ export const DATA_MAY_2025 = {
     { label: "Completion Rate", value: "76%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 5038, color: "#10B981" },
-      { name: "Cancelled", value: 1606, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 114, color: "#10B981" },
-      { name: "1-4 hrs", value: 587, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 169, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 429, color: "#EF4444" },
-      { name: ">24 hrs", value: 318, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 4584, color: "#6B7280" },
-      { name: "Urgent", value: 2002, color: "#F59E0B" },
-      { name: "High priority", value: 50, color: "#6B7280" },
-      { name: "Medium priority", value: 8, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 5038 },
+      { name: "Cancelled", value: 1606 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 114 },
+      { name: "1-4 hrs", value: 587 },
+      { name: "4-8 hrs", value: 169 },
+      { name: "8-24 hrs", value: 429 },
+      { name: ">24 hrs", value: 318 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 4584 },
+      { name: "Urgent", value: 2002 },
+      { name: "High priority", value: 50 },
+      { name: "Medium priority", value: 8 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الرسالة", Done: 552, Cancelled: 181, Postpone: 0 },
@@ -783,23 +799,23 @@ export const DATA_JUN_2025 = {
     { label: "Completion Rate", value: "77%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 3698, color: "#10B981" },
-      { name: "Cancelled", value: 1079, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 92, color: "#10B981" },
-      { name: "1-4 hrs", value: 513, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 141, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 242, color: "#EF4444" },
-      { name: ">24 hrs", value: 192, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 3292, color: "#6B7280" },
-      { name: "Urgent", value: 1451, color: "#F59E0B" },
-      { name: "High priority", value: 27, color: "#6B7280" },
-      { name: "Medium priority", value: 7, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 3698 },
+      { name: "Cancelled", value: 1079 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 92 },
+      { name: "1-4 hrs", value: 513 },
+      { name: "4-8 hrs", value: 141 },
+      { name: "8-24 hrs", value: 242 },
+      { name: ">24 hrs", value: 192 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 3292 },
+      { name: "Urgent", value: 1451 },
+      { name: "High priority", value: 27 },
+      { name: "Medium priority", value: 7 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "دورة", Done: 293, Cancelled: 111, Postpone: 0 },
@@ -936,23 +952,23 @@ export const DATA_JUL_2025 = {
     { label: "Completion Rate", value: "79%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 2652, color: "#10B981" },
-      { name: "Cancelled", value: 693, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 121, color: "#10B981" },
-      { name: "1-4 hrs", value: 327, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 59, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 104, color: "#EF4444" },
-      { name: ">24 hrs", value: 88, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 2455, color: "#6B7280" },
-      { name: "Urgent", value: 862, color: "#F59E0B" },
-      { name: "High priority", value: 27, color: "#6B7280" },
-      { name: "Medium priority", value: 1, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 2652 },
+      { name: "Cancelled", value: 693 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 121 },
+      { name: "1-4 hrs", value: 327 },
+      { name: "4-8 hrs", value: 59 },
+      { name: "8-24 hrs", value: 104 },
+      { name: ">24 hrs", value: 88 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 2455 },
+      { name: "Urgent", value: 862 },
+      { name: "High priority", value: 27 },
+      { name: "Medium priority", value: 1 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "دورة", Done: 251, Cancelled: 89, Postpone: 0 },
@@ -1091,23 +1107,23 @@ export const DATA_AUG_2025 = {
     { label: "Completion Rate", value: "76%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 2742, color: "#10B981" },
-      { name: "Cancelled", value: 884, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 74, color: "#10B981" },
-      { name: "1-4 hrs", value: 277, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 64, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 130, color: "#EF4444" },
-      { name: ">24 hrs", value: 88, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 2793, color: "#6B7280" },
-      { name: "Urgent", value: 793, color: "#F59E0B" },
-      { name: "High priority", value: 36, color: "#6B7280" },
-      { name: "Medium priority", value: 4, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 2742 },
+      { name: "Cancelled", value: 884 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 74 },
+      { name: "1-4 hrs", value: 277 },
+      { name: "4-8 hrs", value: 64 },
+      { name: "8-24 hrs", value: 130 },
+      { name: ">24 hrs", value: 88 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 2793 },
+      { name: "Urgent", value: 793 },
+      { name: "High priority", value: 36 },
+      { name: "Medium priority", value: 4 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "تكريت", Done: 613, Cancelled: 191, Postpone: 0 },
@@ -1243,23 +1259,23 @@ export const DATA_SEP_2025 = {
     { label: "Completion Rate", value: "74%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 2450, color: "#10B981" },
-      { name: "Cancelled", value: 858, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 64, color: "#10B981" },
-      { name: "1-4 hrs", value: 191, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 51, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 79, color: "#EF4444" },
-      { name: ">24 hrs", value: 70, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 2687, color: "#6B7280" },
-      { name: "Urgent", value: 576, color: "#F59E0B" },
-      { name: "High priority", value: 44, color: "#6B7280" },
-      { name: "Medium priority", value: 1, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 2450 },
+      { name: "Cancelled", value: 858 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 64 },
+      { name: "1-4 hrs", value: 191 },
+      { name: "4-8 hrs", value: 51 },
+      { name: "8-24 hrs", value: 79 },
+      { name: ">24 hrs", value: 70 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 2687 },
+      { name: "Urgent", value: 576 },
+      { name: "High priority", value: 44 },
+      { name: "Medium priority", value: 1 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "تكريت", Done: 1167, Cancelled: 472, Postpone: 0 },
@@ -1396,23 +1412,23 @@ export const DATA_OCT_2025 = {
     { label: "Completion Rate", value: "73%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 1661, color: "#10B981" },
-      { name: "Cancelled", value: 610, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 28, color: "#10B981" },
-      { name: "1-4 hrs", value: 93, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 37, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 85, color: "#EF4444" },
-      { name: ">24 hrs", value: 80, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 1798, color: "#6B7280" },
-      { name: "Urgent", value: 427, color: "#F59E0B" },
-      { name: "High priority", value: 39, color: "#6B7280" },
-      { name: "Medium priority", value: 7, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 1661 },
+      { name: "Cancelled", value: 610 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 28 },
+      { name: "1-4 hrs", value: 93 },
+      { name: "4-8 hrs", value: 37 },
+      { name: "8-24 hrs", value: 85 },
+      { name: ">24 hrs", value: 80 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 1798 },
+      { name: "Urgent", value: 427 },
+      { name: "High priority", value: 39 },
+      { name: "Medium priority", value: 7 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "بيجي", Done: 530, Cancelled: 210, Postpone: 0 },
@@ -1544,23 +1560,23 @@ export const DATA_NOV_2025 = {
     { label: "Completion Rate", value: "67%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 2248, color: "#10B981" },
-      { name: "Cancelled", value: 1124, color: "#EF4444" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 67, color: "#10B981" },
-      { name: "1-4 hrs", value: 163, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 40, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 65, color: "#EF4444" },
-      { name: ">24 hrs", value: 39, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 2830, color: "#6B7280" },
-      { name: "Urgent", value: 497, color: "#F59E0B" },
-      { name: "High priority", value: 33, color: "#6B7280" },
-      { name: "Medium priority", value: 12, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 2248 },
+      { name: "Cancelled", value: 1124 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 67 },
+      { name: "1-4 hrs", value: 163 },
+      { name: "4-8 hrs", value: 40 },
+      { name: "8-24 hrs", value: 65 },
+      { name: ">24 hrs", value: 39 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 2830 },
+      { name: "Urgent", value: 497 },
+      { name: "High priority", value: 33 },
+      { name: "Medium priority", value: 12 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "سامراء", Done: 845, Cancelled: 292, Postpone: 0 },
@@ -1691,28 +1707,28 @@ export const DATA_DEC_2025 = {
     { label: "Completion Rate", value: "65%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" },
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 1185, color: "#10B981" },
-      { name: "Cancelled", value: 623, color: "#EF4444" },
-      { name: "Change Team", value: 10, color: "#6B7280" },
-      { name: "Postpone", value: 5, color: "#F59E0B" },
-      { name: "New", value: 4, color: "#6366F1" },
-      { name: "In Progres", value: 3, color: "#6B7280" },
-      { name: "Re-Open", value: 1, color: "#F97316" },
-    ],
-    durationMetrics: [
-      { name: "0-1 hrs", value: 43, color: "#10B981" },
-      { name: "1-4 hrs", value: 121, color: "#3B82F6" },
-      { name: "4-8 hrs", value: 30, color: "#F59E0B" },
-      { name: "8-24 hrs", value: 34, color: "#EF4444" },
-      { name: ">24 hrs", value: 29, color: "#7C3AED" },
-    ],
-    priorityMetrics: [
-      { name: "Low priority", value: 1466, color: "#6B7280" },
-      { name: "Urgent", value: 337, color: "#F59E0B" },
-      { name: "High priority", value: 21, color: "#6B7280" },
-      { name: "Medium priority", value: 7, color: "#6B7280" },
-    ]
+    statusDistribution: assignColors([
+      { name: "Done", value: 1185 },
+      { name: "Cancelled", value: 623 },
+      { name: "Change Team", value: 10 },
+      { name: "Postpone", value: 5 },
+      { name: "New", value: 4 },
+      { name: "In Progres", value: 3 },
+      { name: "Re-Open", value: 1 },
+    ], CHART_COLORS.status),
+    durationMetrics: assignColors([
+      { name: "0-1 hrs", value: 43 },
+      { name: "1-4 hrs", value: 121 },
+      { name: "4-8 hrs", value: 30 },
+      { name: "8-24 hrs", value: 34 },
+      { name: ">24 hrs", value: 29 },
+    ], CHART_COLORS.duration),
+    priorityMetrics: assignColors([
+      { name: "Low priority", value: 1466 },
+      { name: "Urgent", value: 337 },
+      { name: "High priority", value: 21 },
+      { name: "Medium priority", value: 7 },
+    ], CHART_COLORS.priority)
   },
   subAreaMetrics: [
     { subArea: "الشطره", Done: 408, Cancelled: 214, Postpone: 1 },
