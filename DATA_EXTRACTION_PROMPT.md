@@ -57,19 +57,13 @@ Copy and paste the JSON block below into an AI chat (like ChatGPT 4o, Claude 3.5
       },
       "secondary": {
         "closed": "String",
-        "avgAge": "String",
-        "oldest": "String",
         "leaders": "String (Top MR Team Leaders)"
       },
       "statusData": [{ "name": "String", "value": "Number", "color": "Hex" }],
       "slaData": [{ "name": "String (Met/Missed)", "value": "Number", "color": "Hex" }],
       "subAreaData": [{ "name": "String (Value from 'MR Team Leader' column)", "value": "Number" }],
       "resolutionData": [{ "name": "String (Value from 'MR Responsible' column)", "value": "Number", "color": "Hex" }],
-      "closureData": [{ "name": "String (Date YYYY-MM-DD)", "value": "Number" }],
-      "ageData": [{ "name": "String", "value": "Number" }],
-      "qualityData": [
-        { "subject": "FTTH User Maintenance", "A": "Number", "fullMark": 2000 }
-      ]
+      "closureData": [{ "name": "String (Date YYYY-MM-DD)", "value": "Number" }]
     }
   }
 }

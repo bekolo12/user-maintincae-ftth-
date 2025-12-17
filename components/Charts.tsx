@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   PieChart, Pie, Cell, ResponsiveContainer, 
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
-  CartesianGrid, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
+  CartesianGrid, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
+  ComposedChart, Line
 } from 'recharts';
 
 // --- Shared Components ---
@@ -13,17 +14,14 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div className="bg-slate-900 border border-white/10 p-3 rounded-lg shadow-xl backdrop-blur-md z-50">
         <p className="text-slate-400 text-xs font-medium mb-1">{label}</p>
         {payload.map((p: any, idx: number) => (
-          <p key={idx} className="text-white font-bold text-sm flex justify-between gap-4" style={{ color: p.color || p.fill }}>
+          <p key={idx} className="text-white font-bold text-sm flex justify-between gap-4" style={{ color: p.color || p.fill || p.stroke }}>
             <span>{p.name}:</span>
-            <span>{p.value.toLocaleString()}</span>
+            <span>{typeof p.value === 'number' ? p.value.toLocaleString() : p.value}</span>
           </p>
         ))}
         {payload.length > 1 && (
            <div className="mt-2 pt-2 border-t border-white/10">
-             <p className="text-white font-bold text-sm flex justify-between gap-4">
-               <span>Total:</span>
-               <span>{payload.reduce((acc: number, curr: any) => acc + curr.value, 0).toLocaleString()}</span>
-             </p>
+             {/* Optional Total Calculation if needed, though simpler is better here */}
            </div>
         )}
       </div>
@@ -175,6 +173,40 @@ export const SubAreaStatusStackedChart = ({ data }: ChartProps) => (
   </ResponsiveContainer>
 );
 
+export const MonthlyTrendChart = ({ data }: ChartProps) => (
+  <ResponsiveContainer width="100%" height="100%">
+    <ComposedChart data={data} margin={{ top: 20, right: 20, left: -20, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" opacity={0.3} />
+      <XAxis 
+        dataKey="name" 
+        tick={{ fill: '#94a3b8', fontSize: 12 }} 
+        axisLine={false} 
+        tickLine={false}
+        dy={10}
+      />
+      <YAxis 
+        yAxisId="left" 
+        tick={{ fill: '#94a3b8', fontSize: 11 }} 
+        axisLine={false} 
+        tickLine={false} 
+      />
+      <YAxis 
+        yAxisId="right" 
+        orientation="right" 
+        tick={{ fill: '#94a3b8', fontSize: 11 }} 
+        axisLine={false} 
+        tickLine={false} 
+        unit="%" 
+      />
+      <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
+      <Legend verticalAlign="top" align="right" height={36} />
+      <Bar yAxisId="left" dataKey="total" name="Total Tickets" fill="#6366f1" radius={[4, 4, 0, 0]} barSize={20} />
+      <Bar yAxisId="left" dataKey="done" name="Done" fill="#10b981" radius={[4, 4, 0, 0]} barSize={20} />
+      <Line yAxisId="right" type="monotone" dataKey="completionRate" name="Completion Rate %" stroke="#f59e0b" strokeWidth={3} dot={{ r: 4, fill: '#f59e0b' }} activeDot={{ r: 6 }} />
+    </ComposedChart>
+  </ResponsiveContainer>
+);
+
 // --- Restored Legacy Charts (For User Maintenance Dashboard) ---
 
 export const TicketStatusChart = ({ data }: ChartProps) => (
@@ -271,28 +303,5 @@ export const ClosureRateChart = ({ data }: ChartProps) => (
       <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
       <Bar dataKey="value" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
     </BarChart>
-  </ResponsiveContainer>
-);
-
-export const TicketAgeChart = ({ data }: ChartProps) => (
-  <ResponsiveContainer width="100%" height={250}>
-    <BarChart data={data}>
-      <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.1} />
-      <XAxis dataKey="name" tick={{ fill: '#9ca3af', fontSize: 11 }} axisLine={false} tickLine={false} />
-      <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
-      <Bar dataKey="value" fill="#f59e0b" radius={[4, 4, 0, 0]} />
-    </BarChart>
-  </ResponsiveContainer>
-);
-
-export const DataQualityChart = ({ data }: ChartProps) => (
-  <ResponsiveContainer width="100%" height={250}>
-    <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-      <PolarGrid opacity={0.2} />
-      <PolarAngleAxis dataKey="subject" tick={{ fill: '#9ca3af', fontSize: 11 }} />
-      <PolarRadiusAxis angle={30} domain={[0, 2000]} tick={false} axisLine={false} />
-      <Radar name="Missing Data" dataKey="A" stroke="#ef4444" fill="#ef4444" fillOpacity={0.4} />
-      <Tooltip content={<CustomTooltip />} />
-    </RadarChart>
   </ResponsiveContainer>
 );

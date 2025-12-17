@@ -5,9 +5,9 @@ import {
   IconInProgress, IconTeam, IconLocation, IconTrophy, IconCode
 } from './components/Icons';
 import { 
-  GenericBarChart, GenericDonutChart, CityStatusStackedChart, SubAreaStatusStackedChart,
+  GenericBarChart, GenericDonutChart, SubAreaStatusStackedChart,
   TicketStatusChart, SLAComplianceChart, SubAreaChart,
-  ResolutionTimeChart, ClosureRateChart, TicketAgeChart, DataQualityChart
+  ResolutionTimeChart, ClosureRateChart, MonthlyTrendChart
 } from './components/Charts';
 import SummaryCard from './components/SummaryCard';
 import {
@@ -57,8 +57,6 @@ const LEGACY_DATA_SOURCE = {
   },
   secondary: {
     closed: '1,725',
-    avgAge: '35.5',
-    oldest: '61',
     leaders: '10'
   },
   statusData: [
@@ -93,20 +91,6 @@ const LEGACY_DATA_SOURCE = {
     { name: 'مصطفى تحسين', value: 100 },
     { name: 'أحمد خالد', value: 75 },
     { name: 'Unassigned', value: 38.5 },
-  ],
-  ageData: [
-    { name: '0-7d', value: 450 },
-    { name: '8-14d', value: 380 },
-    { name: '15-30d', value: 520 },
-    { name: '31-45d', value: 420 },
-    { name: '46-61d', value: 155 },
-  ],
-  qualityData: [
-    { subject: 'Status', A: 1673, fullMark: 2000 },
-    { subject: 'Leader', A: 1452, fullMark: 2000 },
-    { subject: 'SubArea', A: 191, fullMark: 2000 },
-    { subject: 'Dates', A: 36, fullMark: 2000 },
-    { subject: 'Dups', A: 33, fullMark: 2000 },
   ],
   cityMetrics: [
     { city: "Baghdad", Done: 1800, Cancelled: 350, Closed: 120, Postpone: 45 },
@@ -171,6 +155,7 @@ const PRO_DATA_SOURCE = {
 };
 
 const MONTHS = [
+  'Total Year 2025',
   'January 2025', 'February 2025', 'March 2025', 'April 2025', 
   'May 2025', 'June 2025', 'July 2025', 'August 2025', 
   'September 2025', 'October 2025', 'November 2025', 'December 2025 (till 16-12-2025)'
@@ -218,7 +203,22 @@ function convertToHours(timeStr: string): string {
   return timeStr;
 }
 
+// Helper to convert "X days, HH:MM:SS" string to total hours integer
+const parseDurationToHours = (str: string) => {
+  if (!str) return 0;
+  const dayMatch = str.match(/(\d+)\s*days?,\s*(\d+):(\d+):(\d+)/);
+  if (dayMatch) {
+    const days = parseInt(dayMatch[1], 10);
+    const hours = parseInt(dayMatch[2], 10);
+    return (days * 24) + hours;
+  }
+  // Fallback for simple hours
+  if (str.includes('hrs')) return parseInt(str.replace(' hrs', '').replace(/,/g, ''), 10);
+  return 0;
+};
+
 const getPromptDateRange = (rangeValue: string) => {
+  if (rangeValue === 'Total Year 2025') return "for the entire year 2025";
   if (rangeValue.includes(' to ')) {
     const parts = rangeValue.split(' to ');
     return `between '${parts[0]}' and '${parts[1]}'`;
@@ -252,18 +252,121 @@ const App = () => {
   // Helper to check if using Legacy Data (default view) or Monthly Reports
   const isLegacyMode = selectedRange === '2025-10-31 to 2025-11-19';
 
-  const { proData, legacyData, currentCityMetrics, currentSubAreaMetrics } = useMemo(() => {
+  const { proData, legacyData, currentCityMetrics, currentSubAreaMetrics, monthlyTrend } = useMemo(() => {
     // 1. Default Legacy Range
     if (isLegacyMode) {
       return { 
           proData: PRO_DATA_SOURCE, 
           legacyData: LEGACY_DATA_SOURCE,
           currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
-          currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics
+          currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics,
+          monthlyTrend: null
+      };
+    }
+
+    // 2. Total Year Aggregation
+    if (selectedRange === 'Total Year 2025') {
+      const monthKeys = Object.keys(DATA_MAP).filter(k => k.includes('2025'));
+      
+      const aggregated = {
+        totalTickets: 0,
+        totalHours: 0,
+        statusCounts: {} as Record<string, number>,
+        durationCounts: {} as Record<string, number>,
+        priorityCounts: {} as Record<string, number>,
+        subAreaCounts: {} as Record<string, any> // Key: subArea name
+      };
+
+      const trendData: any[] = [];
+
+      monthKeys.forEach(key => {
+        const monthData = DATA_MAP[key];
+        const monthName = key.split(' ')[0].substring(0, 3); // Jan, Feb...
+
+        // Summary Aggregation
+        const tickets = monthData.summary.totalTickets || 0;
+        aggregated.totalTickets += tickets;
+        aggregated.totalHours += parseDurationToHours(monthData.summary.totalTime);
+
+        // Chart Aggregations
+        monthData.charts.statusDistribution.forEach((item: any) => {
+          aggregated.statusCounts[item.name] = (aggregated.statusCounts[item.name] || 0) + item.value;
+        });
+        monthData.charts.durationMetrics.forEach((item: any) => {
+          aggregated.durationCounts[item.name] = (aggregated.durationCounts[item.name] || 0) + item.value;
+        });
+        monthData.charts.priorityMetrics.forEach((item: any) => {
+          aggregated.priorityCounts[item.name] = (aggregated.priorityCounts[item.name] || 0) + item.value;
+        });
+
+        // Sub Area Aggregation
+        (monthData.subAreaMetrics || []).forEach((item: any) => {
+           if (!aggregated.subAreaCounts[item.subArea]) {
+             aggregated.subAreaCounts[item.subArea] = { ...item };
+           } else {
+             aggregated.subAreaCounts[item.subArea].Done += item.Done;
+             aggregated.subAreaCounts[item.subArea].Cancelled += item.Cancelled;
+             aggregated.subAreaCounts[item.subArea].Closed += item.Closed;
+             aggregated.subAreaCounts[item.subArea].Postpone += item.Postpone;
+           }
+        });
+
+        // Trend Data Construction
+        const done = monthData.charts.statusDistribution.find((s:any) => s.name === 'Done')?.value || 0;
+        trendData.push({
+          name: monthName,
+          total: tickets,
+          done: done,
+          completionRate: monthData.summary.completionRate || 0
+        });
+      });
+
+      // Transform Aggregated Counts back to Arrays
+      const statusDist = Object.keys(aggregated.statusCounts).map(key => ({
+        name: key, value: aggregated.statusCounts[key], color: PRO_DATA_SOURCE.charts.statusDistribution.find((s:any) => s.name === key)?.color || '#94a3b8'
+      }));
+      const durationMet = Object.keys(aggregated.durationCounts).map(key => ({
+        name: key, value: aggregated.durationCounts[key], color: PRO_DATA_SOURCE.charts.durationMetrics.find((s:any) => s.name === key)?.color || '#94a3b8'
+      }));
+      const priorityMet = Object.keys(aggregated.priorityCounts).map(key => ({
+        name: key, value: aggregated.priorityCounts[key], color: PRO_DATA_SOURCE.charts.priorityMetrics.find((s:any) => s.name === key)?.color || '#94a3b8'
+      }));
+      const subAreaMet = Object.values(aggregated.subAreaCounts).sort((a:any, b:any) => b.Done - a.Done).slice(0, 10); // Top 10
+
+      // Construct ProData
+      const totalHoursFormatted = `${aggregated.totalHours.toLocaleString()} hrs`;
+      const avgDurationHours = Math.round(aggregated.totalHours / aggregated.totalTickets); // Simplified average
+      
+      const newProData = {
+        summary: {
+          totalTickets: aggregated.totalTickets,
+          avgDuration: `${avgDurationHours} hrs`,
+          totalTime: totalHoursFormatted,
+          completionRate: Math.round((aggregated.statusCounts['Done'] || 0) / aggregated.totalTickets * 100) || 0
+        },
+        kpis: [
+          { label: "Total Tickets", value: aggregated.totalTickets.toLocaleString(), trend: "N/A", trendDir: "neutral", color: "indigo", icon: "total" },
+          { label: "Avg Duration", value: `${avgDurationHours} hrs`, trend: "N/A", trendDir: "neutral", color: "emerald", icon: "resolution" },
+          { label: "Total Time Spent", value: totalHoursFormatted, trend: "N/A", trendDir: "neutral", color: "blue", icon: "calendar" },
+          { label: "Completion Rate", value: `${Math.round((aggregated.statusCounts['Done'] || 0) / aggregated.totalTickets * 100)}%`, trend: "N/A", trendDir: "neutral", color: "teal", icon: "checklist" }
+        ],
+        charts: {
+          statusDistribution: statusDist,
+          durationMetrics: durationMet,
+          priorityMetrics: priorityMet
+        }
+      };
+
+      return {
+        proData: newProData,
+        legacyData: LEGACY_DATA_SOURCE, // Fallback
+        currentCityMetrics: [],
+        currentSubAreaMetrics: subAreaMet,
+        monthlyTrend: trendData
       };
     }
     
-    // 2. Monthly Data
+    // 3. Monthly Data
     if (DATA_MAP[selectedRange]) {
       const source = DATA_MAP[selectedRange];
       
@@ -286,7 +389,8 @@ const App = () => {
         proData: transformedPro,
         legacyData: source.legacy,
         currentCityMetrics: source.cityMetrics,
-        currentSubAreaMetrics: source.subAreaMetrics || DUMMY_SUB_AREA_METRICS // Fallback if missing
+        currentSubAreaMetrics: source.subAreaMetrics || DUMMY_SUB_AREA_METRICS, // Fallback if missing
+        monthlyTrend: null
       };
     }
 
@@ -295,7 +399,8 @@ const App = () => {
         proData: PRO_DATA_SOURCE, 
         legacyData: LEGACY_DATA_SOURCE,
         currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
-        currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics
+        currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics,
+        monthlyTrend: null
     };
   }, [selectedRange, isLegacyMode]);
 
@@ -357,19 +462,13 @@ const App = () => {
       },
       "secondary": {
         "closed": "String",
-        "avgAge": "String",
-        "oldest": "String",
         "leaders": "String (Top MR Team Leaders)"
       },
       "statusData": [{ "name": "String", "value": "Number", "color": "Hex" }],
       "slaData": [{ "name": "String (Met/Missed)", "value": "Number", "color": "Hex" }],
       "subAreaData": [{ "name": "String (Value from 'MR Team Leader' column)", "value": "Number" }],
       "resolutionData": [{ "name": "String (Value from 'MR Responsible' column)", "value": "Number", "color": "Hex" }],
-      "closureData": [{ "name": "String (Date YYYY-MM-DD)", "value": "Number" }],
-      "ageData": [{ "name": "String", "value": "Number" }],
-      "qualityData": [
-        { "subject": "FTTH User Maintenance", "A": "Number", "fullMark": 2000 }
-      ]
+      "closureData": [{ "name": "String (Date YYYY-MM-DD)", "value": "Number" }]
     }
   }
 }`;
@@ -395,7 +494,7 @@ const App = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold tracking-tight text-white">User <span className="text-indigo-400">Maintenance</span></h1>
-                  <p className="text-slate-400 text-xs font-medium">Analytics & Performance Overview</p>
+                  <p className="text-slate-400 text-xs font-medium">Analytics & Performance Overview - Projected Data</p>
                 </div>
               </div>
               
@@ -461,36 +560,23 @@ const App = () => {
               })}
             </div>
 
-             {/* === REGIONAL ANALYSIS SECTION (Big Chart) === */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                   <h3 className="text-2xl font-bold text-white flex items-center gap-3">
-                    <IconLocation />
-                    Regional Performance: Iraq Cities
-                  </h3>
-                  <p className="text-slate-400 text-sm mt-1">Ticket distribution by City and Status (Estimated Data)</p>
+            {/* === MONTHLY TREND CHART (Visible only for Total Year) === */}
+            {monthlyTrend && (
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                     <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                      <IconTrending />
+                      Monthly Performance Trends
+                    </h3>
+                    <p className="text-slate-400 text-sm mt-1">Comparision of Ticket Volumes and SLA Compliance across the year</p>
+                  </div>
                 </div>
-                <div className="flex gap-2 text-xs font-medium bg-black/20 p-1 rounded-lg">
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500"></div> Done
-                   </div>
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-rose-500"></div> Cancelled
-                   </div>
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-blue-500"></div> Closed
-                   </div>
-                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-amber-500"></div> Postpone
-                   </div>
+                <div className="h-[400px] w-full bg-slate-900/30 rounded-xl border border-white/5 p-4">
+                  <MonthlyTrendChart data={monthlyTrend} />
                 </div>
               </div>
-              
-              <div className="h-[500px] w-full bg-slate-900/30 rounded-xl border border-white/5 p-4">
-                <CityStatusStackedChart data={currentCityMetrics || []} />
-              </div>
-            </div>
+            )}
 
             {/* === SUB AREAS SECTION (New Chart) === */}
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
@@ -500,7 +586,7 @@ const App = () => {
                     <IconLocation />
                     Sub Areas Performance
                   </h3>
-                  <p className="text-slate-400 text-sm mt-1">Ticket distribution by Sub Area (Estimated Data)</p>
+                  <p className="text-slate-400 text-sm mt-1">Ticket distribution by Sub Area</p>
                 </div>
                 <div className="flex gap-2 text-xs font-medium bg-black/20 p-1 rounded-lg">
                    <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white/5">
@@ -625,7 +711,7 @@ const App = () => {
                 tagColor="bg-blue-500/20"
               />
               <SummaryCard 
-                title="SLA Compliance" 
+                title="SLA Completion Rate" 
                 value={legacyData.summary.sla} 
                 subValue="Excellent" 
                 icon={<IconSLA />} 
@@ -648,7 +734,7 @@ const App = () => {
               />
               <SummaryCard 
                 title="Avg Resolution" 
-                value={legacyData.summary.avgRes} 
+                value={legacyData.summary.avgRes.toString().includes('hrs') ? legacyData.summary.avgRes : `${legacyData.summary.avgRes} hrs`} 
                 subValue="Fast" 
                 icon={<IconResolution />} 
                 gradient="bg-gradient-to-br from-purple-600/20 to-purple-900/20"
@@ -660,11 +746,8 @@ const App = () => {
             </div>
 
             {/* Legacy Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {[
-                { label: 'Closed Tickets', value: legacyData.secondary.closed, sub: '44.2%', color: 'text-green-400' },
-                { label: 'Avg Ticket Age', value: legacyData.secondary.avgAge, sub: 'Days', color: 'text-blue-400' },
-                { label: 'Oldest Ticket', value: legacyData.secondary.oldest, sub: 'Days', color: 'text-red-400' },
                 { label: 'Team Leaders', value: legacyData.secondary.leaders ? legacyData.secondary.leaders.split(',').length : 'N/A', sub: 'Samarra', color: 'text-amber-400' },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center backdrop-blur-sm hover:bg-white/10 transition-colors">
@@ -686,7 +769,7 @@ const App = () => {
               
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconTeam /> SLA Compliance by Team Leader
+                  <IconTeam /> SLA Completion Rate by Team Leader
                 </h3>
                 <SLAComplianceChart data={legacyData.slaData} />
               </div>
@@ -747,23 +830,6 @@ const App = () => {
                       <p className="text-red-400 text-sm font-bold">{legacyData.slaData.find((s:any) => s.name === 'Missed')?.value || 0} Tickets</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-             {/* Legacy Quality & Age */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
-                <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  <IconCalendar /> Ticket Age Analysis
-                </h3>
-                <TicketAgeChart data={legacyData.ageData} />
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
-                <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-red-200">
-                  <IconAlert /> Data Quality Issues
-                </h3>
-                <DataQualityChart data={legacyData.qualityData} />
               </div>
             </div>
 
