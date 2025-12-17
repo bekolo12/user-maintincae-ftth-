@@ -332,8 +332,10 @@ const App = () => {
       .map(key => ({ name: key, value: aggregated.responsibleCounts[key], color: '#6366f1' }))
       .sort((a,b) => b.value - a.value);
 
-    // Closure Trend (By Day of Week)
-    const closureTrendData = processDailyClosures(aggregated.dailyClosureData);
+    // Closure Trend: Show Day of Week for Total Year, otherwise keep raw Daily dates
+    const closureTrendData = selectedRange === 'Total Year 2025' 
+      ? processDailyClosures(aggregated.dailyClosureData)
+      : aggregated.dailyClosureData;
 
     const subAreaMet = Object.values(aggregated.subAreaCounts).sort((a:any, b:any) => b.Done - a.Done).slice(0, 10);
 
@@ -789,7 +791,10 @@ const App = () => {
               <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
                   {isLegacyMode ? <IconChart /> : <IconCalendar />}
-                  {isLegacyMode ? "Closure Rate by Team Leader" : "Daily Closure Trend (Day of Week)"}
+                  {isLegacyMode 
+                    ? "Closure Rate by Team Leader" 
+                    : (selectedRange === 'Total Year 2025' ? "Daily Closure Trend (Day of Week)" : "Daily Closure Trend")
+                  }
                 </h3>
                 <ClosureRateChart data={legacyData.closureData} />
               </div>
