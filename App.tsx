@@ -17,7 +17,6 @@ import {
 } from './Data';
 
 // --- ICON MAPPING ---
-// Allows JSON data to reference icons by string name
 const ICON_MAP: Record<string, React.ReactNode> = {
   total: <IconTotal />,
   resolution: <IconResolution />,
@@ -35,7 +34,6 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 // --- DATA DEFINITIONS ---
 
-// Dummy Sub Area Data (Estimated)
 const DUMMY_SUB_AREA_METRICS = [
   { subArea: "Karrada", Done: 120, Cancelled: 40, Closed: 10, Postpone: 5 },
   { subArea: "Mansour", Done: 95, Cancelled: 30, Closed: 8, Postpone: 2 },
@@ -47,7 +45,7 @@ const DUMMY_SUB_AREA_METRICS = [
   { subArea: "Karkh", Done: 110, Cancelled: 35, Closed: 9, Postpone: 4 }
 ];
 
-// 1. LEGACY DATA (The original "User Maintenance Dashboard" - Oct 31 - Nov 19)
+// 1. LEGACY DATA (Fallback)
 const LEGACY_DATA_SOURCE = {
   summary: {
     total: '3,906',
@@ -104,7 +102,7 @@ const LEGACY_DATA_SOURCE = {
   subAreaMetrics: DUMMY_SUB_AREA_METRICS
 };
 
-// 2. PRO DATA (Oct 31 - Nov 19)
+// 2. PRO DATA (Structure)
 const PRO_DATA_SOURCE = {
   summary: {
     totalTickets: 11772,
@@ -119,38 +117,11 @@ const PRO_DATA_SOURCE = {
     { label: "Completion Rate", value: "55%", trend: "+5.1%", trendDir: "up", color: "teal", icon: "checklist" }
   ],
   charts: {
-    statusDistribution: [
-      { name: "Done", value: 6468, color: "#10b981" },
-      { name: "Cancelled", value: 4275, color: "#ef4444" },
-      { name: "Closed", value: 646, color: "#6366f1" },
-      { name: "Postpone", value: 372, color: "#f59e0b" },
-      { name: "Change Team", value: 6, color: "#ec4899" },
-      { name: "New", value: 3, color: "#3b82f6" },
-      { name: "Re-Open", value: 2, color: "#8b5cf6" }
-    ],
-    durationMetrics: [
-      { name: "<1Hr", value: 5674, color: "#22d3ee" },
-      { name: "1-2Hr", value: 510, color: "#38bdf8" },
-      { name: "2-3Hr", value: 142, color: "#60a5fa" },
-      { name: "3-4Hr", value: 49, color: "#818cf8" },
-      { name: ">5Hr", value: 93, color: "#c084fc" }
-    ],
-    priorityMetrics: [
-      { name: "Low Priority", value: 11335, color: "#94a3b8" },
-      { name: "Urgent", value: 374, color: "#ef4444" },
-      { name: "High Priority", value: 47, color: "#f97316" },
-      { name: "Medium", value: 16, color: "#eab308" }
-    ],
-    cityMetrics: [
-        { city: "Baghdad", Done: 3200, Cancelled: 1500, Closed: 250, Postpone: 120 },
-        { city: "Basra", Done: 1500, Cancelled: 800, Closed: 120, Postpone: 80 },
-        { city: "Erbil", Done: 1200, Cancelled: 600, Closed: 100, Postpone: 60 },
-        { city: "Mosul", Done: 1000, Cancelled: 500, Closed: 80, Postpone: 50 },
-        { city: "Najaf", Done: 800, Cancelled: 400, Closed: 60, Postpone: 30 },
-        { city: "Karbala", Done: 700, Cancelled: 300, Closed: 50, Postpone: 20 },
-        { city: "Kirkuk", Done: 600, Cancelled: 250, Closed: 40, Postpone: 15 }
-    ],
-    subAreaMetrics: DUMMY_SUB_AREA_METRICS
+    statusDistribution: [],
+    durationMetrics: [],
+    priorityMetrics: [],
+    cityMetrics: [],
+    subAreaMetrics: []
   }
 };
 
@@ -176,34 +147,25 @@ const DATA_MAP: Record<string, any> = {
   'December 2025 (till 16-12-2025)': DATA_DEC_2025,
 };
 
+// Helper: Convert "X days, HH:MM:SS" or "HH:MM:SS" to readable hrs string
 function convertToHours(timeStr: string): string {
   if (!timeStr) return "0 hrs";
-  
-  // Check for "X days, HH:MM:SS" format
-  // Example: "3576 days, 15:57:36"
   const dayMatch = timeStr.match(/(\d+)\s*days?,\s*(\d+):(\d+):(\d+)/);
   if (dayMatch) {
     const days = parseInt(dayMatch[1], 10);
     const hours = parseInt(dayMatch[2], 10);
-    // Rough calculation: days * 24 + hours. We ignore minutes/seconds for the summary.
     const totalHours = (days * 24) + hours;
     return `${totalHours.toLocaleString()} hrs`;
   }
-  
-  // Check for just "HH:MM:SS" which is less than a day
   if (timeStr.match(/^\d+:\d+:\d+$/)) {
-     // Usually means less than 24 hours if it's duration, but let's check
      const parts = timeStr.split(':');
      return `${parseInt(parts[0], 10)} hrs`;
   }
-
-  // If already contains "hrs", return as is
   if (timeStr.includes('hrs')) return timeStr;
-
   return timeStr;
 }
 
-// Helper to convert "X days, HH:MM:SS" string to total hours integer
+// Helper: Parse Duration to Number
 const parseDurationToHours = (str: string) => {
   if (!str) return 0;
   const dayMatch = str.match(/(\d+)\s*days?,\s*(\d+):(\d+):(\d+)/);
@@ -212,94 +174,120 @@ const parseDurationToHours = (str: string) => {
     const hours = parseInt(dayMatch[2], 10);
     return (days * 24) + hours;
   }
-  // Fallback for simple hours
   if (str.includes('hrs')) return parseInt(str.replace(' hrs', '').replace(/,/g, ''), 10);
   return 0;
 };
 
+// Helper: Process Daily Closure Data from Date strings to Day of Week
+const processDailyClosures = (closureData: { name: string, value: number }[]) => {
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const counts: Record<string, number> = {
+    "Sunday": 0, "Monday": 0, "Tuesday": 0, "Wednesday": 0, "Thursday": 0, "Friday": 0, "Saturday": 0
+  };
+
+  closureData.forEach(item => {
+    // Attempt to parse YYYY-MM-DD
+    const d = new Date(item.name);
+    if (!isNaN(d.getTime())) {
+      const dayName = days[d.getDay()];
+      counts[dayName] += item.value;
+    }
+  });
+
+  return days.map(day => ({ name: day, value: counts[day] }));
+};
+
 const getPromptDateRange = (rangeValue: string) => {
   if (rangeValue === 'Total Year 2025') return "for the entire year 2025";
-  if (rangeValue.includes(' to ')) {
-    const parts = rangeValue.split(' to ');
-    return `between '${parts[0]}' and '${parts[1]}'`;
-  }
-  
-  // Handle "Month Year" e.g. "January 2025"
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  
-  const parts = rangeValue.split(' ');
-  const monthIndex = monthNames.indexOf(parts[0]);
-  const year = parseInt(parts[1]);
-  
-  if (monthIndex !== -1 && !isNaN(year)) {
-    const startDate = new Date(year, monthIndex, 1);
-    const endDate = new Date(year, monthIndex + 1, 0); // Last day of month
-    
-    const fmt = (d: Date) => d.toISOString().split('T')[0];
-    return `between '${fmt(startDate)}' and '${fmt(endDate)}'`;
-  }
-  
-  return `between '[START DATE]' and '[END DATE]'`;
+  return `for ${rangeValue}`;
 };
 
 const App = () => {
-  const [selectedRange, setSelectedRange] = useState('January 2025');
+  const [selectedRange, setSelectedRange] = useState('Total Year 2025');
   const [showExtractionModal, setShowExtractionModal] = useState(false);
 
   // Helper to check if using Legacy Data (default view) or Monthly Reports
   const isLegacyMode = selectedRange === '2025-10-31 to 2025-11-19';
 
-  const { proData, legacyData, currentCityMetrics, currentSubAreaMetrics, monthlyTrend } = useMemo(() => {
-    // 1. Default Legacy Range
+  const { proData, legacyData, currentSubAreaMetrics, monthlyTrend } = useMemo(() => {
+    // 1. Default Legacy Range (Fallback)
     if (isLegacyMode) {
       return { 
           proData: PRO_DATA_SOURCE, 
           legacyData: LEGACY_DATA_SOURCE,
-          currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
           currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics,
           monthlyTrend: null
       };
     }
 
-    // 2. Total Year Aggregation
+    let aggregated = {
+      totalTickets: 0,
+      totalHours: 0,
+      statusCounts: {} as Record<string, number>,
+      durationCounts: {} as Record<string, number>,
+      priorityCounts: {} as Record<string, number>,
+      teamLeaderCounts: {} as Record<string, number>,
+      responsibleCounts: {} as Record<string, number>,
+      dailyClosureData: [] as { name: string, value: number }[],
+      slaCounts: { Met: 0, Missed: 0 },
+      subAreaCounts: {} as Record<string, any>
+    };
+
+    let trendData: any[] = [];
+    let processingData: any[] = [];
+
+    // Determine which data to process
     if (selectedRange === 'Total Year 2025') {
       const monthKeys = Object.keys(DATA_MAP).filter(k => k.includes('2025'));
-      
-      const aggregated = {
-        totalTickets: 0,
-        totalHours: 0,
-        statusCounts: {} as Record<string, number>,
-        durationCounts: {} as Record<string, number>,
-        priorityCounts: {} as Record<string, number>,
-        subAreaCounts: {} as Record<string, any> // Key: subArea name
-      };
+      monthKeys.forEach(key => processingData.push({ ...DATA_MAP[key], monthName: key.split(' ')[0].substring(0,3) }));
+    } else if (DATA_MAP[selectedRange]) {
+      processingData.push({ ...DATA_MAP[selectedRange], monthName: selectedRange.split(' ')[0].substring(0,3) });
+    } else {
+      // Fallback if key missing
+      processingData.push({ ...DATA_JAN_2025, monthName: 'Jan' }); 
+    }
 
-      const trendData: any[] = [];
-
-      monthKeys.forEach(key => {
-        const monthData = DATA_MAP[key];
-        const monthName = key.split(' ')[0].substring(0, 3); // Jan, Feb...
-
-        // Summary Aggregation
-        const tickets = monthData.summary.totalTickets || 0;
-        aggregated.totalTickets += tickets;
+    // --- AGGREGATION LOGIC ---
+    processingData.forEach(monthData => {
+        // Summary
+        aggregated.totalTickets += (monthData.summary.totalTickets || 0);
         aggregated.totalHours += parseDurationToHours(monthData.summary.totalTime);
 
-        // Chart Aggregations
+        // Chart: Status
         monthData.charts.statusDistribution.forEach((item: any) => {
           aggregated.statusCounts[item.name] = (aggregated.statusCounts[item.name] || 0) + item.value;
         });
+        // Chart: Duration
         monthData.charts.durationMetrics.forEach((item: any) => {
           aggregated.durationCounts[item.name] = (aggregated.durationCounts[item.name] || 0) + item.value;
         });
+        // Chart: Priority
         monthData.charts.priorityMetrics.forEach((item: any) => {
           aggregated.priorityCounts[item.name] = (aggregated.priorityCounts[item.name] || 0) + item.value;
         });
 
-        // Sub Area Aggregation
+        // Legacy: SLA
+        (monthData.legacy.slaData || []).forEach((item: any) => {
+           if(item.name === 'Met') aggregated.slaCounts.Met += item.value;
+           if(item.name === 'Missed') aggregated.slaCounts.Missed += item.value;
+        });
+
+        // Legacy: MR Team Leader (stored in subAreaData in monthly JSONs)
+        (monthData.legacy.subAreaData || []).forEach((item: any) => {
+           aggregated.teamLeaderCounts[item.name] = (aggregated.teamLeaderCounts[item.name] || 0) + item.value;
+        });
+
+        // Legacy: MR Responsible
+        (monthData.legacy.resolutionData || []).forEach((item: any) => {
+           aggregated.responsibleCounts[item.name] = (aggregated.responsibleCounts[item.name] || 0) + item.value;
+        });
+
+        // Legacy: Daily Closures (Accumulate raw for processing)
+        if (monthData.legacy.closureData) {
+           aggregated.dailyClosureData.push(...monthData.legacy.closureData);
+        }
+
+        // Sub Area Metrics (New Dashboard)
         (monthData.subAreaMetrics || []).forEach((item: any) => {
            if (!aggregated.subAreaCounts[item.subArea]) {
              aggregated.subAreaCounts[item.subArea] = { ...item };
@@ -311,97 +299,100 @@ const App = () => {
            }
         });
 
-        // Trend Data Construction
+        // Trend
         const done = monthData.charts.statusDistribution.find((s:any) => s.name === 'Done')?.value || 0;
         trendData.push({
-          name: monthName,
-          total: tickets,
+          name: monthData.monthName,
+          total: monthData.summary.totalTickets,
           done: done,
-          completionRate: monthData.summary.completionRate || 0
+          completionRate: monthData.summary.completionRate
         });
-      });
+    });
 
-      // Transform Aggregated Counts back to Arrays
-      const statusDist = Object.keys(aggregated.statusCounts).map(key => ({
-        name: key, value: aggregated.statusCounts[key], color: PRO_DATA_SOURCE.charts.statusDistribution.find((s:any) => s.name === key)?.color || '#94a3b8'
-      }));
-      const durationMet = Object.keys(aggregated.durationCounts).map(key => ({
-        name: key, value: aggregated.durationCounts[key], color: PRO_DATA_SOURCE.charts.durationMetrics.find((s:any) => s.name === key)?.color || '#94a3b8'
-      }));
-      const priorityMet = Object.keys(aggregated.priorityCounts).map(key => ({
-        name: key, value: aggregated.priorityCounts[key], color: PRO_DATA_SOURCE.charts.priorityMetrics.find((s:any) => s.name === key)?.color || '#94a3b8'
-      }));
-      const subAreaMet = Object.values(aggregated.subAreaCounts).sort((a:any, b:any) => b.Done - a.Done).slice(0, 10); // Top 10
+    // --- TRANSFORMATION ---
+    const transformMap = (map: Record<string, number>, colorMapSource?: any[]) => {
+       return Object.keys(map).map(key => ({
+         name: key, 
+         value: map[key],
+         color: colorMapSource?.find((x:any) => x.name === key)?.color || '#94a3b8'
+       })).sort((a,b) => b.value - a.value);
+    };
 
-      // Construct ProData
-      const totalHoursFormatted = `${aggregated.totalHours.toLocaleString()} hrs`;
-      const avgDurationHours = Math.round(aggregated.totalHours / aggregated.totalTickets); // Simplified average
-      
-      const newProData = {
+    const statusDist = transformMap(aggregated.statusCounts, PRO_DATA_SOURCE.charts.statusDistribution);
+    const durationMet = transformMap(aggregated.durationCounts, PRO_DATA_SOURCE.charts.durationMetrics);
+    const priorityMet = transformMap(aggregated.priorityCounts, PRO_DATA_SOURCE.charts.priorityMetrics);
+    
+    // Team Leader (Sort desc, take top 10 for cleanliness, or all if needed)
+    const teamLeaderData = Object.keys(aggregated.teamLeaderCounts)
+      .map(key => ({ name: key, value: aggregated.teamLeaderCounts[key] }))
+      .sort((a,b) => b.value - a.value);
+
+    // Responsible
+    const responsibleData = Object.keys(aggregated.responsibleCounts)
+      .map(key => ({ name: key, value: aggregated.responsibleCounts[key], color: '#6366f1' }))
+      .sort((a,b) => b.value - a.value);
+
+    // Closure Trend (By Day of Week)
+    const closureTrendData = processDailyClosures(aggregated.dailyClosureData);
+
+    const subAreaMet = Object.values(aggregated.subAreaCounts).sort((a:any, b:any) => b.Done - a.Done).slice(0, 10);
+
+    // Summary Calcs
+    const totalHoursFormatted = `${aggregated.totalHours.toLocaleString()} hrs`;
+    const avgDurationHours = aggregated.totalTickets ? Math.round(aggregated.totalHours / aggregated.totalTickets) : 0;
+    const completionRate = aggregated.totalTickets ? Math.round((aggregated.statusCounts['Done'] || 0) / aggregated.totalTickets * 100) : 0;
+
+    // SLA Data for Legacy
+    const slaDataLegacy = [
+        { name: 'Met', value: aggregated.slaCounts.Met, color: '#10B981' },
+        { name: 'Missed', value: aggregated.slaCounts.Missed, color: '#EF4444' }
+    ];
+
+    const newProData = {
         summary: {
           totalTickets: aggregated.totalTickets,
           avgDuration: `${avgDurationHours} hrs`,
           totalTime: totalHoursFormatted,
-          completionRate: Math.round((aggregated.statusCounts['Done'] || 0) / aggregated.totalTickets * 100) || 0
+          completionRate: completionRate
         },
         kpis: [
           { label: "Total Tickets", value: aggregated.totalTickets.toLocaleString(), trend: "N/A", trendDir: "neutral", color: "indigo", icon: "total" },
           { label: "Avg Duration", value: `${avgDurationHours} hrs`, trend: "N/A", trendDir: "neutral", color: "emerald", icon: "resolution" },
           { label: "Total Time Spent", value: totalHoursFormatted, trend: "N/A", trendDir: "neutral", color: "blue", icon: "calendar" },
-          { label: "Completion Rate", value: `${Math.round((aggregated.statusCounts['Done'] || 0) / aggregated.totalTickets * 100)}%`, trend: "N/A", trendDir: "neutral", color: "teal", icon: "checklist" }
+          { label: "Completion Rate", value: `${completionRate}%`, trend: "N/A", trendDir: "neutral", color: "teal", icon: "checklist" }
         ],
         charts: {
           statusDistribution: statusDist,
           durationMetrics: durationMet,
           priorityMetrics: priorityMet
         }
-      };
-
-      return {
-        proData: newProData,
-        legacyData: LEGACY_DATA_SOURCE, // Fallback
-        currentCityMetrics: [],
-        currentSubAreaMetrics: subAreaMet,
-        monthlyTrend: trendData
-      };
-    }
-    
-    // 3. Monthly Data
-    if (DATA_MAP[selectedRange]) {
-      const source = DATA_MAP[selectedRange];
-      
-      // Transform Data to ensure 'hrs' format
-      const transformedPro = {
-        ...source,
-        summary: {
-            ...source.summary,
-            totalTime: convertToHours(source.summary.totalTime)
-        },
-        kpis: source.kpis.map((k: any) => {
-             if (k.label === 'Total Time Spent') {
-                 return { ...k, value: convertToHours(k.value) };
-             }
-             return k;
-        })
-      };
-
-      return {
-        proData: transformedPro,
-        legacyData: source.legacy,
-        currentCityMetrics: source.cityMetrics,
-        currentSubAreaMetrics: source.subAreaMetrics || DUMMY_SUB_AREA_METRICS, // Fallback if missing
-        monthlyTrend: null
-      };
-    }
-
-    // Fallback
-    return { 
-        proData: PRO_DATA_SOURCE, 
-        legacyData: LEGACY_DATA_SOURCE,
-        currentCityMetrics: LEGACY_DATA_SOURCE.cityMetrics,
-        currentSubAreaMetrics: LEGACY_DATA_SOURCE.subAreaMetrics,
-        monthlyTrend: null
     };
+
+    const newLegacyData = {
+        summary: {
+            total: aggregated.totalTickets.toLocaleString(),
+            sla: `${completionRate}%`,
+            open: (aggregated.statusCounts['Cancelled'] || 0).toLocaleString(), // Mapping 'Cancelled' to Open/Issue for legacy view context or extracting real open if avail
+            avgRes: `${avgDurationHours} hrs`
+        },
+        secondary: {
+            closed: (aggregated.statusCounts['Done'] || 0).toLocaleString(),
+            leaders: teamLeaderData.length.toString()
+        },
+        statusData: statusDist,
+        slaData: slaDataLegacy,
+        subAreaData: teamLeaderData, // Corrected: Showing Team Leaders here now
+        resolutionData: responsibleData,
+        closureData: closureTrendData
+    };
+
+    return {
+        proData: newProData,
+        legacyData: newLegacyData,
+        currentSubAreaMetrics: subAreaMet,
+        monthlyTrend: selectedRange === 'Total Year 2025' ? trendData : null
+    };
+
   }, [selectedRange, isLegacyMode]);
 
   const getProColorClasses = (color: string) => {
@@ -438,7 +429,7 @@ const App = () => {
     ],
     "charts": {
       "statusDistribution": [
-        { "name": "String (Done, Cancelled, etc)", "value": "Number", "color": "Hex String" }
+        { "name": "String (Done, Cancelled, Closed, Postpone, etc)", "value": "Number", "color": "Hex String" }
       ],
       "durationMetrics": [
         { "name": "String (Range)", "value": "Number", "color": "Hex String" }
@@ -660,7 +651,7 @@ const App = () => {
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Highest Volume</p>
                 <p className="text-emerald-400 font-bold text-lg">Done</p>
-                <p className="text-slate-500 text-xs">{proData.charts.statusDistribution[0].value.toLocaleString()} tickets</p>
+                <p className="text-slate-500 text-xs">{proData.charts.statusDistribution[0]?.value?.toLocaleString() || 0} tickets</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Most Critical</p>
@@ -670,7 +661,7 @@ const App = () => {
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Avg Speed</p>
                 <p className="text-blue-400 font-bold text-lg">Fast</p>
-                <p className="text-slate-500 text-xs">&lt;1 Hour ({proData.charts.durationMetrics[0].value.toLocaleString()})</p>
+                <p className="text-slate-500 text-xs">&lt;1 Hour ({proData.charts.durationMetrics[0]?.value?.toLocaleString() || 0})</p>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Priorities</p>
@@ -748,7 +739,7 @@ const App = () => {
             {/* Legacy Stats Row */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {[
-                { label: 'Team Leaders', value: legacyData.secondary.leaders ? legacyData.secondary.leaders.split(',').length : 'N/A', sub: 'Samarra', color: 'text-amber-400' },
+                { label: 'Team Leaders', value: legacyData.secondary.leaders ? legacyData.secondary.leaders : 'N/A', sub: 'Total Assigned', color: 'text-amber-400' },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center backdrop-blur-sm hover:bg-white/10 transition-colors">
                   <p className={`text-3xl font-bold ${item.color} mb-1 overflow-hidden text-ellipsis whitespace-nowrap`}>{item.value}</p>
@@ -779,8 +770,8 @@ const App = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
-                  {isLegacyMode ? <IconLocation /> : <IconTeam />} 
-                  {isLegacyMode ? "Tickets by Sub-Area" : "MR Team Leader"}
+                  <IconTeam /> 
+                  MR Team Leader
                 </h3>
                 <SubAreaChart data={legacyData.subAreaData} />
               </div>
@@ -798,7 +789,7 @@ const App = () => {
               <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2 text-gray-200">
                   {isLegacyMode ? <IconChart /> : <IconCalendar />}
-                  {isLegacyMode ? "Closure Rate by Team Leader" : "Daily Closure Trend"}
+                  {isLegacyMode ? "Closure Rate by Team Leader" : "Daily Closure Trend (Day of Week)"}
                 </h3>
                 <ClosureRateChart data={legacyData.closureData} />
               </div>

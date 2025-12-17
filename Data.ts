@@ -2,4611 +2,1849 @@
 // Data for individual months of 2025
 
 export const DATA_JAN_2025 = {
-  "summary": {
-    "totalTickets": 6509,
-    "avgDuration": "21:51:35",
-    "totalTime": "4636 days, 02:31:00",
-    "completionRate": 78
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "6509",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "21:51:35",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "4636 days, 02:31:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "78%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 6508, avgDuration: "05:20:28", totalTime: "1448 days, 08:21:00", completionRate: 78 },
+  kpis: [
+    { label: "Total Tickets", value: "6,508", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "05:20:28", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "1448 days, 08:21:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "78%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 5071,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1419,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 19,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 5070, color: "#10B981" },
+      { name: "Cancelled", value: 1419, color: "#EF4444" },
+      { name: "Closed", value: 19, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 661,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1548,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 1857,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 810,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 214,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 5062, color: "#10B981" },
+      { name: "1-4 hrs", value: 472, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 223, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 409, color: "#EF4444" },
+      { name: ">24 hrs", value: 342, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 4525,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 1928,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 49,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 7,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 4524, color: "#6B7280" },
+      { name: "Urgent", value: 1928, color: "#F59E0B" },
+      { name: "High priority", value: 49, color: "#6B7280" },
+      { name: "Medium priority", value: 7, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 637,
-      "Cancelled": 172,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 430,
-      "Cancelled": 138,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 349,
-      "Cancelled": 116,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 302,
-      "Cancelled": 68,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062c\u0647\u0627\u062f\u00a0\u0661",
-      "Done": 287,
-      "Cancelled": 63,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 247,
-      "Cancelled": 74,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 244,
-      "Cancelled": 67,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629",
-      "Done": 194,
-      "Cancelled": 45,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u064a",
-      "Done": 164,
-      "Cancelled": 37,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062e\u0636\u0631\u0627\u0621",
-      "Done": 150,
-      "Cancelled": 45,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "6509",
-      "sla": "78%",
-      "open": "1419",
-      "avgRes": "21.8"
-    },
-    "secondary": {
-      "closed": "5090",
-      "avgAge": "333.9",
-      "oldest": "687",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 5071,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1419,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 19,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "6,508", sla: "78%", open: "1419", avgRes: "05:20:28" },
+    secondary: { closed: "5089", leaders: "منتصر حسن عباس, بهاء حسين عطية, ايات حميد مجيد" },
+    statusData: [
+      { name: "Done", value: 5070, color: "#10B981" },
+      { name: "Cancelled", value: 1419, color: "#EF4444" },
+      { name: "Closed", value: 19, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 5090,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1419,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 5089, color: "#10B981" },
+      { name: "Missed", value: 1419, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 4179
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 2000
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 175
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 93
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 1
-      },
-      {
-        "name": "\u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646",
-        "value": 1
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 4179 },
+      { name: "بهاء حسين عطية", value: 1999 },
+      { name: "ايات حميد مجيد", value: 175 },
+      { name: "غيث محمد جمعة", value: 93 },
+      { name: "Unknown", value: 60 },
+      { name: "محمد عدنان نوري", value: 1 },
+      { name: "امير عبد الرحمن زيدان", value: 1 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062d\u0633\u0627\u0645 \u0645\u062d\u0645\u062f \u0635\u0628\u0627\u0631",
-        "value": 254,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0639\u0628\u062f\u0627\u0644\u0643\u0631\u064a\u0645 \u062d\u0633\u064a\u0646",
-        "value": 249,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0627\u0628\u0648 \u0628\u0643\u0631 \u0639\u0628\u062f \u0627\u0644\u0643\u0631\u064a\u0645 \u062e\u0636\u064a\u0631",
-        "value": 245,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u062d\u0633\u0646 \u0645\u062b\u0646\u0649 \u062c\u0628\u0627\u0631",
-        "value": 243,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u0648\u0633\u0649 \u062c\u0639\u0641\u0631 \u0645\u0648\u0633\u0649",
-        "value": 243,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0647\u0627\u0634\u0645 \u062d\u0633\u0646",
-        "value": 242,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0632\u064a\u0627\u062f \u0627\u064a\u0627\u062f \u0634\u0627\u0643\u0631",
-        "value": 237,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u062e\u0644\u0641 \u0632\u0631\u0632\u0648\u0631",
-        "value": 234,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 233,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0639\u0627\u0645\u0631 \u0645\u062d\u0645\u062f",
-        "value": 228,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "حسام محمد صبار", value: 254, color: "#10B981" },
+      { name: "عبدالرحمن عبدالكريم حسين", value: 249, color: "#10B981" },
+      { name: "ابو بكر عبد الكريم خضير", value: 245, color: "#10B981" },
+      { name: "موسى جعفر موسى", value: 243, color: "#10B981" },
+      { name: "حسن مثنى جبار", value: 243, color: "#10B981" },
+      { name: "علي هاشم حسن", value: 242, color: "#10B981" },
+      { name: "زياد اياد شاكر", value: 237, color: "#10B981" },
+      { name: "محمد خلف زرزور", value: 234, color: "#10B981" },
+      { name: "محمد علي محمد", value: 233, color: "#10B981" },
+      { name: "حسين عامر محمد", value: 228, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-01-18",
-        "value": 230
-      },
-      {
-        "name": "2025-01-12",
-        "value": 217
-      },
-      {
-        "name": "2025-01-19",
-        "value": 211
-      },
-      {
-        "name": "2025-01-06",
-        "value": 203
-      },
-      {
-        "name": "2025-01-04",
-        "value": 203
-      },
-      {
-        "name": "2025-01-09",
-        "value": 201
-      },
-      {
-        "name": "2025-01-28",
-        "value": 199
-      },
-      {
-        "name": "2025-01-30",
-        "value": 199
-      },
-      {
-        "name": "2025-01-11",
-        "value": 194
-      },
-      {
-        "name": "2025-01-08",
-        "value": 191
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 6509
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 5090,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-01-01", value: 60 },
+      { name: "2025-01-02", value: 96 },
+      { name: "2025-01-03", value: 90 },
+      { name: "2025-01-04", value: 203 },
+      { name: "2025-01-05", value: 150 },
+      { name: "2025-01-06", value: 203 },
+      { name: "2025-01-07", value: 169 },
+      { name: "2025-01-08", value: 191 },
+      { name: "2025-01-09", value: 201 },
+      { name: "2025-01-10", value: 112 },
+      { name: "2025-01-11", value: 194 },
+      { name: "2025-01-12", value: 217 },
+      { name: "2025-01-13", value: 153 },
+      { name: "2025-01-14", value: 157 },
+      { name: "2025-01-15", value: 146 },
+      { name: "2025-01-16", value: 170 },
+      { name: "2025-01-17", value: 107 },
+      { name: "2025-01-18", value: 230 },
+      { name: "2025-01-19", value: 211 },
+      { name: "2025-01-20", value: 171 },
+      { name: "2025-01-21", value: 172 },
+      { name: "2025-01-22", value: 160 },
+      { name: "2025-01-23", value: 168 },
+      { name: "2025-01-24", value: 108 },
+      { name: "2025-01-25", value: 162 },
+      { name: "2025-01-26", value: 113 },
+      { name: "2025-01-27", value: 182 },
+      { name: "2025-01-28", value: 199 },
+      { name: "2025-01-29", value: 186 },
+      { name: "2025-01-30", value: 199 },
+      { name: "2025-01-31", value: 113 },
+      { name: "2025-02-01", value: 43 },
+      { name: "2025-02-02", value: 21 },
+      { name: "2025-02-03", value: 7 },
+      { name: "2025-02-04", value: 1 },
+      { name: "2025-02-05", value: 2 },
+      { name: "2025-02-07", value: 2 },
+      { name: "2025-02-08", value: 1 },
+      { name: "2025-02-09", value: 4 },
+      { name: "2025-02-11", value: 2 },
+      { name: "2025-02-12", value: 2 },
+      { name: "2025-02-13", value: 1 },
+      { name: "2025-02-14", value: 1 },
+      { name: "2025-02-15", value: 1 },
+      { name: "2025-02-16", value: 1 },
+      { name: "2025-02-22", value: 1 },
+      { name: "2025-02-25", value: 1 },
+      { name: "2025-03-12", value: 1 },
+      { name: "2025-03-26", value: 1 },
+      { name: "2025-03-27", value: 1 },
+      { name: "2025-04-05", value: 1 },
+      { name: "2025-04-06", value: 1 }
     ]
   }
 };
 
 export const DATA_FEB_2025 = {
-  "summary": {
-    "totalTickets": 6495,
-    "avgDuration": "25:10:11",
-    "totalTime": "5202 days, 19:14:00",
-    "completionRate": 76
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "6495",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "25:10:11",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "5202 days, 19:14:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "76%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 6495, avgDuration: "09:06:03", totalTime: "2462 days, 22:31:00", completionRate: 76 },
+  kpis: [
+    { label: "Total Tickets", value: "6,495", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "09:06:03", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "2462 days, 22:31:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "76%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 4527,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1534,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 434,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 4527, color: "#10B981" },
+      { name: "Cancelled", value: 1534, color: "#EF4444" },
+      { name: "Closed", value: 434, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 952,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1780,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 1528,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 507,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 194,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 5188, color: "#10B981" },
+      { name: "1-4 hrs", value: 547, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 197, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 314, color: "#EF4444" },
+      { name: ">24 hrs", value: 249, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 4619,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 1783,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 85,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 8,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 4619, color: "#6B7280" },
+      { name: "Urgent", value: 1783, color: "#F59E0B" },
+      { name: "High priority", value: 85, color: "#6B7280" },
+      { name: "Medium priority", value: 8, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 468,
-      "Cancelled": 137,
-      "Closed": 9,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 387,
-      "Cancelled": 90,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 297,
-      "Cancelled": 76,
-      "Closed": 9,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 285,
-      "Cancelled": 71,
-      "Closed": 7,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 273,
-      "Cancelled": 73,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 271,
-      "Cancelled": 73,
-      "Closed": 20,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062c\u0647\u0627\u062f\u00a0\u0661",
-      "Done": 220,
-      "Cancelled": 63,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 198,
-      "Cancelled": 33,
-      "Closed": 7,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 158,
-      "Cancelled": 57,
-      "Closed": 7,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062e\u0636\u0631\u0627\u0621",
-      "Done": 140,
-      "Cancelled": 29,
-      "Closed": 2,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "6495",
-      "sla": "76%",
-      "open": "1534",
-      "avgRes": "25.1"
-    },
-    "secondary": {
-      "closed": "4961",
-      "avgAge": "304.2",
-      "oldest": "319",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 4527,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1534,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 434,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "6,495", sla: "76%", open: "1534", avgRes: "09:06:03" },
+    secondary: { closed: "4961", leaders: "منتصر حسن عباس, بهاء حسين عطية, غيث محمد جمعة" },
+    statusData: [
+      { name: "Done", value: 4527, color: "#10B981" },
+      { name: "Cancelled", value: 1534, color: "#EF4444" },
+      { name: "Closed", value: 434, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 4961,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1534,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 4961, color: "#10B981" },
+      { name: "Missed", value: 1534, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 3697
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 2009
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 541
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 194
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 3697 },
+      { name: "بهاء حسين عطية", value: 2009 },
+      { name: "غيث محمد جمعة", value: 541 },
+      { name: "ايات حميد مجيد", value: 194 },
+      { name: "Unknown", value: 54 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u064a\u0648\u0633\u0641 \u0646\u0647\u0627\u062f \u062e\u064a\u0631\u064a",
-        "value": 279,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0639\u0627\u0645\u0631 \u0645\u062d\u0645\u062f",
-        "value": 242,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0641\u0631\u062d\u0627\u0646 \u0645\u062c\u064a\u062f",
-        "value": 225,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0627\u0628\u0648 \u0628\u0643\u0631 \u0639\u0628\u062f \u0627\u0644\u0643\u0631\u064a\u0645 \u062e\u0636\u064a\u0631",
-        "value": 210,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u064a\u0648\u0633\u0641 \u0642\u064a\u0635\u0631",
-        "value": 210,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0639\u0628\u062f\u0627\u0644\u0643\u0631\u064a\u0645 \u062d\u0633\u064a\u0646",
-        "value": 209,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0628\u062f \u0639\u0648\u0627\u062f",
-        "value": 209,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0645\u0627\u0647\u0631 \u0645\u062d\u0645\u062f",
-        "value": 209,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0639\u0628\u062f \u0627\u0644\u0644\u0647 \u0639\u0644\u064a \u0645\u0627\u0647\u0648\u062f",
-        "value": 206,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u062e\u0644\u0641 \u0632\u0631\u0632\u0648\u0631",
-        "value": 205,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "يوسف نهاد خيري", value: 279, color: "#10B981" },
+      { name: "حسين عامر محمد", value: 242, color: "#10B981" },
+      { name: "حسين فرحان مجيد", value: 225, color: "#10B981" },
+      { name: "يوسف قيصر", value: 210, color: "#10B981" },
+      { name: "ابو بكر عبد الكريم خضير", value: 210, color: "#10B981" },
+      { name: "احمد ماهر محمد", value: 209, color: "#10B981" },
+      { name: "عبدالرحمن عبدالكريم حسين", value: 209, color: "#10B981" },
+      { name: "محمد عبد عواد", value: 209, color: "#10B981" },
+      { name: "عبد الله علي ماهود", value: 206, color: "#10B981" },
+      { name: "زيد وليد خالد", value: 205, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-02-18",
-        "value": 231
-      },
-      {
-        "name": "2025-02-22",
-        "value": 225
-      },
-      {
-        "name": "2025-02-17",
-        "value": 210
-      },
-      {
-        "name": "2025-02-23",
-        "value": 209
-      },
-      {
-        "name": "2025-02-05",
-        "value": 208
-      },
-      {
-        "name": "2025-02-20",
-        "value": 199
-      },
-      {
-        "name": "2025-02-12",
-        "value": 196
-      },
-      {
-        "name": "2025-02-04",
-        "value": 195
-      },
-      {
-        "name": "2025-02-19",
-        "value": 193
-      },
-      {
-        "name": "2025-02-06",
-        "value": 189
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 6495
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 4961,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-02-01", value: 133 },
+      { name: "2025-02-02", value: 154 },
+      { name: "2025-02-03", value: 140 },
+      { name: "2025-02-04", value: 195 },
+      { name: "2025-02-05", value: 208 },
+      { name: "2025-02-06", value: 189 },
+      { name: "2025-02-07", value: 108 },
+      { name: "2025-02-08", value: 164 },
+      { name: "2025-02-09", value: 182 },
+      { name: "2025-02-10", value: 188 },
+      { name: "2025-02-11", value: 168 },
+      { name: "2025-02-12", value: 196 },
+      { name: "2025-02-13", value: 153 },
+      { name: "2025-02-14", value: 121 },
+      { name: "2025-02-15", value: 150 },
+      { name: "2025-02-16", value: 181 },
+      { name: "2025-02-17", value: 210 },
+      { name: "2025-02-18", value: 231 },
+      { name: "2025-02-19", value: 193 },
+      { name: "2025-02-20", value: 199 },
+      { name: "2025-02-21", value: 110 },
+      { name: "2025-02-22", value: 225 },
+      { name: "2025-02-23", value: 209 },
+      { name: "2025-02-24", value: 176 },
+      { name: "2025-02-25", value: 174 },
+      { name: "2025-02-26", value: 170 },
+      { name: "2025-02-27", value: 136 },
+      { name: "2025-02-28", value: 103 },
+      { name: "2025-03-01", value: 87 },
+      { name: "2025-03-02", value: 18 },
+      { name: "2025-03-03", value: 11 },
+      { name: "2025-03-04", value: 4 },
+      { name: "2025-03-05", value: 3 },
+      { name: "2025-03-06", value: 3 },
+      { name: "2025-03-08", value: 2 },
+      { name: "2025-03-12", value: 1 },
+      { name: "2025-03-16", value: 1 },
+      { name: "2025-03-17", value: 4 },
+      { name: "2025-03-18", value: 8 },
+      { name: "2025-03-19", value: 1 },
+      { name: "2025-03-23", value: 32 },
+      { name: "2025-03-24", value: 2 },
+      { name: "2025-03-25", value: 5 },
+      { name: "2025-03-26", value: 2 },
+      { name: "2025-03-28", value: 1 },
+      { name: "2025-03-29", value: 2 },
+      { name: "2025-03-31", value: 1 },
+      { name: "2025-04-02", value: 1 },
+      { name: "2025-04-03", value: 1 },
+      { name: "2025-04-04", value: 1 },
+      { name: "2025-04-09", value: 1 },
+      { name: "2025-06-25", value: 1 },
+      { name: "2025-09-30", value: 1 },
+      { name: "2025-10-27", value: 1 }
     ]
   }
 };
 
 export const DATA_MAR_2025 = {
-  "summary": {
-    "totalTickets": 6533,
-    "avgDuration": "19:57:11",
-    "totalTime": "4039 days, 16:23:00",
-    "completionRate": 74
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "6533",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "19:57:11",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "4039 days, 16:23:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "74%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 6533, avgDuration: "05:59:00", totalTime: "1628 days, 18:06:00", completionRate: 74 },
+  kpis: [
+    { label: "Total Tickets", value: "6,533", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "05:59:00", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "1628 days, 18:06:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "74%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 4563,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1674,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 296,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 4563, color: "#10B981" },
+      { name: "Cancelled", value: 1674, color: "#EF4444" },
+      { name: "Closed", value: 296, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 602,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1286,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 2036,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 746,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 189,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 5062, color: "#10B981" },
+      { name: "1-4 hrs", value: 435, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 225, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 460, color: "#EF4444" },
+      { name: ">24 hrs", value: 351, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 4478,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 1971,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 77,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 7,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 4478, color: "#6B7280" },
+      { name: "Urgent", value: 1971, color: "#F59E0B" },
+      { name: "High priority", value: 77, color: "#6B7280" },
+      { name: "Medium priority", value: 7, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 516,
-      "Cancelled": 187,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 408,
-      "Cancelled": 134,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 272,
-      "Cancelled": 102,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 264,
-      "Cancelled": 103,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 253,
-      "Cancelled": 80,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 247,
-      "Cancelled": 73,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062c\u0647\u0627\u062f\u00a0\u0661",
-      "Done": 198,
-      "Cancelled": 57,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 194,
-      "Cancelled": 51,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629",
-      "Done": 163,
-      "Cancelled": 39,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 156,
-      "Cancelled": 37,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "بلد", Done: 1, Cancelled: 3, Closed: 0, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "6533",
-      "sla": "74%",
-      "open": "1674",
-      "avgRes": "19.9"
-    },
-    "secondary": {
-      "closed": "4859",
-      "avgAge": "276.3",
-      "oldest": "291",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f, \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 4563,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1674,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 296,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "6,533", sla: "74%", open: "1674", avgRes: "05:59:00" },
+    secondary: { closed: "4859", leaders: "منتصر حسن عباس, بهاء حسين عطية, غيث محمد جمعة" },
+    statusData: [
+      { name: "Done", value: 4563, color: "#10B981" },
+      { name: "Cancelled", value: 1674, color: "#EF4444" },
+      { name: "Closed", value: 296, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 4859,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1674,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 4859, color: "#10B981" },
+      { name: "Missed", value: 1674, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 3578
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 1990
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 848
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 52
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 1
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 3578 },
+      { name: "بهاء حسين عطية", value: 1990 },
+      { name: "غيث محمد جمعة", value: 848 },
+      { name: "Unknown", value: 64 },
+      { name: "ايات حميد مجيد", value: 52 },
+      { name: "ابراهيم علي حسون", value: 1 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u0639\u0644\u064a \u0647\u0627\u0634\u0645 \u062d\u0633\u0646",
-        "value": 235,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u062d\u0633\u0627\u0645 \u0645\u062d\u0645\u062f \u0635\u0628\u0627\u0631",
-        "value": 222,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0641\u0631\u062d\u0627\u0646 \u0645\u062c\u064a\u062f",
-        "value": 217,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0639\u062b\u0645\u0627\u0646 \u0635\u064a\u0648\u0627\u0646 \u0645\u062c\u064a\u062f",
-        "value": 215,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u0647\u064a\u0645\u0646 \u062c\u0645\u064a\u0644 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 214,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 201,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0645\u0648\u0633\u0649 \u062c\u0639\u0641\u0631 \u0645\u0648\u0633\u0649",
-        "value": 200,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u062e\u0644\u0641 \u0632\u0631\u0632\u0648\u0631",
-        "value": 194,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0627\u0646\u0633 \u0642\u064a\u0635\u064a\u0631 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 193,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0648\u0644\u064a\u062f \u0627\u062d\u0645\u062f \u0639\u0637\u064a\u0647",
-        "value": 190,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "علي هاشم حسن", value: 235, color: "#10B981" },
+      { name: "حسام محمد صبار", value: 222, color: "#10B981" },
+      { name: "حسين فرحان مجيد", value: 217, color: "#10B981" },
+      { name: "عثمان صيوان مجيد", value: 215, color: "#10B981" },
+      { name: "مهيمن جميل اسماعيل", value: 214, color: "#10B981" },
+      { name: "محمد علي محمد", value: 201, color: "#10B981" },
+      { name: "موسى جعفر موسى", value: 200, color: "#10B981" },
+      { name: "محمد خلف زرزور", value: 194, color: "#10B981" },
+      { name: "انس قيصير اسماعيل", value: 193, color: "#10B981" },
+      { name: "وليد احمد عطيه", value: 190, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-03-23",
-        "value": 243
-      },
-      {
-        "name": "2025-03-11",
-        "value": 238
-      },
-      {
-        "name": "2025-03-13",
-        "value": 218
-      },
-      {
-        "name": "2025-03-18",
-        "value": 208
-      },
-      {
-        "name": "2025-03-06",
-        "value": 205
-      },
-      {
-        "name": "2025-03-12",
-        "value": 204
-      },
-      {
-        "name": "2025-03-04",
-        "value": 194
-      },
-      {
-        "name": "2025-03-03",
-        "value": 182
-      },
-      {
-        "name": "2025-03-17",
-        "value": 181
-      },
-      {
-        "name": "2025-03-08",
-        "value": 177
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 6533
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 4859,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-03-01", value: 89 },
+      { name: "2025-03-02", value: 145 },
+      { name: "2025-03-03", value: 182 },
+      { name: "2025-03-04", value: 194 },
+      { name: "2025-03-05", value: 175 },
+      { name: "2025-03-06", value: 205 },
+      { name: "2025-03-07", value: 66 },
+      { name: "2025-03-08", value: 177 },
+      { name: "2025-03-09", value: 156 },
+      { name: "2025-03-10", value: 166 },
+      { name: "2025-03-11", value: 238 },
+      { name: "2025-03-12", value: 204 },
+      { name: "2025-03-13", value: 218 },
+      { name: "2025-03-14", value: 100 },
+      { name: "2025-03-15", value: 157 },
+      { name: "2025-03-16", value: 109 },
+      { name: "2025-03-17", value: 181 },
+      { name: "2025-03-18", value: 208 },
+      { name: "2025-03-19", value: 177 },
+      { name: "2025-03-20", value: 152 },
+      { name: "2025-03-21", value: 95 },
+      { name: "2025-03-22", value: 74 },
+      { name: "2025-03-23", value: 243 },
+      { name: "2025-03-24", value: 168 },
+      { name: "2025-03-25", value: 160 },
+      { name: "2025-03-26", value: 146 },
+      { name: "2025-03-27", value: 146 },
+      { name: "2025-03-28", value: 110 },
+      { name: "2025-03-29", value: 153 },
+      { name: "2025-03-30", value: 115 },
+      { name: "2025-03-31", value: 84 },
+      { name: "2025-04-01", value: 38 },
+      { name: "2025-04-02", value: 5 },
+      { name: "2025-04-03", value: 5 },
+      { name: "2025-04-04", value: 3 },
+      { name: "2025-04-05", value: 1 },
+      { name: "2025-04-06", value: 1 },
+      { name: "2025-04-08", value: 2 },
+      { name: "2025-04-12", value: 2 },
+      { name: "2025-04-13", value: 2 },
+      { name: "2025-04-14", value: 3 },
+      { name: "2025-04-15", value: 1 },
+      { name: "2025-04-18", value: 1 },
+      { name: "2025-04-30", value: 1 },
+      { name: "2025-05-27", value: 1 }
     ]
   }
 };
 
 export const DATA_APR_2025 = {
-  "summary": {
-    "totalTickets": 7061,
-    "avgDuration": "16:35:14",
-    "totalTime": "3576 days, 15:57:00",
-    "completionRate": 73
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "7061",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "16:35:14",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "3576 days, 15:57:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "73%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 7061, avgDuration: "04:04:00", totalTime: "1196 days, 11:18:00", completionRate: 73 },
+  kpis: [
+    { label: "Total Tickets", value: "7,061", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "04:04:00", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "1196 days, 11:18:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "73%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 4898,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1886,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 277,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 4898, color: "#10B981" },
+      { name: "Cancelled", value: 1886, color: "#EF4444" },
+      { name: "Closed", value: 277, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 442,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1780,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 1977,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 822,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 154,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 5595, color: "#10B981" },
+      { name: "1-4 hrs", value: 572, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 223, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 375, color: "#EF4444" },
+      { name: ">24 hrs", value: 296, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 5002,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 2002,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 52,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 5,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 5002, color: "#6B7280" },
+      { name: "Urgent", value: 2002, color: "#F59E0B" },
+      { name: "High priority", value: 52, color: "#6B7280" },
+      { name: "Medium priority", value: 5, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 519,
-      "Cancelled": 206,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 498,
-      "Cancelled": 166,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 284,
-      "Cancelled": 101,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 292,
-      "Cancelled": 73,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 258,
-      "Cancelled": 97,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0633\u064a\u062f\u064a\u0629",
-      "Done": 258,
-      "Cancelled": 85,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 244,
-      "Cancelled": 97,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 205,
-      "Cancelled": 43,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062c\u0647\u0627\u062f\u00a0\u0661",
-      "Done": 185,
-      "Cancelled": 61,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062a\u0631\u0627\u062b",
-      "Done": 150,
-      "Cancelled": 49,
-      "Closed": 1,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "7061",
-      "sla": "73%",
-      "open": "1886",
-      "avgRes": "16.5"
-    },
-    "secondary": {
-      "closed": "5175",
-      "avgAge": "243.5",
-      "oldest": "260",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f, Taha Muayed Kahled Majeed Al-Bayati"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 4898,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1886,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 277,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "7,061", sla: "73%", open: "1886", avgRes: "04:04:00" },
+    secondary: { closed: "5175", leaders: "منتصر حسن عباس, بهاء حسين عطية, غيث محمد جمعة" },
+    statusData: [
+      { name: "Done", value: 4898, color: "#10B981" },
+      { name: "Cancelled", value: 1886, color: "#EF4444" },
+      { name: "Closed", value: 277, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 5175,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1886,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 5175, color: "#10B981" },
+      { name: "Missed", value: 1886, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 4309
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 1814
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 835
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 11
-      },
-      {
-        "name": "Taha Muayed Kahled Majeed Al-Bayati",
-        "value": 1
-      },
-      {
-        "name": "\u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f",
-        "value": 1
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 4309 },
+      { name: "بهاء حسين عطية", value: 1814 },
+      { name: "غيث محمد جمعة", value: 835 },
+      { name: "Unknown", value: 90 },
+      { name: "ايات حميد مجيد", value: 11 },
+      { name: "Taha Muayed Kahled Majeed Al-Bayati", value: 1 },
+      { name: "هيثم خوام احمد", value: 1 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0639\u0627\u0645\u0631 \u0645\u062d\u0645\u062f",
-        "value": 263,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0647\u0627\u0634\u0645 \u062d\u0633\u0646",
-        "value": 257,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 255,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0645\u0647\u064a\u0645\u0646 \u062c\u0645\u064a\u0644 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 251,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u064a\u0648\u0633\u0641 \u0642\u064a\u0635\u0631",
-        "value": 247,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0627\u0631\u0643\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 247,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0627\u0628\u0648 \u0628\u0643\u0631 \u0639\u0628\u062f \u0627\u0644\u0643\u0631\u064a\u0645 \u062e\u0636\u064a\u0631",
-        "value": 241,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0627\u0646\u0633 \u0642\u064a\u0635\u064a\u0631 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 241,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0641\u0631\u062d\u0627\u0646 \u0645\u062c\u064a\u062f",
-        "value": 235,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0632\u064a\u0627\u062f \u0627\u064a\u0627\u062f \u0634\u0627\u0643\u0631",
-        "value": 233,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "حسين عامر محمد", value: 263, color: "#10B981" },
+      { name: "علي هاشم حسن", value: 257, color: "#10B981" },
+      { name: "محمد علي محمد", value: 255, color: "#10B981" },
+      { name: "مهيمن جميل اسماعيل", value: 251, color: "#10B981" },
+      { name: "مصطفى اركان اسماعيل", value: 247, color: "#10B981" },
+      { name: "يوسف قيصر", value: 247, color: "#10B981" },
+      { name: "ابو بكر عبد الكريم خضير", value: 241, color: "#10B981" },
+      { name: "انس قيصير اسماعيل", value: 241, color: "#10B981" },
+      { name: "حسين فرحان مجيد", value: 235, color: "#10B981" },
+      { name: "زياد اياد شاكر", value: 233, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-04-26",
-        "value": 234
-      },
-      {
-        "name": "2025-04-06",
-        "value": 224
-      },
-      {
-        "name": "2025-04-28",
-        "value": 222
-      },
-      {
-        "name": "2025-04-19",
-        "value": 215
-      },
-      {
-        "name": "2025-04-23",
-        "value": 215
-      },
-      {
-        "name": "2025-04-27",
-        "value": 205
-      },
-      {
-        "name": "2025-04-30",
-        "value": 204
-      },
-      {
-        "name": "2025-04-20",
-        "value": 197
-      },
-      {
-        "name": "2025-04-21",
-        "value": 197
-      },
-      {
-        "name": "2025-04-05",
-        "value": 194
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 7061
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 5175,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-04-01", value: 76 },
+      { name: "2025-04-02", value: 65 },
+      { name: "2025-04-03", value: 120 },
+      { name: "2025-04-04", value: 127 },
+      { name: "2025-04-05", value: 194 },
+      { name: "2025-04-06", value: 224 },
+      { name: "2025-04-07", value: 174 },
+      { name: "2025-04-08", value: 177 },
+      { name: "2025-04-09", value: 186 },
+      { name: "2025-04-10", value: 176 },
+      { name: "2025-04-11", value: 92 },
+      { name: "2025-04-12", value: 173 },
+      { name: "2025-04-13", value: 177 },
+      { name: "2025-04-14", value: 173 },
+      { name: "2025-04-15", value: 180 },
+      { name: "2025-04-16", value: 184 },
+      { name: "2025-04-17", value: 176 },
+      { name: "2025-04-18", value: 95 },
+      { name: "2025-04-19", value: 215 },
+      { name: "2025-04-20", value: 197 },
+      { name: "2025-04-21", value: 197 },
+      { name: "2025-04-22", value: 193 },
+      { name: "2025-04-23", value: 215 },
+      { name: "2025-04-24", value: 183 },
+      { name: "2025-04-25", value: 95 },
+      { name: "2025-04-26", value: 234 },
+      { name: "2025-04-27", value: 205 },
+      { name: "2025-04-28", value: 222 },
+      { name: "2025-04-29", value: 177 },
+      { name: "2025-04-30", value: 204 },
+      { name: "2025-05-01", value: 27 },
+      { name: "2025-05-02", value: 3 },
+      { name: "2025-05-03", value: 20 },
+      { name: "2025-05-04", value: 5 },
+      { name: "2025-05-05", value: 4 },
+      { name: "2025-05-06", value: 2 },
+      { name: "2025-05-10", value: 1 },
+      { name: "2025-05-11", value: 2 },
+      { name: "2025-05-13", value: 1 },
+      { name: "2025-05-17", value: 1 },
+      { name: "2025-05-18", value: 2 },
+      { name: "2025-11-23", value: 1 }
     ]
   }
 };
 
 export const DATA_MAY_2025 = {
-  "summary": {
-    "totalTickets": 6644,
-    "avgDuration": "16:45:41",
-    "totalTime": "3528 days, 06:43:00",
-    "completionRate": 76
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "6644",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "16:45:41",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "3528 days, 06:43:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "76%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 6644, avgDuration: "04:28:28", totalTime: "1238 days, 17:48:00", completionRate: 76 },
+  kpis: [
+    { label: "Total Tickets", value: "6,644", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "04:28:28", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "1238 days, 17:48:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "76%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 5038,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1592,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 14,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 5038, color: "#10B981" },
+      { name: "Cancelled", value: 1592, color: "#EF4444" },
+      { name: "Closed", value: 14, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 406,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1784,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 1878,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 817,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 167,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 5141, color: "#10B981" },
+      { name: "1-4 hrs", value: 587, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 169, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 429, color: "#EF4444" },
+      { name: ">24 hrs", value: 318, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 4584,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 2002,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 50,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 8,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 4584, color: "#6B7280" },
+      { name: "Urgent", value: 2002, color: "#F59E0B" },
+      { name: "High priority", value: 50, color: "#6B7280" },
+      { name: "Medium priority", value: 8, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 552,
-      "Cancelled": 181,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 479,
-      "Cancelled": 141,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 315,
-      "Cancelled": 132,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062c\u0647\u0627\u062f\u00a0\u0661",
-      "Done": 354,
-      "Cancelled": 86,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 275,
-      "Cancelled": 76,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 259,
-      "Cancelled": 70,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 232,
-      "Cancelled": 63,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 229,
-      "Cancelled": 59,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0633\u064a\u062f\u064a\u0629",
-      "Done": 164,
-      "Cancelled": 52,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062a\u0631\u0627\u062b",
-      "Done": 160,
-      "Cancelled": 48,
-      "Closed": 1,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "6644",
-      "sla": "76%",
-      "open": "1592",
-      "avgRes": "16.7"
-    },
-    "secondary": {
-      "closed": "5052",
-      "avgAge": "214.9",
-      "oldest": "230",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f, \u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 5038,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1592,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 14,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "6,644", sla: "76%", open: "1592", avgRes: "04:28:28" },
+    secondary: { closed: "5052", leaders: "منتصر حسن عباس, بهاء حسين عطية, غيث محمد جمعة" },
+    statusData: [
+      { name: "Done", value: 5038, color: "#10B981" },
+      { name: "Cancelled", value: 1592, color: "#EF4444" },
+      { name: "Closed", value: 14, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 5052,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1592,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 5052, color: "#10B981" },
+      { name: "Missed", value: 1592, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 3888
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 1581
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 609
-      },
-      {
-        "name": "\u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f",
-        "value": 324
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 5
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 3888 },
+      { name: "بهاء حسين عطية", value: 1581 },
+      { name: "غيث محمد جمعة", value: 609 },
+      { name: "هيثم خوام احمد", value: 324 },
+      { name: "Unknown", value: 237 },
+      { name: "ايات حميد مجيد", value: 5 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u0627\u0646\u0633 \u0642\u064a\u0635\u064a\u0631 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 231,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0648\u0644\u064a\u062f \u0627\u062d\u0645\u062f \u0639\u0637\u064a\u0647",
-        "value": 227,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0627\u0631\u0643\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 227,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0628\u0631\u0627\u0621 \u0633\u0639\u062f \u062c\u0645\u064a\u0644",
-        "value": 225,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0639\u0627\u0645\u0631 \u0645\u062d\u0645\u062f",
-        "value": 217,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0645\u0644\u0643 \u062d\u0633\u0627\u0645 \u0639\u0628\u062f\u0627\u0644\u0645\u0644\u0643",
-        "value": 214,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 213,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0639\u0628\u062f \u0627\u0644\u0644\u0647 \u0639\u0644\u064a \u0645\u0627\u0647\u0648\u062f",
-        "value": 206,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0632\u064a\u062f \u0648\u0644\u064a\u062f \u062e\u0627\u0644\u062f",
-        "value": 204,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u064a\u0648\u0633\u0641 \u0642\u064a\u0635\u0631",
-        "value": 204,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "انس قيصير اسماعيل", value: 231, color: "#10B981" },
+      { name: "وليد احمد عطيه", value: 227, color: "#10B981" },
+      { name: "مصطفى اركان اسماعيل", value: 227, color: "#10B981" },
+      { name: "براء سعد جميل", value: 225, color: "#10B981" },
+      { name: "حسين عامر محمد", value: 217, color: "#10B981" },
+      { name: "عبدالملك حسام عبدالملك", value: 214, color: "#10B981" },
+      { name: "محمد علي محمد", value: 213, color: "#10B981" },
+      { name: "عبد الله علي ماهود", value: 206, color: "#10B981" },
+      { name: "يوسف قيصر", value: 204, color: "#10B981" },
+      { name: "زيد وليد خالد", value: 204, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-05-03",
-        "value": 224
-      },
-      {
-        "name": "2025-05-04",
-        "value": 216
-      },
-      {
-        "name": "2025-05-10",
-        "value": 203
-      },
-      {
-        "name": "2025-05-06",
-        "value": 200
-      },
-      {
-        "name": "2025-05-14",
-        "value": 196
-      },
-      {
-        "name": "2025-05-21",
-        "value": 195
-      },
-      {
-        "name": "2025-05-05",
-        "value": 194
-      },
-      {
-        "name": "2025-05-26",
-        "value": 188
-      },
-      {
-        "name": "2025-05-31",
-        "value": 184
-      },
-      {
-        "name": "2025-05-15",
-        "value": 180
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 6644
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 5052,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-05-01", value: 69 },
+      { name: "2025-05-02", value: 95 },
+      { name: "2025-05-03", value: 224 },
+      { name: "2025-05-04", value: 216 },
+      { name: "2025-05-05", value: 194 },
+      { name: "2025-05-06", value: 200 },
+      { name: "2025-05-07", value: 177 },
+      { name: "2025-05-08", value: 158 },
+      { name: "2025-05-09", value: 121 },
+      { name: "2025-05-10", value: 203 },
+      { name: "2025-05-11", value: 159 },
+      { name: "2025-05-12", value: 175 },
+      { name: "2025-05-13", value: 162 },
+      { name: "2025-05-14", value: 196 },
+      { name: "2025-05-15", value: 180 },
+      { name: "2025-05-16", value: 107 },
+      { name: "2025-05-17", value: 142 },
+      { name: "2025-05-18", value: 161 },
+      { name: "2025-05-19", value: 160 },
+      { name: "2025-05-20", value: 155 },
+      { name: "2025-05-21", value: 195 },
+      { name: "2025-05-22", value: 160 },
+      { name: "2025-05-23", value: 102 },
+      { name: "2025-05-24", value: 142 },
+      { name: "2025-05-25", value: 175 },
+      { name: "2025-05-26", value: 188 },
+      { name: "2025-05-27", value: 164 },
+      { name: "2025-05-28", value: 125 },
+      { name: "2025-05-29", value: 146 },
+      { name: "2025-05-30", value: 127 },
+      { name: "2025-05-31", value: 184 },
+      { name: "2025-06-01", value: 61 },
+      { name: "2025-06-02", value: 12 },
+      { name: "2025-06-03", value: 10 },
+      { name: "2025-06-04", value: 1 },
+      { name: "2025-06-13", value: 3 },
+      { name: "2025-06-15", value: 1 },
+      { name: "2025-06-28", value: 1 },
+      { name: "2025-07-15", value: 1 }
     ]
   }
 };
 
 export const DATA_JUN_2025 = {
-  "summary": {
-    "totalTickets": 4777,
-    "avgDuration": "12:11:22",
-    "totalTime": "1892 days, 09:55:00",
-    "completionRate": 78
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "4777",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "12:11:22",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "1892 days, 09:55:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "78%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 4777, avgDuration: "03:18:08", totalTime: "657 days, 07:30:00", completionRate: 78 },
+  kpis: [
+    { label: "Total Tickets", value: "4,777", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "03:18:08", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "657 days, 07:30:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "78%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 3698,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1051,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 28,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 3698, color: "#10B981" },
+      { name: "Cancelled", value: 1051, color: "#EF4444" },
+      { name: "Closed", value: 28, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 487,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1529,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 1172,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 459,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 79,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 3689, color: "#10B981" },
+      { name: "1-4 hrs", value: 513, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 141, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 242, color: "#EF4444" },
+      { name: ">24 hrs", value: 192, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 3292,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 1451,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 27,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 7,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 3292, color: "#6B7280" },
+      { name: "Urgent", value: 1451, color: "#F59E0B" },
+      { name: "High priority", value: 27, color: "#6B7280" },
+      { name: "Medium priority", value: 7, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 296,
-      "Cancelled": 108,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 321,
-      "Cancelled": 76,
-      "Closed": 7,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 233,
-      "Cancelled": 163,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 253,
-      "Cancelled": 51,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 229,
-      "Cancelled": 70,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 174,
-      "Cancelled": 32,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 136,
-      "Cancelled": 26,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 132,
-      "Cancelled": 29,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0633\u064a\u062f\u064a\u0629",
-      "Done": 128,
-      "Cancelled": 30,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629",
-      "Done": 116,
-      "Cancelled": 28,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "الشرقاط", Done: 2, Cancelled: 2, Closed: 0, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "بلد", Done: 1, Cancelled: 3, Closed: 0, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "4777",
-      "sla": "78%",
-      "open": "1051",
-      "avgRes": "12.1"
-    },
-    "secondary": {
-      "closed": "3726",
-      "avgAge": "184.1",
-      "oldest": "199",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, \u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f, \u0646\u0645\u064a\u0631 \u0627\u062d\u0645\u062f \u0639\u0644\u0627\u0621 \u0627\u0644\u062f\u064a\u0646"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 3698,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 1051,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 28,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "4,777", sla: "78%", open: "1051", avgRes: "03:18:08" },
+    secondary: { closed: "3726", leaders: "منتصر حسن عباس, بهاء حسين عطية, Unknown" },
+    statusData: [
+      { name: "Done", value: 3698, color: "#10B981" },
+      { name: "Cancelled", value: 1051, color: "#EF4444" },
+      { name: "Closed", value: 28, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 3726,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 1051,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 3726, color: "#10B981" },
+      { name: "Missed", value: 1051, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 2384
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 873
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 328
-      },
-      {
-        "name": "\u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f",
-        "value": 241
-      },
-      {
-        "name": "\u0646\u0645\u064a\u0631 \u0627\u062d\u0645\u062f \u0639\u0644\u0627\u0621 \u0627\u0644\u062f\u064a\u0646",
-        "value": 75
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 40
-      },
-      {
-        "name": "\u0627\u064a\u0627\u062a \u062d\u0645\u064a\u062f \u0645\u062c\u064a\u062f",
-        "value": 23
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 14
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 4
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u064a\u0648\u0633\u0641 \u0631\u064a\u0627\u0636",
-        "value": 1
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 2384 },
+      { name: "بهاء حسين عطية", value: 873 },
+      { name: "Unknown", value: 794 },
+      { name: "غيث محمد جمعة", value: 328 },
+      { name: "هيثم خوام احمد", value: 241 },
+      { name: "نمير احمد علاء الدين", value: 75 },
+      { name: "اريج فايز صكبان", value: 40 },
+      { name: "ايات حميد مجيد", value: 23 },
+      { name: "ابراهيم علي حسون", value: 14 },
+      { name: "محمد عدنان نوري", value: 4 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u0632\u064a\u0627\u062f \u0627\u064a\u0627\u062f \u0634\u0627\u0643\u0631",
-        "value": 170,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0639\u062f\u064a \u0633\u0627\u0645\u064a",
-        "value": 167,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0639\u0628\u062f\u0627\u0644\u0643\u0631\u064a\u0645 \u062d\u0633\u064a\u0646",
-        "value": 164,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0627\u0631\u0643\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 152,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0648\u0644\u064a\u062f \u0627\u062d\u0645\u062f \u0639\u0637\u064a\u0647",
-        "value": 149,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0627\u0628\u0648 \u0628\u0643\u0631 \u0639\u0628\u062f \u0627\u0644\u0643\u0631\u064a\u0645 \u062e\u0636\u064a\u0631",
-        "value": 138,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0639\u0627\u0645\u0631 \u0645\u062d\u0645\u062f",
-        "value": 136,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u062d\u064a\u062f\u0631 \u062d\u0627\u0645\u062f \u0635\u0627\u062f\u0642",
-        "value": 127,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0645\u0647\u064a\u0645\u0646 \u062c\u0645\u064a\u0644 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 127,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0627\u0631\u0643\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 125,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 548, color: "#10B981" },
+      { name: "زياد اياد شاكر", value: 170, color: "#10B981" },
+      { name: "علي عدي سامي", value: 167, color: "#10B981" },
+      { name: "عبدالرحمن عبدالكريم حسين", value: 164, color: "#10B981" },
+      { name: "عبد الرحمن اركان اسماعيل", value: 152, color: "#10B981" },
+      { name: "وليد احمد عطيه", value: 149, color: "#10B981" },
+      { name: "ابو بكر عبد الكريم خضير", value: 138, color: "#10B981" },
+      { name: "حسين عامر محمد", value: 136, color: "#10B981" },
+      { name: "حيدر حامد صادق", value: 127, color: "#10B981" },
+      { name: "مهيمن جميل اسماعيل", value: 127, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-06-11",
-        "value": 171
-      },
-      {
-        "name": "2025-06-03",
-        "value": 168
-      },
-      {
-        "name": "2025-06-05",
-        "value": 162
-      },
-      {
-        "name": "2025-06-12",
-        "value": 161
-      },
-      {
-        "name": "2025-06-04",
-        "value": 156
-      },
-      {
-        "name": "2025-06-14",
-        "value": 156
-      },
-      {
-        "name": "2025-06-16",
-        "value": 153
-      },
-      {
-        "name": "2025-06-22",
-        "value": 151
-      },
-      {
-        "name": "2025-06-23",
-        "value": 150
-      },
-      {
-        "name": "2025-06-02",
-        "value": 149
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 4777
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 3726,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-06-01", value: 125 },
+      { name: "2025-06-02", value: 149 },
+      { name: "2025-06-03", value: 168 },
+      { name: "2025-06-04", value: 156 },
+      { name: "2025-06-05", value: 162 },
+      { name: "2025-06-06", value: 105 },
+      { name: "2025-06-07", value: 54 },
+      { name: "2025-06-08", value: 76 },
+      { name: "2025-06-09", value: 88 },
+      { name: "2025-06-10", value: 91 },
+      { name: "2025-06-11", value: 171 },
+      { name: "2025-06-12", value: 161 },
+      { name: "2025-06-13", value: 100 },
+      { name: "2025-06-14", value: 156 },
+      { name: "2025-06-15", value: 96 },
+      { name: "2025-06-16", value: 153 },
+      { name: "2025-06-17", value: 141 },
+      { name: "2025-06-18", value: 127 },
+      { name: "2025-06-19", value: 136 },
+      { name: "2025-06-20", value: 116 },
+      { name: "2025-06-21", value: 129 },
+      { name: "2025-06-22", value: 151 },
+      { name: "2025-06-23", value: 150 },
+      { name: "2025-06-24", value: 116 },
+      { name: "2025-06-25", value: 93 },
+      { name: "2025-06-26", value: 90 },
+      { name: "2025-06-27", value: 73 },
+      { name: "2025-06-28", value: 95 },
+      { name: "2025-06-29", value: 137 },
+      { name: "2025-06-30", value: 115 },
+      { name: "2025-07-01", value: 31 },
+      { name: "2025-07-02", value: 5 },
+      { name: "2025-07-03", value: 5 },
+      { name: "2025-07-04", value: 1 },
+      { name: "2025-07-05", value: 1 },
+      { name: "2025-07-07", value: 1 },
+      { name: "2025-07-13", value: 1 },
+      { name: "2025-07-24", value: 1 }
     ]
   }
 };
 
 export const DATA_JUL_2025 = {
-  "summary": {
-    "totalTickets": 3345,
-    "avgDuration": "14:28:05",
-    "totalTime": "1620 days, 10:11:00",
-    "completionRate": 80
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "3345",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "14:28:05",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "1620 days, 10:11:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "80%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 3345, avgDuration: "04:59:50", totalTime: "696 days, 12:29:00", completionRate: 80 },
+  kpis: [
+    { label: "Total Tickets", value: "3,345", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "04:59:50", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "696 days, 12:29:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "80%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 2652,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 657,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 36,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 2652, color: "#10B981" },
+      { name: "Cancelled", value: 657, color: "#EF4444" },
+      { name: "Closed", value: 36, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 627,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1192,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 621,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 190,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 58,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 2767, color: "#10B981" },
+      { name: "1-4 hrs", value: 327, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 59, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 104, color: "#EF4444" },
+      { name: ">24 hrs", value: 88, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 2455,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 862,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 27,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 1,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 2455, color: "#6B7280" },
+      { name: "Urgent", value: 862, color: "#F59E0B" },
+      { name: "High priority", value: 27, color: "#6B7280" },
+      { name: "Medium priority", value: 1, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 253,
-      "Cancelled": 87,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 255,
-      "Cancelled": 77,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 190,
-      "Cancelled": 44,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 166,
-      "Cancelled": 57,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 173,
-      "Cancelled": 45,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0633\u064a\u062f\u064a\u0629",
-      "Done": 148,
-      "Cancelled": 68,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 115,
-      "Cancelled": 21,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 116,
-      "Cancelled": 17,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0628\u0648 \u062f\u0634\u064a\u0631",
-      "Done": 105,
-      "Cancelled": 26,
-      "Closed": 9,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0634\u0639\u0644\u0629",
-      "Done": 103,
-      "Cancelled": 11,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "3345",
-      "sla": "80%",
-      "open": "657",
-      "avgRes": "14.4"
-    },
-    "secondary": {
-      "closed": "2688",
-      "avgAge": "153.9",
-      "oldest": "169",
-      "leaders": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629, Samer Abdul-Malik Sabri, \u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 2652,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 657,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 36,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "3,345", sla: "80%", open: "657", avgRes: "04:59:50" },
+    secondary: { closed: "2688", leaders: "منتصر حسن عباس, Unknown, بهاء حسين عطية" },
+    statusData: [
+      { name: "Done", value: 2652, color: "#10B981" },
+      { name: "Cancelled", value: 657, color: "#EF4444" },
+      { name: "Closed", value: 36, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 2688,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 657,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 2688, color: "#10B981" },
+      { name: "Missed", value: 657, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 1364
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 599
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 174
-      },
-      {
-        "name": "Samer Abdul-Malik Sabri",
-        "value": 119
-      },
-      {
-        "name": "\u0647\u064a\u062b\u0645 \u062e\u0648\u0627\u0645 \u0627\u062d\u0645\u062f",
-        "value": 109
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 60
-      },
-      {
-        "name": "\u0646\u0645\u064a\u0631 \u0627\u062d\u0645\u062f \u0639\u0644\u0627\u0621 \u0627\u0644\u062f\u064a\u0646",
-        "value": 59
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 55
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 8
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 1
-      }
+    subAreaData: [
+      { name: "منتصر حسن عباس", value: 1364 },
+      { name: "Unknown", value: 797 },
+      { name: "بهاء حسين عطية", value: 599 },
+      { name: "غيث محمد جمعة", value: 174 },
+      { name: "Samer Abdul-Malik Sabri", value: 119 },
+      { name: "هيثم خوام احمد", value: 109 },
+      { name: "اريج فايز صكبان", value: 60 },
+      { name: "نمير احمد علاء الدين", value: 59 },
+      { name: "مصطفى تحسين علي", value: 55 },
+      { name: "محمد اسماعيل ياسين", value: 8 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u0639\u0644\u064a \u0639\u062f\u064a \u0633\u0627\u0645\u064a",
-        "value": 113,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u062d\u0633\u0627\u0645 \u0645\u062d\u0645\u062f \u0635\u0628\u0627\u0631",
-        "value": 102,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0627\u0628\u0648 \u0628\u0643\u0631 \u0639\u0628\u062f \u0627\u0644\u0643\u0631\u064a\u0645 \u062e\u0636\u064a\u0631",
-        "value": 95,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 94,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0627\u0646\u0633 \u0642\u064a\u0635\u064a\u0631 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 94,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0627\u0631\u0643\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644",
-        "value": 93,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0645\u0648\u0633\u0649 \u062c\u0639\u0641\u0631 \u0645\u0648\u0633\u0649",
-        "value": 93,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u062d\u064a\u062f\u0631 \u062d\u0627\u0645\u062f \u0635\u0627\u062f\u0642",
-        "value": 90,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0632\u064a\u062f \u0648\u0644\u064a\u062f \u062e\u0627\u0644\u062f",
-        "value": 90,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0628\u0631\u0627\u0621 \u0633\u0639\u062f \u062c\u0645\u064a\u0644",
-        "value": 88,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 700, color: "#10B981" },
+      { name: "علي عدي سامي", value: 113, color: "#10B981" },
+      { name: "حسام محمد صبار", value: 102, color: "#10B981" },
+      { name: "ابو بكر عبد الكريم خضير", value: 95, color: "#10B981" },
+      { name: "محمد علي محمد", value: 94, color: "#10B981" },
+      { name: "انس قيصير اسماعيل", value: 94, color: "#10B981" },
+      { name: "عبد الرحمن اركان اسماعيل", value: 93, color: "#10B981" },
+      { name: "موسى جعفر موسى", value: 93, color: "#10B981" },
+      { name: "حيدر حامد صادق", value: 90, color: "#10B981" },
+      { name: "زيد وليد خالد", value: 90, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-07-13",
-        "value": 158
-      },
-      {
-        "name": "2025-07-07",
-        "value": 138
-      },
-      {
-        "name": "2025-07-08",
-        "value": 111
-      },
-      {
-        "name": "2025-07-14",
-        "value": 110
-      },
-      {
-        "name": "2025-07-09",
-        "value": 110
-      },
-      {
-        "name": "2025-07-23",
-        "value": 109
-      },
-      {
-        "name": "2025-07-10",
-        "value": 107
-      },
-      {
-        "name": "2025-07-17",
-        "value": 99
-      },
-      {
-        "name": "2025-07-16",
-        "value": 95
-      },
-      {
-        "name": "2025-07-27",
-        "value": 93
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 3345
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 2688,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-07-01", value: 88 },
+      { name: "2025-07-02", value: 75 },
+      { name: "2025-07-03", value: 83 },
+      { name: "2025-07-04", value: 65 },
+      { name: "2025-07-05", value: 89 },
+      { name: "2025-07-06", value: 44 },
+      { name: "2025-07-07", value: 138 },
+      { name: "2025-07-08", value: 111 },
+      { name: "2025-07-09", value: 110 },
+      { name: "2025-07-10", value: 107 },
+      { name: "2025-07-11", value: 68 },
+      { name: "2025-07-12", value: 91 },
+      { name: "2025-07-13", value: 158 },
+      { name: "2025-07-14", value: 110 },
+      { name: "2025-07-15", value: 92 },
+      { name: "2025-07-16", value: 95 },
+      { name: "2025-07-17", value: 99 },
+      { name: "2025-07-18", value: 57 },
+      { name: "2025-07-19", value: 82 },
+      { name: "2025-07-20", value: 69 },
+      { name: "2025-07-21", value: 58 },
+      { name: "2025-07-22", value: 76 },
+      { name: "2025-07-23", value: 109 },
+      { name: "2025-07-24", value: 74 },
+      { name: "2025-07-25", value: 68 },
+      { name: "2025-07-26", value: 60 },
+      { name: "2025-07-27", value: 93 },
+      { name: "2025-07-28", value: 81 },
+      { name: "2025-07-29", value: 71 },
+      { name: "2025-07-30", value: 70 },
+      { name: "2025-07-31", value: 70 },
+      { name: "2025-08-01", value: 10 },
+      { name: "2025-08-02", value: 3 },
+      { name: "2025-08-03", value: 2 },
+      { name: "2025-08-09", value: 1 },
+      { name: "2025-08-27", value: 1 },
+      { name: "2025-08-28", value: 4 },
+      { name: "2025-08-30", value: 1 },
+      { name: "2025-10-01", value: 1 },
+      { name: "2025-10-26", value: 2 },
+      { name: "2025-10-27", value: 2 }
     ]
   }
 };
 
 export const DATA_AUG_2025 = {
-  "summary": {
-    "totalTickets": 3629,
-    "avgDuration": "22:03:59",
-    "totalTime": "2729 days, 19:45:00",
-    "completionRate": 82
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "3629",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "22:03:59",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "2729 days, 19:45:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "82%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 3626, avgDuration: "04:10:52", totalTime: "631 days, 17:19:00", completionRate: 82 },
+  kpis: [
+    { label: "Total Tickets", value: "3,626", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "04:10:52", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "631 days, 17:19:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "82%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 2745,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 660,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 224,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 2742, color: "#10B981" },
+      { name: "Cancelled", value: 660, color: "#EF4444" },
+      { name: "Closed", value: 224, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 1025,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 974,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 694,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 220,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 56,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 3068, color: "#10B981" },
+      { name: "1-4 hrs", value: 276, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 64, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 130, color: "#EF4444" },
+      { name: ">24 hrs", value: 88, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 2794,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 794,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 37,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 4,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 2793, color: "#6B7280" },
+      { name: "Urgent", value: 793, color: "#F59E0B" },
+      { name: "High priority", value: 36, color: "#6B7280" },
+      { name: "Medium priority", value: 4, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u062a\u0643\u0631\u064a\u062a",
-      "Done": 657,
-      "Cancelled": 147,
-      "Closed": 44,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 421,
-      "Cancelled": 150,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629 \u062c\u062f\u064a\u062f",
-      "Done": 228,
-      "Cancelled": 26,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 151,
-      "Cancelled": 40,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 145,
-      "Cancelled": 28,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062e\u0636\u0631\u0627\u0621",
-      "Done": 148,
-      "Cancelled": 6,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0639\u0627\u0645\u0644",
-      "Done": 100,
-      "Cancelled": 38,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0634\u0639\u0644\u0629",
-      "Done": 97,
-      "Cancelled": 13,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a",
-      "Done": 95,
-      "Cancelled": 0,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 71,
-      "Cancelled": 16,
-      "Closed": 2,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "تكريت", Done: 2004, Cancelled: 687, Closed: 88, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "3629",
-      "sla": "82%",
-      "open": "660",
-      "avgRes": "22.0"
-    },
-    "secondary": {
-      "closed": "2969",
-      "avgAge": "120.8",
-      "oldest": "864",
-      "leaders": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f, \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646, \u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 2745,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 660,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 224,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "3,626", sla: "82%", open: "660", avgRes: "04:10:52" },
+    secondary: { closed: "2966", leaders: "Unknown, بهاء حسين عطية, منتصر حسن عباس" },
+    statusData: [
+      { name: "Done", value: 2742, color: "#10B981" },
+      { name: "Cancelled", value: 660, color: "#EF4444" },
+      { name: "Closed", value: 224, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 2969,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 660,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 2966, color: "#10B981" },
+      { name: "Missed", value: 660, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 871
-      },
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 607
-      },
-      {
-        "name": "\u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f",
-        "value": 261
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 152
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 148
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 137
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 129
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646",
-        "value": 71
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 61
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 59
-      }
+    subAreaData: [
+      { name: "Unknown", value: 1057 },
+      { name: "بهاء حسين عطية", value: 870 },
+      { name: "منتصر حسن عباس", value: 606 },
+      { name: "طه خيري عبد", value: 261 },
+      { name: "ابراهيم علي حسون", value: 152 },
+      { name: "اريج فايز صكبان", value: 148 },
+      { name: "مصطفى تحسين علي", value: 137 },
+      { name: "محمد اسماعيل ياسين", value: 129 },
+      { name: "احمد هيثم عبد الرحمن", value: 71 },
+      { name: "محمد عدنان نوري", value: 61 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062e\u0644\u062f\u0648\u0646 \u0635\u0644\u0627\u062d \u0646\u0635\u064a\u0641",
-        "value": 148,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u062d\u0645\u062f \u062e\u0627\u0644\u062f",
-        "value": 142,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0631\u062d\u064a\u0645 \u0628\u062f\u0631\u0627\u0646",
-        "value": 129,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u062d\u0633\u064a\u0646 \u0641\u0631\u062d\u0627\u0646 \u0645\u062c\u064a\u062f",
-        "value": 106,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0644\u064a \u0645\u062d\u0645\u062f",
-        "value": 101,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0627\u0648\u0631\u0627\u0633 \u062e\u0644\u0641 \u0645\u062d\u0645\u062f \u0645\u062d\u0645\u062f \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 97,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0637\u0644\u0641\u0627\u062d \u0647\u0627\u0634\u0645 \u0639\u062f\u0646\u0627\u0646 \u0637\u0644\u0641\u0627\u062d \u0627\u0644\u0639\u0628\u0627\u0633\u064a",
-        "value": 96,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0632\u064a\u062f \u0648\u0644\u064a\u062f \u062e\u0627\u0644\u062f",
-        "value": 95,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0647\u0645\u0627\u0645 \u0633\u062a\u0627\u0631 \u062d\u0633\u064a\u0646",
-        "value": 94,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u0637\u0644\u0643 \u062e\u0644\u0641",
-        "value": 89,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 915, color: "#10B981" },
+      { name: "خلدون صلاح نصيف", value: 148, color: "#10B981" },
+      { name: "عبدالرحمن محمد خالد", value: 142, color: "#10B981" },
+      { name: "محمد ارحيم بدران", value: 129, color: "#10B981" },
+      { name: "حسين فرحان مجيد", value: 106, color: "#10B981" },
+      { name: "محمد علي محمد", value: 101, color: "#10B981" },
+      { name: "اوراس خلف محمد محمد الدليمي", value: 97, color: "#10B981" },
+      { name: "طلفاح هاشم عدنان طلفاح العباسي", value: 96, color: "#10B981" },
+      { name: "زيد وليد خالد", value: 95, color: "#10B981" },
+      { name: "همام ستار حسين", value: 94, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-08-16",
-        "value": 167
-      },
-      {
-        "name": "2025-08-20",
-        "value": 159
-      },
-      {
-        "name": "2025-08-17",
-        "value": 158
-      },
-      {
-        "name": "2025-08-18",
-        "value": 150
-      },
-      {
-        "name": "2025-08-23",
-        "value": 142
-      },
-      {
-        "name": "2025-08-21",
-        "value": 138
-      },
-      {
-        "name": "2025-08-31",
-        "value": 131
-      },
-      {
-        "name": "2025-08-19",
-        "value": 125
-      },
-      {
-        "name": "2025-08-24",
-        "value": 117
-      },
-      {
-        "name": "2025-08-25",
-        "value": 115
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 3629
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 2969,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-08-01", value: 48 },
+      { name: "2025-08-02", value: 69 },
+      { name: "2025-08-03", value: 63 },
+      { name: "2025-08-04", value: 62 },
+      { name: "2025-08-05", value: 60 },
+      { name: "2025-08-06", value: 76 },
+      { name: "2025-08-07", value: 74 },
+      { name: "2025-08-08", value: 39 },
+      { name: "2025-08-09", value: 55 },
+      { name: "2025-08-10", value: 56 },
+      { name: "2025-08-11", value: 92 },
+      { name: "2025-08-12", value: 86 },
+      { name: "2025-08-13", value: 78 },
+      { name: "2025-08-14", value: 59 },
+      { name: "2025-08-15", value: 46 },
+      { name: "2025-08-16", value: 167 },
+      { name: "2025-08-17", value: 158 },
+      { name: "2025-08-18", value: 150 },
+      { name: "2025-08-19", value: 124 },
+      { name: "2025-08-20", value: 159 },
+      { name: "2025-08-21", value: 138 },
+      { name: "2025-08-22", value: 90 },
+      { name: "2025-08-23", value: 142 },
+      { name: "2025-08-24", value: 117 },
+      { name: "2025-08-25", value: 115 },
+      { name: "2025-08-26", value: 87 },
+      { name: "2025-08-27", value: 94 },
+      { name: "2025-08-28", value: 102 },
+      { name: "2025-08-29", value: 98 },
+      { name: "2025-08-30", value: 100 },
+      { name: "2025-08-31", value: 131 },
+      { name: "2025-09-01", value: 15 },
+      { name: "2025-09-02", value: 4 },
+      { name: "2025-09-03", value: 2 },
+      { name: "2025-09-07", value: 1 },
+      { name: "2025-09-10", value: 1 },
+      { name: "2025-10-23", value: 4 },
+      { name: "2025-10-26", value: 1 },
+      { name: "2025-10-27", value: 1 },
+      { name: "2025-11-09", value: 2 }
     ]
   }
 };
 
 export const DATA_SEP_2025 = {
-  "summary": {
-    "totalTickets": 2272,
-    "avgDuration": "12:58:49",
-    "totalTime": "937 days, 06:53:00",
-    "completionRate": 76
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "2272",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "12:58:49",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "937 days, 06:53:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "76%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 3308, avgDuration: "02:30:15", totalTime: "345 days, 04:19:00", completionRate: 77 },
+  kpis: [
+    { label: "Total Tickets", value: "3,308", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "02:30:15", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "345 days, 04:19:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "77%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 1662,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 539,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 71,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 2450, color: "#10B981" },
+      { name: "Cancelled", value: 749, color: "#EF4444" },
+      { name: "Closed", value: 109, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 496,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 572,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 444,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 185,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 36,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 2917, color: "#10B981" },
+      { name: "1-4 hrs", value: 191, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 51, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 79, color: "#EF4444" },
+      { name: ">24 hrs", value: 70, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 1798,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 428,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 39,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 7,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 2687, color: "#6B7280" },
+      { name: "Urgent", value: 576, color: "#F59E0B" },
+      { name: "High priority", value: 44, color: "#6B7280" },
+      { name: "Medium priority", value: 1, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0628\u064a\u062c\u064a",
-      "Done": 533,
-      "Cancelled": 207,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 377,
-      "Cancelled": 139,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062a\u0643\u0631\u064a\u062a",
-      "Done": 171,
-      "Cancelled": 71,
-      "Closed": 6,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a",
-      "Done": 123,
-      "Cancelled": 19,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 51,
-      "Cancelled": 8,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 36,
-      "Cancelled": 9,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 34,
-      "Cancelled": 8,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629 1",
-      "Done": 27,
-      "Cancelled": 8,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 27,
-      "Cancelled": 7,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0645\u062c\u0645\u0639 \u0627\u0644\u0631\u0648\u0627\u0646",
-      "Done": 27,
-      "Cancelled": 4,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "تكريت", Done: 2004, Cancelled: 687, Closed: 88, Postpone: 0 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "الشعلة الجديد", Done: 51, Cancelled: 19, Closed: 1, Postpone: 0 },
+    { subArea: "الجعيفر", Done: 7, Cancelled: 4, Closed: 0, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "2272",
-      "sla": "76%",
-      "open": "539",
-      "avgRes": "12.9"
-    },
-    "secondary": {
-      "closed": "1733",
-      "avgAge": "60.9",
-      "oldest": "425",
-      "leaders": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646, \u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646, \u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 1662,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 539,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 71,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "3,308", sla: "77%", open: "749", avgRes: "02:30:15" },
+    secondary: { closed: "2559", leaders: "Unknown, طه خيري عبد, بهاء حسين عطية" },
+    statusData: [
+      { name: "Done", value: 2450, color: "#10B981" },
+      { name: "Cancelled", value: 749, color: "#EF4444" },
+      { name: "Closed", value: 109, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 1733,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 539,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 2559, color: "#10B981" },
+      { name: "Missed", value: 749, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 251
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 220
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 159
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646",
-        "value": 158
-      },
-      {
-        "name": "\u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646",
-        "value": 148
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 118
-      },
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 110
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 110
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 85
-      },
-      {
-        "name": "\u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f",
-        "value": 80
-      }
+    subAreaData: [
+      { name: "Unknown", value: 920 },
+      { name: "طه خيري عبد", value: 527 },
+      { name: "بهاء حسين عطية", value: 436 },
+      { name: "محمد عدنان نوري", value: 315 },
+      { name: "احمد هيثم عبد الرحمن", value: 231 },
+      { name: "ابراهيم علي حسون", value: 223 },
+      { name: "منتصر حسن عباس", value: 200 },
+      { name: "مصطفى تحسين علي", value: 156 },
+      { name: "محمد اسماعيل ياسين", value: 114 },
+      { name: "اريج فايز صكبان", value: 104 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062e\u0644\u062f\u0648\u0646 \u0635\u0644\u0627\u062d \u0646\u0635\u064a\u0641",
-        "value": 118,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u062d\u0645\u062f \u062e\u0627\u0644\u062f",
-        "value": 114,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0631\u062d\u064a\u0645 \u0628\u062f\u0631\u0627\u0646",
-        "value": 85,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u0637\u0644\u0643 \u062e\u0644\u0641",
-        "value": 72,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0627\u0648\u0631\u0627\u0633 \u062e\u0644\u0641 \u0645\u062d\u0645\u062f \u0645\u062d\u0645\u062f \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 58,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u0637\u0644\u0643 \u062e\u0644\u0641 \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 45,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0631\u0632\u0627\u0642 \u0639\u0644\u064a\u0648\u064a",
-        "value": 38,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0645\u0638\u0641\u0631 \u0644\u064a\u062b \u062a\u0627\u064a\u0647 \u0627\u062d\u0645\u062f \u0627\u0644\u0646\u0627\u0635\u0631\u064a",
-        "value": 33,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0645\u0644\u0643 \u0634\u0639\u0644\u0627\u0646 \u0639\u0644\u064a",
-        "value": 33,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0645\u0631 \u0634\u0627\u0645\u0644",
-        "value": 32,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 816, color: "#10B981" },
+      { name: "مصطفى عبدالرحمن مطلك خلف", value: 268, color: "#10B981" },
+      { name: "علي عبدالرحمن مطلك خلف الدليمي", value: 188, color: "#10B981" },
+      { name: "طلفاح هاشم عدنان طلفاح العباسي", value: 135, color: "#10B981" },
+      { name: "عمار غازي فرحان خشم الدليمي", value: 118, color: "#10B981" },
+      { name: "محمد ارحيم بدران", value: 114, color: "#10B981" },
+      { name: "خلدون صلاح نصيف", value: 104, color: "#10B981" },
+      { name: "عبدالرحمن محمد خالد", value: 104, color: "#10B981" },
+      { name: "اوراس خلف محمد محمد الدليمي", value: 96, color: "#10B981" },
+      { name: "همام ستار حسين", value: 75, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-10-14",
-        "value": 79
-      },
-      {
-        "name": "2025-10-12",
-        "value": 76
-      },
-      {
-        "name": "2025-10-25",
-        "value": 74
-      },
-      {
-        "name": "2025-10-20",
-        "value": 71
-      },
-      {
-        "name": "2025-10-13",
-        "value": 71
-      },
-      {
-        "name": "2025-10-22",
-        "value": 64
-      },
-      {
-        "name": "2025-10-18",
-        "value": 62
-      },
-      {
-        "name": "2025-10-19",
-        "value": 61
-      },
-      {
-        "name": "2025-10-01",
-        "value": 60
-      },
-      {
-        "name": "2025-10-08",
-        "value": 58
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 2272
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 1733,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-09-01", value: 98 },
+      { name: "2025-09-02", value: 92 },
+      { name: "2025-09-03", value: 126 },
+      { name: "2025-09-04", value: 66 },
+      { name: "2025-09-05", value: 90 },
+      { name: "2025-09-06", value: 83 },
+      { name: "2025-09-07", value: 88 },
+      { name: "2025-09-08", value: 93 },
+      { name: "2025-09-09", value: 102 },
+      { name: "2025-09-10", value: 121 },
+      { name: "2025-09-11", value: 91 },
+      { name: "2025-09-12", value: 83 },
+      { name: "2025-09-13", value: 98 },
+      { name: "2025-09-14", value: 115 },
+      { name: "2025-09-15", value: 121 },
+      { name: "2025-09-16", value: 80 },
+      { name: "2025-09-17", value: 66 },
+      { name: "2025-09-18", value: 83 },
+      { name: "2025-09-19", value: 60 },
+      { name: "2025-09-20", value: 73 },
+      { name: "2025-09-21", value: 53 },
+      { name: "2025-09-22", value: 93 },
+      { name: "2025-09-23", value: 79 },
+      { name: "2025-09-24", value: 83 },
+      { name: "2025-09-25", value: 101 },
+      { name: "2025-09-26", value: 61 },
+      { name: "2025-09-27", value: 60 },
+      { name: "2025-09-28", value: 70 },
+      { name: "2025-09-29", value: 62 },
+      { name: "2025-09-30", value: 52 },
+      { name: "2025-10-01", value: 7 },
+      { name: "2025-10-02", value: 1 },
+      { name: "2025-10-04", value: 2 },
+      { name: "2025-10-23", value: 2 },
+      { name: "2025-10-27", value: 1 },
+      { name: "2025-11-04", value: 1 },
+      { name: "2025-11-09", value: 2 }
     ]
   }
 };
 
 export const DATA_OCT_2025 = {
-  "summary": {
-    "totalTickets": 3311,
-    "avgDuration": "17:59:20",
-    "totalTime": "1920 days, 07:50:00",
-    "completionRate": 77
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "3311",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "17:59:20",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "1920 days, 07:50:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "77%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 2271, avgDuration: "02:58:33", totalTime: "281 days, 14:14:00", completionRate: 76 },
+  kpis: [
+    { label: "Total Tickets", value: "2,271", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "02:58:33", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "281 days, 14:14:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "76%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 2453,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 749,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 109,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 1661, color: "#10B981" },
+      { name: "Cancelled", value: 539, color: "#EF4444" },
+      { name: "Closed", value: 71, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 838,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 983,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 519,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 177,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 45,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 1976, color: "#10B981" },
+      { name: "1-4 hrs", value: 93, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 37, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 85, color: "#EF4444" },
+      { name: ">24 hrs", value: 80, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 2688,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 578,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 44,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 1,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 1798, color: "#6B7280" },
+      { name: "Urgent", value: 427, color: "#F59E0B" },
+      { name: "High priority", value: 39, color: "#6B7280" },
+      { name: "Medium priority", value: 7, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u062a\u0643\u0631\u064a\u062a",
-      "Done": 1200,
-      "Cancelled": 439,
-      "Closed": 33,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 328,
-      "Cancelled": 115,
-      "Closed": 5,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629",
-      "Done": 90,
-      "Cancelled": 15,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u062d\u0631\u064a\u0647",
-      "Done": 76,
-      "Cancelled": 28,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a",
-      "Done": 90,
-      "Cancelled": 9,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0634\u0639\u0644\u0629",
-      "Done": 81,
-      "Cancelled": 15,
-      "Closed": 1,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629 \u062c\u062f\u064a\u062f",
-      "Done": 68,
-      "Cancelled": 11,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 56,
-      "Cancelled": 10,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 47,
-      "Cancelled": 11,
-      "Closed": 3,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0647\u0627\u062f",
-      "Done": 48,
-      "Cancelled": 7,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "بيجي", Done: 1133, Cancelled: 423, Closed: 6, Postpone: 2 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "تكريت", Done: 2004, Cancelled: 687, Closed: 88, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "حي الفرات", Done: 116, Cancelled: 41, Closed: 1, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 },
+    { subArea: "المهدية 1", Done: 67, Cancelled: 22, Closed: 0, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "3311",
-      "sla": "77%",
-      "open": "749",
-      "avgRes": "17.9"
-    },
-    "secondary": {
-      "closed": "2562",
-      "avgAge": "93.4",
-      "oldest": "819",
-      "leaders": "\u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f, \u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629, \u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a, \u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646, \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 2453,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 749,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 109,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "2,271", sla: "76%", open: "539", avgRes: "02:58:33" },
+    secondary: { closed: "1732", leaders: "Unknown, ابراهيم علي حسون, محمد عدنان نوري" },
+    statusData: [
+      { name: "Done", value: 1661, color: "#10B981" },
+      { name: "Cancelled", value: 539, color: "#EF4444" },
+      { name: "Closed", value: 71, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 2562,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 749,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 1732, color: "#10B981" },
+      { name: "Missed", value: 539, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f",
-        "value": 527
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 437
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 315
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646",
-        "value": 231
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 223
-      },
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 202
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 156
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 114
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 104
-      },
-      {
-        "name": "\u063a\u064a\u062b \u0645\u062d\u0645\u062f \u062c\u0645\u0639\u0629",
-        "value": 48
-      }
+    subAreaData: [
+      { name: "Unknown", value: 826 },
+      { name: "ابراهيم علي حسون", value: 251 },
+      { name: "محمد عدنان نوري", value: 220 },
+      { name: "بهاء حسين عطية", value: 159 },
+      { name: "احمد هيثم عبد الرحمن", value: 158 },
+      { name: "امير عبد الرحمن زيدان", value: 148 },
+      { name: "اريج فايز صكبان", value: 118 },
+      { name: "مصطفى تحسين علي", value: 110 },
+      { name: "منتصر حسن عباس", value: 109 },
+      { name: "محمد اسماعيل ياسين", value: 85 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u0637\u0644\u0643 \u062e\u0644\u0641",
-        "value": 268,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u0637\u0644\u0643 \u062e\u0644\u0641 \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 188,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0637\u0644\u0641\u0627\u062d \u0647\u0627\u0634\u0645 \u0639\u062f\u0646\u0627\u0646 \u0637\u0644\u0641\u0627\u062d \u0627\u0644\u0639\u0628\u0627\u0633\u064a",
-        "value": 135,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0639\u0645\u0627\u0631 \u063a\u0627\u0632\u064a \u0641\u0631\u062d\u0627\u0646 \u062e\u0634\u0645 \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 118,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0631\u062d\u064a\u0645 \u0628\u062f\u0631\u0627\u0646",
-        "value": 114,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0631\u062d\u0645\u0646 \u0645\u062d\u0645\u062f \u062e\u0627\u0644\u062f",
-        "value": 104,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u062e\u0644\u062f\u0648\u0646 \u0635\u0644\u0627\u062d \u0646\u0635\u064a\u0641",
-        "value": 104,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0627\u0648\u0631\u0627\u0633 \u062e\u0644\u0641 \u0645\u062d\u0645\u062f \u0645\u062d\u0645\u062f \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 96,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0647\u0645\u0627\u0645 \u0633\u062a\u0627\u0631 \u062d\u0633\u064a\u0646",
-        "value": 75,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0627\u0644\u062d\u0633\u0646 \u062c\u0647\u0627\u062f \u0643\u0627\u0638\u0645",
-        "value": 66,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 682, color: "#10B981" },
+      { name: "خلدون صلاح نصيف", value: 118, color: "#10B981" },
+      { name: "عبدالرحمن محمد خالد", value: 114, color: "#10B981" },
+      { name: "محمد ارحيم بدران", value: 85, color: "#10B981" },
+      { name: "مصطفى عبدالرحمن مطلك خلف", value: 72, color: "#10B981" },
+      { name: "اوراس خلف محمد محمد الدليمي", value: 58, color: "#10B981" },
+      { name: "علي عبدالرحمن مطلك خلف الدليمي", value: 45, color: "#10B981" },
+      { name: "علي رزاق عليوي", value: 38, color: "#10B981" },
+      { name: "مظفر ليث تايه احمد الناصري", value: 33, color: "#10B981" },
+      { name: "عبدالملك شعلان علي", value: 33, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-09-03",
-        "value": 126
-      },
-      {
-        "name": "2025-09-10",
-        "value": 121
-      },
-      {
-        "name": "2025-09-15",
-        "value": 121
-      },
-      {
-        "name": "2025-09-14",
-        "value": 115
-      },
-      {
-        "name": "2025-09-09",
-        "value": 102
-      },
-      {
-        "name": "2025-09-25",
-        "value": 101
-      },
-      {
-        "name": "2025-09-01",
-        "value": 98
-      },
-      {
-        "name": "2025-09-13",
-        "value": 98
-      },
-      {
-        "name": "2025-09-08",
-        "value": 93
-      },
-      {
-        "name": "2025-09-22",
-        "value": 93
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 0
-      },
-      {
-        "name": "> 30 days",
-        "value": 3311
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 2562,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-10-01", value: 60 },
+      { name: "2025-10-02", value: 50 },
+      { name: "2025-10-03", value: 53 },
+      { name: "2025-10-04", value: 53 },
+      { name: "2025-10-05", value: 44 },
+      { name: "2025-10-06", value: 48 },
+      { name: "2025-10-07", value: 48 },
+      { name: "2025-10-08", value: 58 },
+      { name: "2025-10-09", value: 50 },
+      { name: "2025-10-10", value: 43 },
+      { name: "2025-10-11", value: 51 },
+      { name: "2025-10-12", value: 76 },
+      { name: "2025-10-13", value: 71 },
+      { name: "2025-10-14", value: 79 },
+      { name: "2025-10-15", value: 55 },
+      { name: "2025-10-16", value: 43 },
+      { name: "2025-10-17", value: 38 },
+      { name: "2025-10-18", value: 62 },
+      { name: "2025-10-19", value: 61 },
+      { name: "2025-10-20", value: 71 },
+      { name: "2025-10-21", value: 56 },
+      { name: "2025-10-22", value: 64 },
+      { name: "2025-10-23", value: 54 },
+      { name: "2025-10-24", value: 51 },
+      { name: "2025-10-25", value: 74 },
+      { name: "2025-10-26", value: 41 },
+      { name: "2025-10-27", value: 48 },
+      { name: "2025-10-28", value: 54 },
+      { name: "2025-10-29", value: 51 },
+      { name: "2025-10-30", value: 53 },
+      { name: "2025-10-31", value: 40 },
+      { name: "2025-11-01", value: 23 },
+      { name: "2025-11-02", value: 5 },
+      { name: "2025-11-03", value: 2 },
+      { name: "2025-11-05", value: 1 },
+      { name: "2025-11-09", value: 1 }
     ]
   }
 };
 
 export const DATA_NOV_2025 = {
-  "summary": {
-    "totalTickets": 3376,
-    "avgDuration": "12:12:17",
-    "totalTime": "1288 days, 14:52:00",
-    "completionRate": 75
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "3376",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "12:12:17",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "1288 days, 14:52:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "75%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 3372, avgDuration: "01:03:29", totalTime: "148 days, 15:47:00", completionRate: 75 },
+  kpis: [
+    { label: "Total Tickets", value: "3,372", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "01:03:29", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "148 days, 15:47:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "75%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 2252,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 842,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 282,
-        "color": "#3B82F6"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 2248, color: "#10B981" },
+      { name: "Cancelled", value: 842, color: "#EF4444" },
+      { name: "Closed", value: 282, color: "#3B82F6" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 535,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 1054,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 697,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 211,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 37,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 3065, color: "#10B981" },
+      { name: "1-4 hrs", value: 163, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 40, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 65, color: "#EF4444" },
+      { name: ">24 hrs", value: 39, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 2833,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 498,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 33,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 12,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 2830, color: "#6B7280" },
+      { name: "Urgent", value: 497, color: "#F59E0B" },
+      { name: "High priority", value: 33, color: "#6B7280" },
+      { name: "Medium priority", value: 12, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 847,
-      "Cancelled": 290,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0634\u0637\u0631\u0647",
-      "Done": 435,
-      "Cancelled": 228,
-      "Closed": 13,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0628\u064a\u062c\u064a",
-      "Done": 447,
-      "Cancelled": 162,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 91,
-      "Cancelled": 35,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a",
-      "Done": 97,
-      "Cancelled": 15,
-      "Closed": 2,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062a\u0643\u0631\u064a\u062a",
-      "Done": 55,
-      "Cancelled": 25,
-      "Closed": 4,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0645\u062c\u0645\u0639 \u0627\u0644\u0631\u0648\u0627\u0646",
-      "Done": 45,
-      "Cancelled": 6,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u0622\u064a\u062f\u064a",
-      "Done": 30,
-      "Cancelled": 12,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629 1",
-      "Done": 20,
-      "Cancelled": 7,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u063a\u0632\u0627\u0644\u064a\u0629 \u062c\u062f\u064a\u062f",
-      "Done": 19,
-      "Cancelled": 5,
-      "Closed": 2,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "الشطره", Done: 830, Cancelled: 437, Closed: 18, Postpone: 1 },
+    { subArea: "بيجي", Done: 1133, Cancelled: 423, Closed: 6, Postpone: 2 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "تكريت", Done: 2004, Cancelled: 687, Closed: 88, Postpone: 0 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "الجهاد ١", Done: 1440, Cancelled: 388, Closed: 8, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "حي العدل", Done: 788, Cancelled: 193, Closed: 5, Postpone: 0 },
+    { subArea: "التراث", Done: 585, Cancelled: 194, Closed: 8, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "ابو دشير", Done: 600, Cancelled: 208, Closed: 12, Postpone: 0 },
+    { subArea: "حي الكاظمية", Done: 103, Cancelled: 36, Closed: 2, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "حي الحسين", Done: 368, Cancelled: 108, Closed: 0, Postpone: 0 },
+    { subArea: "الشالجية", Done: 23, Cancelled: 8, Closed: 0, Postpone: 0 },
+    { subArea: "مواصلات 1", Done: 231, Cancelled: 110, Closed: 1, Postpone: 0 },
+    { subArea: "سويب", Done: 69, Cancelled: 23, Closed: 4, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "الري", Done: 282, Cancelled: 90, Closed: 6, Postpone: 0 },
+    { subArea: "طوبجي", Done: 291, Cancelled: 87, Closed: 4, Postpone: 0 },
+    { subArea: "المعالف", Done: 42, Cancelled: 11, Closed: 0, Postpone: 0 },
+    { subArea: "المهدية 2", Done: 293, Cancelled: 83, Closed: 0, Postpone: 0 },
+    { subArea: "الشرقاط", Done: 2, Cancelled: 2, Closed: 0, Postpone: 0 },
+    { subArea: "مواصلات", Done: 100, Cancelled: 77, Closed: 4, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "3376",
-      "sla": "75%",
-      "open": "842",
-      "avgRes": "12.2"
-    },
-    "secondary": {
-      "closed": "2534",
-      "avgAge": "29.1",
-      "oldest": "395",
-      "leaders": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a, \u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646, \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646, \u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646, \u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 2252,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 842,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 282,
-        "color": "#3B82F6"
-      }
+  legacy: {
+    summary: { total: "3,372", sla: "75%", open: "842", avgRes: "01:03:29" },
+    secondary: { closed: "2530", leaders: "Unknown, محمد عدنان نوري, امير عبد الرحمن زيدان" },
+    statusData: [
+      { name: "Done", value: 2248, color: "#10B981" },
+      { name: "Cancelled", value: 842, color: "#EF4444" },
+      { name: "Closed", value: 282, color: "#3B82F6" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 2534,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 842,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 2530, color: "#10B981" },
+      { name: "Missed", value: 842, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 533
-      },
-      {
-        "name": "\u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646",
-        "value": 402
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 339
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646",
-        "value": 293
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 214
-      },
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 97
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 82
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 80
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 50
-      },
-      {
-        "name": "\u0633\u0627\u0631\u0629 \u0639\u0642\u064a\u0644 \u0647\u0627\u062f\u064a",
-        "value": 48
-      }
+    subAreaData: [
+      { name: "Unknown", value: 1225 },
+      { name: "محمد عدنان نوري", value: 533 },
+      { name: "امير عبد الرحمن زيدان", value: 402 },
+      { name: "ابراهيم علي حسون", value: 339 },
+      { name: "احمد هيثم عبد الرحمن", value: 293 },
+      { name: "مصطفى تحسين علي", value: 214 },
+      { name: "منتصر حسن عباس", value: 94 },
+      { name: "اريج فايز صكبان", value: 82 },
+      { name: "محمد اسماعيل ياسين", value: 80 },
+      { name: "بهاء حسين عطية", value: 49 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062e\u0644\u062f\u0648\u0646 \u0635\u0644\u0627\u062d \u0646\u0635\u064a\u0641",
-        "value": 82,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0631\u062d\u064a\u0645 \u0628\u062f\u0631\u0627\u0646",
-        "value": 80,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0639\u0645\u0631 \u0632\u0647\u064a\u0631 \u062d\u0645\u062f\u064a",
-        "value": 56,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u064a\u0648\u0633\u0641 \u063a\u0632\u0648\u0627\u0646 \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u0637\u0627\u0647\u0631",
-        "value": 54,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u062e\u0644\u0641 \u0639\u0644\u064a \u0639\u0628\u062f \u0627\u062d\u0645\u062f \u0627\u0644\u062f\u0648\u0631\u064a",
-        "value": 54,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0628\u062f\u0627\u0644\u0642\u0627\u062f\u0631 \u0631\u0632\u0648\u0642\u064a \u0634\u0639\u0628\u0627\u0646 \u0627\u0644\u062a\u0643\u0631\u064a\u062a\u064a",
-        "value": 52,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0639\u0628\u0627\u0633 \u0639\u0644\u064a \u062d\u0645\u064a\u062f \u0633\u0644\u0645\u0627\u0646 \u0627\u0644\u0622\u064a\u062f\u064a",
-        "value": 48,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0645\u0644\u0643 \u0634\u0639\u0644\u0627\u0646 \u0639\u0644\u064a",
-        "value": 48,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0641\u064a\u0635\u0644 \u0646\u0627\u0641\u0639 \u0633\u0627\u0644\u0645 \u0644\u0627\u0647\u064a \u0627\u0644\u0634\u0645\u0631",
-        "value": 44,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0641\u0631\u0627\u0633 \u0627\u062d\u0645\u062f \u0631\u0634\u064a\u062f \u062e\u0644\u0641 \u0627\u0644\u062f\u0644\u064a\u0645\u064a",
-        "value": 41,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 1181, color: "#10B981" },
+      { name: "خلدون صلاح نصيف", value: 82, color: "#10B981" },
+      { name: "محمد ارحيم بدران", value: 80, color: "#10B981" },
+      { name: "عمر زهير حمدي", value: 56, color: "#10B981" },
+      { name: "مخلف علي عبد احمد الدوري", value: 54, color: "#10B981" },
+      { name: "يوسف غزوان اسماعيل طاهر", value: 54, color: "#10B981" },
+      { name: "محمد عبدالقادر رزوقي شعبان التكريتي", value: 52, color: "#10B981" },
+      { name: "عبدالملك شعلان علي", value: 48, color: "#10B981" },
+      { name: "عباس علي حميد سلمان الزيدي", value: 48, color: "#10B981" },
+      { name: "فيصل نافع سالم لاهي الشمر", value: 44, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-11-23",
-        "value": 162
-      },
-      {
-        "name": "2025-11-30",
-        "value": 133
-      },
-      {
-        "name": "2025-11-20",
-        "value": 116
-      },
-      {
-        "name": "2025-11-29",
-        "value": 111
-      },
-      {
-        "name": "2025-11-26",
-        "value": 110
-      },
-      {
-        "name": "2025-11-25",
-        "value": 108
-      },
-      {
-        "name": "2025-11-16",
-        "value": 99
-      },
-      {
-        "name": "2025-11-27",
-        "value": 97
-      },
-      {
-        "name": "2025-11-24",
-        "value": 95
-      },
-      {
-        "name": "2025-11-28",
-        "value": 93
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 0
-      },
-      {
-        "name": "1-7 days",
-        "value": 0
-      },
-      {
-        "name": "8-30 days",
-        "value": 2072
-      },
-      {
-        "name": "> 30 days",
-        "value": 1304
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 2534,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-11-01", value: 49 },
+      { name: "2025-11-02", value: 77 },
+      { name: "2025-11-03", value: 50 },
+      { name: "2025-11-04", value: 69 },
+      { name: "2025-11-05", value: 89 },
+      { name: "2025-11-06", value: 65 },
+      { name: "2025-11-07", value: 35 },
+      { name: "2025-11-08", value: 75 },
+      { name: "2025-11-09", value: 86 },
+      { name: "2025-11-10", value: 80 },
+      { name: "2025-11-11", value: 50 },
+      { name: "2025-11-12", value: 50 },
+      { name: "2025-11-13", value: 59 },
+      { name: "2025-11-14", value: 42 },
+      { name: "2025-11-15", value: 64 },
+      { name: "2025-11-16", value: 99 },
+      { name: "2025-11-17", value: 93 },
+      { name: "2025-11-18", value: 87 },
+      { name: "2025-11-19", value: 91 },
+      { name: "2025-11-20", value: 116 },
+      { name: "2025-11-21", value: 72 },
+      { name: "2025-11-22", value: 90 },
+      { name: "2025-11-23", value: 162 },
+      { name: "2025-11-24", value: 95 },
+      { name: "2025-11-25", value: 108 },
+      { name: "2025-11-26", value: 110 },
+      { name: "2025-11-27", value: 97 },
+      { name: "2025-11-28", value: 93 },
+      { name: "2025-11-29", value: 111 },
+      { name: "2025-11-30", value: 133 },
+      { name: "2025-12-01", value: 25 },
+      { name: "2025-12-02", value: 5 },
+      { name: "2025-12-03", value: 1 },
+      { name: "2025-12-04", value: 1 },
+      { name: "2025-12-09", value: 1 }
     ]
   }
 };
 
 export const DATA_DEC_2025 = {
-  "summary": {
-    "totalTickets": 1916,
-    "avgDuration": "19:29:50",
-    "totalTime": "1145 days, 11:25:00",
-    "completionRate": 74
-  },
-  "kpis": [
-    {
-      "label": "Total Tickets",
-      "value": "1916",
-      "trend": "+5.2%",
-      "trendDir": "up",
-      "color": "indigo",
-      "icon": "total"
-    },
-    {
-      "label": "Avg Duration",
-      "value": "19:29:50",
-      "trend": "-2.1%",
-      "trendDir": "down",
-      "color": "emerald",
-      "icon": "resolution"
-    },
-    {
-      "label": "Total Time Spent",
-      "value": "1145 days, 11:25:00",
-      "trend": "+12.3%",
-      "trendDir": "up",
-      "color": "blue",
-      "icon": "calendar"
-    },
-    {
-      "label": "Completion Rate",
-      "value": "74%",
-      "trend": "+3.7%",
-      "trendDir": "up",
-      "color": "teal",
-      "icon": "checklist"
-    }
+  summary: { totalTickets: 1831, avgDuration: "01:11:48", totalTime: "91 days, 07:19:00", completionRate: 72 },
+  kpis: [
+    { label: "Total Tickets", value: "1,831", trend: "neutral", trendDir: "neutral", color: "indigo", icon: "total" },
+    { label: "Avg Duration", value: "01:11:48", trend: "neutral", trendDir: "neutral", color: "emerald", icon: "resolution" },
+    { label: "Total Time Spent", value: "91 days, 07:19:00", trend: "neutral", trendDir: "neutral", color: "blue", icon: "calendar" },
+    { label: "Completion Rate", value: "72%", trend: "neutral", trendDir: "neutral", color: "teal", icon: "checklist" }
   ],
-  "charts": {
-    "statusDistribution": [
-      {
-        "name": "Done",
-        "value": 1270,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 483,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 140,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "Change Team",
-        "value": 10,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "Postpone",
-        "value": 5,
-        "color": "#EF4444"
-      },
-      {
-        "name": "New",
-        "value": 4,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "In Progres",
-        "value": 3,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "Re-Open",
-        "value": 1,
-        "color": "#84CC16"
-      }
+  charts: {
+    statusDistribution: [
+      { name: "Done", value: 1185, color: "#10B981" },
+      { name: "Cancelled", value: 483, color: "#EF4444" },
+      { name: "Closed", value: 140, color: "#3B82F6" },
+      { name: "Change Team", value: 10, color: "#6B7280" },
+      { name: "Postpone", value: 5, color: "#F59E0B" },
+      { name: "New", value: 4, color: "#6366F1" },
+      { name: "In Progres", value: 3, color: "#6B7280" },
+      { name: "Re-Open", value: 1, color: "#F97316" }
     ],
-    "durationMetrics": [
-      {
-        "name": "< 1 hour",
-        "value": 187,
-        "color": "#10B981"
-      },
-      {
-        "name": "1-4 hours",
-        "value": 612,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "4-24 hours",
-        "value": 424,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "1-3 days",
-        "value": 133,
-        "color": "#EF4444"
-      },
-      {
-        "name": "> 3 days",
-        "value": 54,
-        "color": "#8B5CF6"
-      }
+    durationMetrics: [
+      { name: "0-1 hrs", value: 1617, color: "#10B981" },
+      { name: "1-4 hrs", value: 121, color: "#3B82F6" },
+      { name: "4-8 hrs", value: 30, color: "#F59E0B" },
+      { name: "8-24 hrs", value: 34, color: "#EF4444" },
+      { name: ">24 hrs", value: 29, color: "#7C3AED" }
     ],
-    "priorityMetrics": [
-      {
-        "name": "Low priority",
-        "value": 1514,
-        "color": "#EF4444"
-      },
-      {
-        "name": "Urgent",
-        "value": 374,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "High priority",
-        "value": 21,
-        "color": "#10B981"
-      },
-      {
-        "name": "Medium priority",
-        "value": 7,
-        "color": "#6B7280"
-      }
+    priorityMetrics: [
+      { name: "Low priority", value: 1466, color: "#6B7280" },
+      { name: "Urgent", value: 337, color: "#F59E0B" },
+      { name: "High priority", value: 21, color: "#6B7280" },
+      { name: "Medium priority", value: 7, color: "#6B7280" }
     ]
   },
-  "cityMetrics": [],
-  "subAreaMetrics": [
-    {
-      "subArea": "\u0627\u0644\u0634\u0637\u0631\u0647",
-      "Done": 413,
-      "Cancelled": 209,
-      "Closed": 5,
-      "Postpone": 1
-    },
-    {
-      "subArea": "\u0633\u0627\u0645\u0631\u0627\u0621",
-      "Done": 413,
-      "Cancelled": 158,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0628\u064a\u062c\u064a",
-      "Done": 159,
-      "Cancelled": 54,
-      "Closed": 1,
-      "Postpone": 2
-    },
-    {
-      "subArea": "\u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a",
-      "Done": 73,
-      "Cancelled": 6,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0639\u0627\u0645\u0631\u064a\u0629",
-      "Done": 42,
-      "Cancelled": 22,
-      "Closed": 0,
-      "Postpone": 1
-    },
-    {
-      "subArea": "\u0645\u062c\u0645\u0639 \u0627\u0644\u0631\u0648\u0627\u0646",
-      "Done": 20,
-      "Cancelled": 1,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0627\u0644\u0631\u0633\u0627\u0644\u0629",
-      "Done": 15,
-      "Cancelled": 4,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062d\u064a \u0627\u0644\u062c\u0627\u0645\u0639\u0629 1",
-      "Done": 15,
-      "Cancelled": 1,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u062f\u0648\u0631\u0629",
-      "Done": 13,
-      "Cancelled": 2,
-      "Closed": 0,
-      "Postpone": 0
-    },
-    {
-      "subArea": "\u0634\u0647\u062f\u0627\u0621 \u0627\u0644\u0628\u064a\u0627\u0639",
-      "Done": 12,
-      "Cancelled": 3,
-      "Closed": 0,
-      "Postpone": 0
-    }
+  subAreaMetrics: [
+    { subArea: "الشطره", Done: 830, Cancelled: 437, Closed: 18, Postpone: 1 },
+    { subArea: "سامراء", Done: 2838, Cancelled: 1109, Closed: 17, Postpone: 0 },
+    { subArea: "بيجي", Done: 1133, Cancelled: 423, Closed: 6, Postpone: 2 },
+    { subArea: "Unknown", Done: 2169, Cancelled: 1327, Closed: 1497, Postpone: 0 },
+    { subArea: "المجمعات", Done: 535, Cancelled: 54, Closed: 2, Postpone: 0 },
+    { subArea: "العامرية", Done: 1857, Cancelled: 483, Closed: 12, Postpone: 1 },
+    { subArea: "مجمع الروان", Done: 387, Cancelled: 47, Closed: 0, Postpone: 0 },
+    { subArea: "حي الجامعة 1", Done: 846, Cancelled: 207, Closed: 7, Postpone: 0 },
+    { subArea: "تكريت", Done: 2004, Cancelled: 687, Closed: 88, Postpone: 0 },
+    { subArea: "دورة", Done: 2008, Cancelled: 662, Closed: 33, Postpone: 0 },
+    { subArea: "الرسالة", Done: 2979, Cancelled: 895, Closed: 15, Postpone: 0 },
+    { subArea: "حي السلام", Done: 705, Cancelled: 257, Closed: 22, Postpone: 0 },
+    { subArea: "شهداء البياع", Done: 1584, Cancelled: 500, Closed: 11, Postpone: 0 },
+    { subArea: "حي الجامعة", Done: 1006, Cancelled: 252, Closed: 12, Postpone: 0 },
+    { subArea: "حي حطين", Done: 260, Cancelled: 68, Closed: 1, Postpone: 0 },
+    { subArea: "معالف", Done: 202, Cancelled: 75, Closed: 3, Postpone: 0 },
+    { subArea: "حي الزهور", Done: 305, Cancelled: 69, Closed: 1, Postpone: 0 },
+    { subArea: "حي الخضراء", Done: 992, Cancelled: 214, Closed: 5, Postpone: 0 },
+    { subArea: "الشعلة", Done: 908, Cancelled: 213, Closed: 6, Postpone: 0 },
+    { subArea: "الغزالية جديد", Done: 1006, Cancelled: 221, Closed: 7, Postpone: 0 },
+    { subArea: "حي الجهاد", Done: 1647, Cancelled: 399, Closed: 14, Postpone: 0 },
+    { subArea: "الدورة / الاسكان", Done: 277, Cancelled: 96, Closed: 2, Postpone: 0 },
+    { subArea: "المخابرات", Done: 166, Cancelled: 56, Closed: 1, Postpone: 0 },
+    { subArea: "السيدية", Done: 784, Cancelled: 279, Closed: 8, Postpone: 0 },
+    { subArea: "الغزالية", Done: 1269, Cancelled: 257, Closed: 13, Postpone: 0 },
+    { subArea: "ابو دشير PH-4", Done: 670, Cancelled: 188, Closed: 2, Postpone: 0 },
+    { subArea: "معالف 1", Done: 457, Cancelled: 145, Closed: 1, Postpone: 0 },
+    { subArea: "حي العامل", Done: 1663, Cancelled: 562, Closed: 22, Postpone: 0 },
+    { subArea: "العطيفية", Done: 30, Cancelled: 4, Closed: 1, Postpone: 1 },
+    { subArea: "الشارقة", Done: 512, Cancelled: 135, Closed: 19, Postpone: 0 },
+    { subArea: "الحريه", Done: 3146, Cancelled: 1005, Closed: 26, Postpone: 0 },
+    { subArea: "الملحانية", Done: 98, Cancelled: 53, Closed: 2, Postpone: 0 }
   ],
-  "legacy": {
-    "summary": {
-      "total": "1916",
-      "sla": "74%",
-      "open": "506",
-      "avgRes": "19.4"
-    },
-    "secondary": {
-      "closed": "1410",
-      "avgAge": "23.2",
-      "oldest": "372",
-      "leaders": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a, \u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646, \u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646, \u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633, \u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a"
-    },
-    "statusData": [
-      {
-        "name": "Done",
-        "value": 1270,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "Cancelled",
-        "value": 483,
-        "color": "#10B981"
-      },
-      {
-        "name": "Closed",
-        "value": 140,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "Change Team",
-        "value": 10,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "Postpone",
-        "value": 5,
-        "color": "#EF4444"
-      },
-      {
-        "name": "New",
-        "value": 4,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "In Progres",
-        "value": 3,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "Re-Open",
-        "value": 1,
-        "color": "#84CC16"
-      }
+  legacy: {
+    summary: { total: "1,831", sla: "72%", open: "506", avgRes: "01:11:48" },
+    secondary: { closed: "1325", leaders: "Unknown, محمد عدنان نوري, امير عبد الرحمن زيدان" },
+    statusData: [
+      { name: "Done", value: 1185, color: "#10B981" },
+      { name: "Cancelled", value: 483, color: "#EF4444" },
+      { name: "Closed", value: 140, color: "#3B82F6" },
+      { name: "Change Team", value: 10, color: "#6B7280" },
+      { name: "Postpone", value: 5, color: "#F59E0B" },
+      { name: "New", value: 4, color: "#6366F1" },
+      { name: "In Progres", value: 3, color: "#6B7280" },
+      { name: "Re-Open", value: 1, color: "#F97316" }
     ],
-    "slaData": [
-      {
-        "name": "Met",
-        "value": 1410,
-        "color": "#10B981"
-      },
-      {
-        "name": "Missed",
-        "value": 506,
-        "color": "#EF4444"
-      }
+    slaData: [
+      { name: "Met", value: 1325, color: "#10B981" },
+      { name: "Missed", value: 506, color: "#EF4444" }
     ],
-    "subAreaData": [
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u062f\u0646\u0627\u0646 \u0646\u0648\u0631\u064a",
-        "value": 432
-      },
-      {
-        "name": "\u0627\u0645\u064a\u0631 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646 \u0632\u064a\u062f\u0627\u0646",
-        "value": 225
-      },
-      {
-        "name": "\u0627\u062d\u0645\u062f \u0647\u064a\u062b\u0645 \u0639\u0628\u062f \u0627\u0644\u0631\u062d\u0645\u0646",
-        "value": 137
-      },
-      {
-        "name": "\u0645\u0646\u062a\u0635\u0631 \u062d\u0633\u0646 \u0639\u0628\u0627\u0633",
-        "value": 110
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u062a\u062d\u0633\u064a\u0646 \u0639\u0644\u064a",
-        "value": 94
-      },
-      {
-        "name": "\u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0639\u0644\u064a \u062d\u0633\u0648\u0646",
-        "value": 89
-      },
-      {
-        "name": "\u0627\u0631\u064a\u062c \u0641\u0627\u064a\u0632 \u0635\u0643\u0628\u0627\u0646",
-        "value": 66
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u064a\u0627\u0633\u064a\u0646",
-        "value": 47
-      },
-      {
-        "name": "\u0628\u0647\u0627\u0621 \u062d\u0633\u064a\u0646 \u0639\u0637\u064a\u0629",
-        "value": 45
-      },
-      {
-        "name": "\u0637\u0647 \u062e\u064a\u0631\u064a \u0639\u0628\u062f",
-        "value": 10
-      }
+    subAreaData: [
+      { name: "Unknown", value: 660 },
+      { name: "محمد عدنان نوري", value: 432 },
+      { name: "امير عبد الرحمن زيدان", value: 225 },
+      { name: "احمد هيثم عبد الرحمن", value: 137 },
+      { name: "مصطفى تحسين علي", value: 94 },
+      { name: "ابراهيم علي حسون", value: 89 },
+      { name: "منتصر حسن عباس", value: 71 },
+      { name: "اريج فايز صكبان", value: 66 },
+      { name: "محمد اسماعيل ياسين", value: 47 },
+      { name: "طه خيري عبد", value: 10 }
     ],
-    "resolutionData": [
-      {
-        "name": "\u062e\u0644\u062f\u0648\u0646 \u0635\u0644\u0627\u062d \u0646\u0635\u064a\u0641",
-        "value": 66,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0627\u0631\u062d\u064a\u0645 \u0628\u062f\u0631\u0627\u0646",
-        "value": 47,
-        "color": "#10B981"
-      },
-      {
-        "name": "\u0639\u0644\u064a \u0645\u062d\u0645\u062f \u062e\u0636\u064a\u0631",
-        "value": 45,
-        "color": "#3B82F6"
-      },
-      {
-        "name": "\u0641\u064a\u0635\u0644 \u0646\u0627\u0641\u0639 \u0633\u0627\u0644\u0645 \u0644\u0627\u0647\u064a \u0627\u0644\u0634\u0645\u0631",
-        "value": 36,
-        "color": "#F59E0B"
-      },
-      {
-        "name": "\u0645\u062d\u0645\u062f \u0639\u0628\u062f \u062c\u0627\u0633\u0645 \u0645\u062d\u0645\u062f \u0627\u0644\u0634\u0645\u0631\u064a",
-        "value": 35,
-        "color": "#EF4444"
-      },
-      {
-        "name": "\u0627\u0644\u0645\u0639\u062a\u0635\u0645 \u0627\u0628\u0631\u0627\u0647\u064a\u0645 \u0641\u0631\u062d\u0627\u0646",
-        "value": 33,
-        "color": "#8B5CF6"
-      },
-      {
-        "name": "\u0645\u0635\u0637\u0641\u0649 \u0627\u0633\u0645\u0627\u0639\u064a\u0644 \u062d\u0645\u062f \u0645\u0634\u062d\u0646",
-        "value": 30,
-        "color": "#06B6D4"
-      },
-      {
-        "name": "\u0631\u0636\u0627 \u0639\u0644\u064a \u0647\u0627\u062f\u064a \u062b\u062c\u064a\u0644 \u0627\u0644\u062d\u0645\u0627\u0645\u064a",
-        "value": 28,
-        "color": "#84CC16"
-      },
-      {
-        "name": "\u0633\u062c\u0627\u062f \u062d\u064a\u062f\u0631 \u0639\u0644\u064a",
-        "value": 28,
-        "color": "#4F46E5"
-      },
-      {
-        "name": "\u0639\u0628\u062f\u0627\u0644\u0644\u0647 \u062e\u0644\u0641 \u0645\u062d\u0645\u0648\u062f \u0627\u062d\u0645\u062f",
-        "value": 28,
-        "color": "#10B981"
-      }
+    resolutionData: [
+      { name: "Unknown", value: 653, color: "#10B981" },
+      { name: "خلدون صلاح نصيف", value: 66, color: "#10B981" },
+      { name: "محمد ارحيم بدران", value: 47, color: "#10B981" },
+      { name: "علي محمد خضير", value: 45, color: "#10B981" },
+      { name: "فيصل نافع سالم لاهي الشمر", value: 36, color: "#10B981" },
+      { name: "محمد عبد جاسم محمد الشمري", value: 35, color: "#10B981" },
+      { name: "المعتصم ابراهيم فرحان", value: 33, color: "#10B981" },
+      { name: "مصطفى اسماعيل حمد مشحن", value: 30, color: "#10B981" },
+      { name: "عبدالله خلف محمود احمد", value: 28, color: "#10B981" },
+      { name: "رضا علي هادي ثجيل الحمامي", value: 28, color: "#10B981" }
     ],
-    "closureData": [
-      {
-        "name": "2025-12-14",
-        "value": 143
-      },
-      {
-        "name": "2025-12-11",
-        "value": 119
-      },
-      {
-        "name": "2025-12-07",
-        "value": 117
-      },
-      {
-        "name": "2025-12-06",
-        "value": 95
-      },
-      {
-        "name": "2025-12-02",
-        "value": 82
-      },
-      {
-        "name": "2025-12-04",
-        "value": 81
-      },
-      {
-        "name": "2025-12-08",
-        "value": 79
-      },
-      {
-        "name": "2025-12-12",
-        "value": 78
-      },
-      {
-        "name": "2025-12-13",
-        "value": 77
-      },
-      {
-        "name": "2025-12-03",
-        "value": 75
-      }
-    ],
-    "ageData": [
-      {
-        "name": "< 1 day",
-        "value": 32
-      },
-      {
-        "name": "1-7 days",
-        "value": 811
-      },
-      {
-        "name": "8-30 days",
-        "value": 988
-      },
-      {
-        "name": "> 30 days",
-        "value": 85
-      }
-    ],
-    "qualityData": [
-      {
-        "subject": "FTTH User Maintenance",
-        "A": 1410,
-        "fullMark": 2000
-      }
+    closureData: [
+      { name: "2025-12-01", value: 72 },
+      { name: "2025-12-02", value: 82 },
+      { name: "2025-12-03", value: 75 },
+      { name: "2025-12-04", value: 81 },
+      { name: "2025-12-05", value: 65 },
+      { name: "2025-12-06", value: 95 },
+      { name: "2025-12-07", value: 117 },
+      { name: "2025-12-08", value: 79 },
+      { name: "2025-12-09", value: 74 },
+      { name: "2025-12-10", value: 60 },
+      { name: "2025-12-11", value: 119 },
+      { name: "2025-12-12", value: 78 },
+      { name: "2025-12-13", value: 77 },
+      { name: "2025-12-14", value: 143 },
+      { name: "2025-12-15", value: 73 },
+      { name: "2025-12-16", value: 35 }
     ]
   }
 };
