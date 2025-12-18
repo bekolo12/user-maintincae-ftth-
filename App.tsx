@@ -341,14 +341,68 @@ const App = () => {
               <div className="h-[500px]"><SubAreaStatusStackedChart data={currentSubAreaMetrics} /></div>
             </div>
 
+            {/* Charts (Status & Priority) */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
-                <h3 className="text-lg font-bold mb-6">Status Distribution</h3>
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                   <span className="w-1 h-6 bg-indigo-500 rounded-full"></span>
+                   Status Distribution
+                </h3>
                 <div className="h-[300px]"><GenericBarChart data={proData.charts.statusDistribution} /></div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
-                <h3 className="text-lg font-bold mb-6">Priority</h3>
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                   <span className="w-1 h-6 bg-orange-500 rounded-full"></span>
+                   Tickets by Priority
+                </h3>
                 <div className="h-[300px]"><GenericBarChart data={proData.charts.priorityMetrics} /></div>
+              </div>
+            </div>
+
+            {/* Charts (Duration) - RESTORED */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="w-1 h-6 bg-cyan-500 rounded-full"></span>
+                  Tickets by Duration Range
+                </h3>
+                <div className="h-[300px]">
+                  <GenericBarChart data={proData.charts.durationMetrics} />
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+                <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                  <span className="w-1 h-6 bg-purple-500 rounded-full"></span>
+                  Duration Distribution
+                </h3>
+                <div className="h-[300px]">
+                  <GenericDonutChart data={proData.charts.durationMetrics} />
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Stats Grid - RESTORED */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center backdrop-blur-sm">
+                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Highest Volume</p>
+                <p className="text-emerald-400 font-bold text-lg">{proData.charts.statusDistribution[0]?.name || 'N/A'}</p>
+                <p className="text-slate-500 text-xs">{proData.charts.statusDistribution[0]?.value?.toLocaleString() || 0} tickets</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center backdrop-blur-sm">
+                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Most Critical</p>
+                <p className="text-rose-400 font-bold text-lg">Urgent</p>
+                <p className="text-slate-500 text-xs">{(proData.charts.priorityMetrics.find((p: any) => p.name === 'Urgent') || { value: 0 }).value.toLocaleString()} tickets</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center backdrop-blur-sm">
+                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Avg Speed</p>
+                <p className="text-blue-400 font-bold text-lg">Fast</p>
+                <p className="text-slate-500 text-xs">{proData.charts.durationMetrics[0]?.name || 'N/A'} ({proData.charts.durationMetrics[0]?.value?.toLocaleString() || 0})</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center backdrop-blur-sm">
+                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Priorities</p>
+                <p className="text-amber-400 font-bold text-lg">{proData.charts.priorityMetrics.length} Levels</p>
+                <p className="text-slate-500 text-xs">Low to Urgent</p>
               </div>
             </div>
           </section>
@@ -378,7 +432,7 @@ const App = () => {
               </div>
             </div>
 
-            {/* Legacy Row 2: Team Leader & Responsible (Recovered) */}
+            {/* Legacy Row 2: Team Leader & Responsible */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <h3 className="mb-6 font-bold flex gap-2"><IconTeam /> MR Team Leader Tickets</h3>
