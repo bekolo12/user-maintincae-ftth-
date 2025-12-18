@@ -308,6 +308,7 @@ const App = () => {
         </header>
 
         <main className="container mx-auto px-6 py-8 space-y-12">
+          {/* Pro Dashboard Section */}
           <section className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {proData.kpis.map((kpi: any, idx: number) => {
@@ -357,6 +358,7 @@ const App = () => {
             <span className="relative bg-slate-900 px-4 text-xs font-bold uppercase tracking-widest text-slate-500">Legacy View</span>
           </div>
 
+          {/* Legacy Dashboard Section */}
           <section className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <SummaryCard title="Total Tickets" value={legacyData.summary.total} subValue="Legacy" icon={<IconTotal />} gradient="bg-blue-900/10" iconBg="bg-blue-500/20" borderColor="border-blue-500/20" textColor="text-blue-300" tagColor="bg-blue-500/20" />
@@ -364,23 +366,49 @@ const App = () => {
               <SummaryCard title="Open/Cancelled" value={legacyData.summary.open} subValue="Issues" icon={<IconInProgress />} gradient="bg-amber-900/10" iconBg="bg-amber-500/20" borderColor="border-amber-500/20" textColor="text-amber-300" tagColor="bg-amber-500/20" />
             </div>
 
+            {/* Legacy Row 1: Status & SLA */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6"><h3 className="mb-6 font-bold flex gap-2"><IconAlert /> Status</h3><TicketStatusChart data={legacyData.statusData} /></div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6"><h3 className="mb-6 font-bold flex gap-2"><IconTeam /> Team Leaders SLA</h3><SLAComplianceChart data={legacyData.slaData} /></div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="mb-6 font-bold flex gap-2"><IconAlert /> Status Distribution</h3>
+                <TicketStatusChart data={legacyData.statusData} />
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="mb-6 font-bold flex gap-2"><IconTeam /> SLA Compliance Overview</h3>
+                <SLAComplianceChart data={legacyData.slaData} />
+              </div>
             </div>
 
+            {/* Legacy Row 2: Team Leader & Responsible (Recovered) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="mb-6 font-bold flex gap-2"><IconTeam /> MR Team Leader Tickets</h3>
+                <SubAreaChart data={legacyData.subAreaData} />
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="mb-6 font-bold flex gap-2"><IconTeam /> MR Responsible Tickets</h3>
+                <ResolutionTimeChart data={legacyData.resolutionData} />
+              </div>
+            </div>
+
+            {/* Legacy Row 3: Closure Trend & Top Performers */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6"><h3 className="mb-6 font-bold flex gap-2"><IconCalendar /> Daily Closure Trend</h3><ClosureRateChart data={legacyData.closureData} /></div>
+              <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-6">
+                <h3 className="mb-6 font-bold flex gap-2"><IconCalendar /> Daily Closure Trend</h3>
+                <ClosureRateChart data={legacyData.closureData} />
+              </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <h3 className="mb-6 font-bold flex gap-2 text-yellow-100"><IconTrophy /> Top Performers</h3>
                 <div className="space-y-4">
                   {legacyData.subAreaData.slice(0, 3).map((p: any, i: number) => (
-                    <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/5">
-                      <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-xs">{i+1}</div>
+                    <div key={i} className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group">
+                      <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-xs group-hover:bg-indigo-500/40 transition-colors">{i+1}</div>
                       <div className="flex-1 text-sm font-medium">{p.name}</div>
-                      <div className="text-xs text-indigo-400 font-bold">{p.value}</div>
+                      <div className="text-xs text-indigo-400 font-bold">{p.value.toLocaleString()}</div>
                     </div>
                   ))}
+                  {legacyData.subAreaData.length === 0 && (
+                    <div className="text-center py-8 text-slate-500 text-sm">No data available for this range.</div>
+                  )}
                 </div>
               </div>
             </div>
@@ -392,8 +420,8 @@ const App = () => {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setShowExtractionModal(false)}>
           <div className="bg-slate-800 border border-white/10 rounded-2xl p-8 max-w-2xl w-full" onClick={e => e.stopPropagation()}>
             <h3 className="text-xl font-bold mb-4">Extraction JSON</h3>
-            <pre className="bg-slate-950 p-4 rounded-lg text-xs font-mono overflow-auto max-h-[60vh] text-emerald-300">{jsonPrompt}</pre>
-            <button onClick={() => setShowExtractionModal(false)} className="mt-6 w-full py-2 bg-indigo-500 rounded-lg font-bold">Close</button>
+            <pre className="bg-slate-950 p-4 rounded-lg text-xs font-mono overflow-auto max-h-[60vh] text-emerald-300 custom-scrollbar">{jsonPrompt}</pre>
+            <button onClick={() => setShowExtractionModal(false)} className="mt-6 w-full py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-bold transition-colors">Close</button>
           </div>
         </div>
       )}
